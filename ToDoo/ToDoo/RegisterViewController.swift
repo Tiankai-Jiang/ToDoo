@@ -10,6 +10,9 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    @IBAction func registerPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: K.registerSegue, sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -10,6 +10,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBAction func loginPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: K.loginSegue, sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
