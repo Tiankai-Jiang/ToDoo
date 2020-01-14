@@ -2,6 +2,7 @@
 # Created by https://www.gitignore.io/api/xcode,swift,objective-c
 # Edit at https://www.gitignore.io/?templates=xcode,swift,objective-c
 
+.DS_Store
 ### Objective-C ###
 # Xcode
 #
@@ -21,6 +22,7 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+*.xcuserstate
 
 ## Other
 *.moved-aside
