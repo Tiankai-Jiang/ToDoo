@@ -105,10 +105,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyW-dS-paw">
+                                <rect key="frame" x="107" y="732" width="200" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="vOX-ZV-vkw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="jZr-It-nXh" eventType="touchUpInside" id="sZC-k1-6Bd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="JLa-A9-yeF" firstAttribute="centerY" secondItem="jSX-x4-giB" secondAttribute="centerY" id="cXx-yi-Eha"/>
+                            <constraint firstItem="kyW-dS-paw" firstAttribute="centerX" secondItem="jSX-x4-giB" secondAttribute="centerX" id="fea-IY-lNY"/>
+                            <constraint firstItem="rvW-wb-v6P" firstAttribute="bottom" secondItem="kyW-dS-paw" secondAttribute="bottom" constant="30" id="tct-jD-gMA"/>
                             <constraint firstItem="JLa-A9-yeF" firstAttribute="centerX" secondItem="jSX-x4-giB" secondAttribute="centerX" id="vhC-cN-KjB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rvW-wb-v6P"/>
@@ -338,6 +353,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Mve-jA-xvf"/>
+        <segue reference="0sf-Ag-ILF"/>
     </inferredMetricsTieBreakers>
 </document>
