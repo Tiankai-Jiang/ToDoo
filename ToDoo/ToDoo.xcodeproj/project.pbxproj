@@ -9,13 +9,18 @@
 /* Begin PBXBuildFile section */
 		3620341A23CE4D5C00939EAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620341923CE4D5C00939EAF /* AppDelegate.swift */; };
 		3620341C23CE4D5C00939EAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620341B23CE4D5C00939EAF /* SceneDelegate.swift */; };
-		3620341E23CE4D5C00939EAF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620341D23CE4D5C00939EAF /* FirstViewController.swift */; };
-		3620342023CE4D5C00939EAF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620341F23CE4D5C00939EAF /* SecondViewController.swift */; };
+		3620341E23CE4D5C00939EAF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620341D23CE4D5C00939EAF /* HomeViewController.swift */; };
+		3620342023CE4D5C00939EAF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620341F23CE4D5C00939EAF /* CalendarViewController.swift */; };
 		3620342323CE4D5C00939EAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3620342123CE4D5C00939EAF /* Main.storyboard */; };
 		3620342523CE4D5D00939EAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3620342423CE4D5D00939EAF /* Assets.xcassets */; };
 		3620342823CE4D5D00939EAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3620342623CE4D5D00939EAF /* LaunchScreen.storyboard */; };
 		3620343323CE4D5E00939EAF /* ToDooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620343223CE4D5E00939EAF /* ToDooTests.swift */; };
 		3620343E23CE4D5E00939EAF /* ToDooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620343D23CE4D5E00939EAF /* ToDooUITests.swift */; };
+		3620344D23CE53C700939EAF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620344C23CE53C700939EAF /* WelcomeViewController.swift */; };
+		364CBE1423CE5C1900B14A95 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CBE1323CE5C1900B14A95 /* ChatViewController.swift */; };
+		364CBE1623CE5C2B00B14A95 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CBE1523CE5C2B00B14A95 /* SettingsViewController.swift */; };
+		36B6C67423CE599900DD4839 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6C67323CE599900DD4839 /* RegisterViewController.swift */; };
+		36B6C67623CE59CB00DD4839 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6C67523CE59CB00DD4839 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +44,8 @@
 		3620341623CE4D5C00939EAF /* ToDoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3620341923CE4D5C00939EAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3620341B23CE4D5C00939EAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3620341D23CE4D5C00939EAF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		3620341F23CE4D5C00939EAF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		3620341D23CE4D5C00939EAF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3620341F23CE4D5C00939EAF /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		3620342223CE4D5C00939EAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3620342423CE4D5D00939EAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3620342723CE4D5D00939EAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +57,11 @@
 		3620343D23CE4D5E00939EAF /* ToDooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDooUITests.swift; sourceTree = "<group>"; };
 		3620343F23CE4D5E00939EAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3620344B23CE4D7400939EAF /* ToDoo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToDoo.entitlements; sourceTree = "<group>"; };
+		3620344C23CE53C700939EAF /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		364CBE1323CE5C1900B14A95 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		364CBE1523CE5C2B00B14A95 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		36B6C67323CE599900DD4839 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		36B6C67523CE59CB00DD4839 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +115,14 @@
 				3620344B23CE4D7400939EAF /* ToDoo.entitlements */,
 				3620341923CE4D5C00939EAF /* AppDelegate.swift */,
 				3620341B23CE4D5C00939EAF /* SceneDelegate.swift */,
-				3620341D23CE4D5C00939EAF /* FirstViewController.swift */,
-				3620341F23CE4D5C00939EAF /* SecondViewController.swift */,
+				3620341D23CE4D5C00939EAF /* HomeViewController.swift */,
+				3620341F23CE4D5C00939EAF /* CalendarViewController.swift */,
 				3620342123CE4D5C00939EAF /* Main.storyboard */,
+				364CBE1523CE5C2B00B14A95 /* SettingsViewController.swift */,
+				364CBE1323CE5C1900B14A95 /* ChatViewController.swift */,
+				36B6C67523CE59CB00DD4839 /* LoginViewController.swift */,
+				36B6C67323CE599900DD4839 /* RegisterViewController.swift */,
+				3620344C23CE53C700939EAF /* WelcomeViewController.swift */,
 				3620342423CE4D5D00939EAF /* Assets.xcassets */,
 				3620342623CE4D5D00939EAF /* LaunchScreen.storyboard */,
 				3620342923CE4D5D00939EAF /* Info.plist */,
@@ -264,10 +279,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3620342023CE4D5C00939EAF /* SecondViewController.swift in Sources */,
-				3620341E23CE4D5C00939EAF /* FirstViewController.swift in Sources */,
+				36B6C67623CE59CB00DD4839 /* LoginViewController.swift in Sources */,
+				3620342023CE4D5C00939EAF /* CalendarViewController.swift in Sources */,
+				364CBE1423CE5C1900B14A95 /* ChatViewController.swift in Sources */,
+				3620344D23CE53C700939EAF /* WelcomeViewController.swift in Sources */,
+				3620341E23CE4D5C00939EAF /* HomeViewController.swift in Sources */,
+				36B6C67423CE599900DD4839 /* RegisterViewController.swift in Sources */,
 				3620341A23CE4D5C00939EAF /* AppDelegate.swift in Sources */,
 				3620341C23CE4D5C00939EAF /* SceneDelegate.swift in Sources */,
+				364CBE1623CE5C2B00B14A95 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
