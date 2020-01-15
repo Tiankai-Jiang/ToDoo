@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingsViewController: UIViewController {
 
     @IBAction func logoutPressed(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
+        do{
+            try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
+        }catch let signOutError as NSError{
+            print(signOutError)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

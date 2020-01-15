@@ -228,6 +228,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="gjB-nJ-b4C"/>
                     <connections>
+                        <outlet property="emailTextField" destination="Oi1-e4-Qdh" id="JIF-se-Xlp"/>
+                        <outlet property="passwordTextField" destination="rYk-SH-TxN" id="ldJ-Hk-T01"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="LoginToHome" id="0sf-Ag-ILF"/>
                     </connections>
                 </viewController>
@@ -291,6 +293,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="hBW-lr-wnL"/>
                     <connections>
+                        <outlet property="emailTextField" destination="mOX-jb-tJj" id="O6Y-uU-OOX"/>
+                        <outlet property="passwordTextField" destination="z1D-9P-MGC" id="hWe-Zq-YRC"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="RegisterToHome" id="Mve-jA-xvf"/>
                     </connections>
                 </viewController>
