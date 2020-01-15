@@ -25,10 +25,29 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="acW-dT-cKf"/>
+                    <connections>
+                        <segue destination="8DJ-6u-loa" kind="show" identifier="HomeToAddHabit" id="kpW-xQ-5ZO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1673.913043478261" y="-1195.3125"/>
+        </scene>
+        <!--Add Habit View Controller-->
+        <scene sceneID="Zex-N3-GUy">
+            <objects>
+                <viewController id="8DJ-6u-loa" customClass="AddHabitViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B9g-1X-CxU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="4EU-GH-ukE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TgL-d5-wKd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hTa-tf-dJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2707" y="-1195"/>
         </scene>
         <!--Chat-->
         <scene sceneID="t7d-Y4-HI6">
@@ -44,7 +63,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDX-pk-pRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3101" y="-681"/>
+            <point key="canvasLocation" x="3068" y="-486"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="wg7-f3-ORb">
