@@ -10,6 +10,10 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var habitTableView: UITableView!
+    
+    var testArray = ["A", "B", "C", "A", "B", "C","A", "B", "C", "D"]
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationItem.hidesBackButton = true
@@ -37,3 +41,17 @@ class HomeViewController: UIViewController {
 
 }
 
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return testArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = habitTableView.dequeueReusableCell(withIdentifier: K.habitTableViewCell, for: indexPath) as! HabitTableViewCell
+        cell.habitName.text = testArray[indexPath.row]
+        return cell
+    }
+    
+    
+}

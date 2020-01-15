@@ -5,5 +5,5 @@ struct K {
     static let calendarTitle = "Calendar"
     static let chatTitle = "Chat"
     static let settingsTitle = "Settings"
-    
+    static let habitTableViewCell = "habitTableViewCell"
 }
