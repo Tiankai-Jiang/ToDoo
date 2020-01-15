@@ -13,6 +13,14 @@ class SettingsViewController: UIViewController {
     @IBAction func logoutPressed(_ sender: UIButton) {
         self.navigationController?.popToRootViewController(animated: true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationItem.title = K.settingsTitle
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

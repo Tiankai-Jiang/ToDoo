@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Home-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="HomeViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,83 +15,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Home" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="160" y="426.66666666666669" width="94" height="43"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lgi-Jr-DEU">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1675" y="-1195"/>
+            <point key="canvasLocation" x="1673.913043478261" y="-1195.3125"/>
         </scene>
-        <!--Item-->
+        <!--Chat-->
         <scene sceneID="t7d-Y4-HI6">
             <objects>
                 <viewController id="sMp-hw-ODw" customClass="ChatViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ryy-dr-n1i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K9-qP-7sO">
-                                <rect key="frame" x="165.66666666666666" y="424" width="83" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="0K9-qP-7sO" firstAttribute="centerX" secondItem="Ryy-dr-n1i" secondAttribute="centerX" id="Rkg-yn-Fwr"/>
-                            <constraint firstItem="0K9-qP-7sO" firstAttribute="centerY" secondItem="Ryy-dr-n1i" secondAttribute="centerY" id="jv9-Qe-NYx"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nOQ-7v-K0R"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="gFy-Lp-OCK"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="message" catalog="system" id="gFy-Lp-OCK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDX-pk-pRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3101" y="-681"/>
         </scene>
-        <!--Second-->
+        <!--Calendar-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="CalendarViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Calendar" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="137" y="426.66666666666669" width="140" height="43"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1674" y="1077"/>
         </scene>
-        <!--Item-->
+        <!--Settings-->
         <scene sceneID="NLH-vp-cCy">
             <objects>
                 <viewController id="jZr-It-nXh" customClass="SettingsViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,12 +70,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLa-A9-yeF">
-                                <rect key="frame" x="136" y="424" width="142" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyW-dS-paw">
                                 <rect key="frame" x="107" y="732" width="200" height="51"/>
                                 <constraints>
@@ -121,14 +86,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="JLa-A9-yeF" firstAttribute="centerY" secondItem="jSX-x4-giB" secondAttribute="centerY" id="cXx-yi-Eha"/>
                             <constraint firstItem="kyW-dS-paw" firstAttribute="centerX" secondItem="jSX-x4-giB" secondAttribute="centerX" id="fea-IY-lNY"/>
                             <constraint firstItem="rvW-wb-v6P" firstAttribute="bottom" secondItem="kyW-dS-paw" secondAttribute="bottom" constant="30" id="tct-jD-gMA"/>
-                            <constraint firstItem="JLa-A9-yeF" firstAttribute="centerX" secondItem="jSX-x4-giB" secondAttribute="centerX" id="vhC-cN-KjB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rvW-wb-v6P"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="U05-QJ-IYY"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="U05-QJ-IYY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fe-Vw-FSQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -224,11 +187,19 @@
                                     <action selector="loginPressed:" destination="EMw-Lw-3FF" eventType="touchUpInside" id="G6o-Mt-dZ5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aha-In-fiR">
+                                <rect key="frame" x="145.66666666666666" y="802" width="122.99999999999997" height="30"/>
+                                <state key="normal" title="Forgot password?">
+                                    <color key="titleColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="aha-In-fiR" firstAttribute="centerX" secondItem="ksH-rc-A5q" secondAttribute="centerX" id="7rj-cq-NqP"/>
                             <constraint firstItem="rGa-nM-6U1" firstAttribute="centerX" secondItem="ksH-rc-A5q" secondAttribute="centerX" id="HIt-sP-NAR"/>
                             <constraint firstItem="4Mn-zb-7oh" firstAttribute="leading" secondItem="1DU-Mg-afi" secondAttribute="leading" constant="50" id="SZT-ya-fCo"/>
+                            <constraint firstItem="1DU-Mg-afi" firstAttribute="bottom" secondItem="aha-In-fiR" secondAttribute="bottom" constant="30" id="W8G-Bx-AfY"/>
                             <constraint firstItem="4Mn-zb-7oh" firstAttribute="centerX" secondItem="ksH-rc-A5q" secondAttribute="centerX" id="aEW-dv-7Wk"/>
                             <constraint firstItem="1DU-Mg-afi" firstAttribute="trailing" secondItem="4Mn-zb-7oh" secondAttribute="trailing" constant="50" id="geC-qx-4OQ"/>
                             <constraint firstItem="4Mn-zb-7oh" firstAttribute="top" secondItem="1DU-Mg-afi" secondAttribute="top" constant="40" id="hQB-em-CV4"/>
@@ -349,8 +320,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="calendar" catalog="system" width="64" height="52"/>
+        <image name="gear" catalog="system" width="64" height="58"/>
+        <image name="house" catalog="system" width="64" height="54"/>
+        <image name="message" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0sf-Ag-ILF"/>
