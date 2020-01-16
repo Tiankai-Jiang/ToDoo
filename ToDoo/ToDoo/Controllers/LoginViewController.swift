@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Toast_Swift
 
 class LoginViewController: UIViewController {
     
@@ -18,16 +19,7 @@ class LoginViewController: UIViewController {
         if let email = emailTextField.text, let password = passwordTextField.text{
             Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
                 if let e = error{
-                    // create the alert
-                    let alert = UIAlertController(title: "Error", message: e.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-                    
-                    // add an action (button)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                    
-                    // show the alert
-                    self.present(alert, animated: true, completion: nil)
-                    
-                    // print(e.localizedDescription)
+                    self.view.makeToast(e.localizedDescription, duration: 2.0, position: .bottom)
                 }else{
                     self.performSegue(withIdentifier: K.loginSegue, sender: self)
                 }
