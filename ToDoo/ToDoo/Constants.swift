@@ -6,4 +6,13 @@ struct K {
     static let chatTitle = "Chat"
     static let settingsTitle = "Settings"
     static let habitTableViewCell = "habitTableViewCell"
+    
+    struct FStore {
+        static let userCollection = "users"
+        static let habitCollection = "habits"
+        static let habitNameField = "habitName"
+        //        static let bodyField = "body"
+        static let dateField = "addDate"
+    }
+    
 }
