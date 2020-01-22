@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         habitTableView.rowHeight = 80.0
-//        habitTableView.separatorStyle = .none
+        //        habitTableView.separatorStyle = .none
         loadHabits()
     }
     
@@ -102,29 +102,37 @@ extension HomeViewController: SwipeTableViewCellDelegate{
         guard orientation == .right else { return nil }
         
         
-//      define the delete button & action
+        //      define the delete button & action
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             
             let deleteAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
             
             deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction) in
-                //
+                if let messageSender = Auth.auth().currentUser?.email{
+                    self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).delete() { err in
+                        if let err = err {
+                            print("Error removing document: \(err)")
+                        } else {
+                            self.habitTableView.reloadData()
+                        }
+                    }
+                }
             }))
             
             deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             
             self.present(deleteAlert, animated: true, completion: nil)
         }
-
+        
         deleteAction.image = UIImage(systemName: "trash")
         
         
-//      define the done button & action
+        //      define the done button & action
         let doneAction = SwipeAction(style: .destructive, title: "Done") { (action, indexPath) in
             //
         }
         doneAction.backgroundColor = .green
-        doneAction.image = UIImage(systemName: "checkmark")
+        doneAction.image = UIImage(systemName: "checkmark.circle")
         return [deleteAction, doneAction]
     }
 }
@@ -137,7 +145,7 @@ extension UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
