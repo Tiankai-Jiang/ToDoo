@@ -6,5 +6,6 @@ target 'ToDoo' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Toast-Swift', '~> 5.0.0'
+  pod 'SwipeCellKit'
 
 end

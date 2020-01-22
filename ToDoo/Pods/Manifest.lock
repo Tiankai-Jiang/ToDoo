@@ -245,11 +245,13 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - SwipeCellKit (2.7.1)
   - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
+  - SwipeCellKit
   - Toast-Swift (~> 5.0.0)
 
 SPEC REPOS:
@@ -271,6 +273,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - SwipeCellKit
     - Toast-Swift
 
 SPEC CHECKSUMS:
@@ -291,8 +294,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 78496ac09b8bcf4343f9c13527f1d68072335e15
+PODFILE CHECKSUM: e865e05f850ae05af32052c620dbfe4064d6388b
 
 COCOAPODS: 1.8.4
