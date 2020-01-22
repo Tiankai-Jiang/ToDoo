@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class HabitTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var habitName: UILabel!
+class HabitTableViewCell: SwipeTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()

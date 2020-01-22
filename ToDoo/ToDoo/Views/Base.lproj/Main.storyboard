@@ -26,22 +26,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tEx-a7-7Fk" id="mqP-1G-Va5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiA-G3-ouR">
-                                                    <rect key="frame" x="-33.666666666666664" y="23" width="67.333333333333329" height="34"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="EiA-G3-ouR" firstAttribute="centerX" secondItem="mqP-1G-Va5" secondAttribute="centerX" id="5I1-NK-4Vv"/>
-                                                <constraint firstItem="EiA-G3-ouR" firstAttribute="centerY" secondItem="mqP-1G-Va5" secondAttribute="centerY" id="Ixh-Pj-P8d"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="habitName" destination="EiA-G3-ouR" id="oor-RQ-4d6"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

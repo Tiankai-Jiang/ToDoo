@@ -9,6 +9,7 @@
 import UIKit
 import Toast_Swift
 import Firebase
+import SwipeCellKit
 
 class HomeViewController: UIViewController {
     
@@ -34,6 +35,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        habitTableView.rowHeight = 80.0
+//        habitTableView.separatorStyle = .none
         loadHabits()
     }
     
@@ -79,9 +82,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = habitTableView.dequeueReusableCell(withIdentifier: K.habitTableViewCell, for: indexPath) as! HabitTableViewCell
+        let cell = habitTableView.dequeueReusableCell(withIdentifier: K.habitTableViewCell, for: indexPath) as! SwipeTableViewCell
         
-        cell.habitName.text = habits[indexPath.row].name
+        cell.textLabel?.text = habits[indexPath.row].name
+        cell.delegate = self
         return cell
     }
     
@@ -90,6 +94,42 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
+
+
+extension HomeViewController: SwipeTableViewCellDelegate{
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        
+//      define the delete button & action
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            
+            let deleteAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+            
+            deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction) in
+                //
+            }))
+            
+            deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            self.present(deleteAlert, animated: true, completion: nil)
+        }
+
+        deleteAction.image = UIImage(systemName: "trash")
+        
+        
+//      define the done button & action
+        let doneAction = SwipeAction(style: .destructive, title: "Done") { (action, indexPath) in
+            //
+        }
+        doneAction.backgroundColor = .green
+        doneAction.image = UIImage(systemName: "checkmark")
+        return [deleteAction, doneAction]
+    }
+}
+
+
 
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
