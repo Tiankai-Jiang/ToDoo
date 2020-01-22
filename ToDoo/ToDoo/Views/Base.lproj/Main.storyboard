@@ -28,7 +28,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiA-G3-ouR">
-                                                    <rect key="frame" x="-33.333333333333336" y="23.333333333333332" width="66.666666666666671" height="33.666666666666671"/>
+                                                    <rect key="frame" x="-33.666666666666664" y="23" width="67.333333333333329" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -70,10 +70,28 @@
                     <view key="view" contentMode="scaleToFill" id="B9g-1X-CxU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ODE-ny-fho">
+                                <rect key="frame" x="57" y="128" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="8p9-xw-fbi"/>
+                                    <constraint firstAttribute="height" constant="40" id="Qdc-NM-IPT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ODE-ny-fho" firstAttribute="centerX" secondItem="B9g-1X-CxU" secondAttribute="centerX" id="HVc-jV-TR7"/>
+                            <constraint firstItem="ODE-ny-fho" firstAttribute="top" secondItem="4EU-GH-ukE" secondAttribute="top" constant="40" id="Vs9-cC-Dk5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4EU-GH-ukE"/>
                     </view>
                     <navigationItem key="navigationItem" id="TgL-d5-wKd"/>
+                    <connections>
+                        <outlet property="habitNameTextField" destination="ODE-ny-fho" id="5ye-fe-ou7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTa-tf-dJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

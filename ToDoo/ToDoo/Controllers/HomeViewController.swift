@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
     
     let db = Firestore.firestore()
     
-    var testArray = [String?]()
     var habits: [Habit] = []
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,7 +23,7 @@ class HomeViewController: UIViewController {
         self.tabBarController?.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.title = K.homeTitle
         
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addItem))
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addClicked))
         
     }
     
@@ -36,6 +35,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadHabits()
+    }
+    
+    @objc func addClicked(){
+        self.performSegue(withIdentifier: K.addHabitSegue, sender: self)
     }
     
     func loadHabits(){
@@ -67,37 +70,6 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
-    @objc func addItem(){
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Add a new habit", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-            if !textField.text!.trimmingCharacters(in: .whitespaces).isEmpty{
-//                self.testArray.append(textField.text!)
-                self.habitTableView.reloadData()
-                
-                if let messageSender = Auth.auth().currentUser?.email{
-                    let habitColRef = self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
-                    habitColRef.document(textField.text!).setData([K.FStore.habitNameField: textField.text!, K.FStore.dateField: Date().timeIntervalSince1970], completion: { (error) in
-                        if let e = error{
-                            print(e)
-                        }
-                    })
-                }
-            }else{
-                self.view.makeToast("Habit name cannot be empty", duration: 2.0, position: .bottom)
-            }
-        }
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create a new habit"
-            textField = alertTextField
-        }
-        
-        alert.addAction(action)
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
@@ -110,11 +82,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         let cell = habitTableView.dequeueReusableCell(withIdentifier: K.habitTableViewCell, for: indexPath) as! HabitTableViewCell
         
         cell.habitName.text = habits[indexPath.row].name
-//        if let habitItem = habits[indexPath.row]?.name{
-//            cell.habitName.text = habitItem
-//        }else{
-//            cell.habitName.text = "No habit added yet"
-//        } // useless?
         return cell
     }
     
