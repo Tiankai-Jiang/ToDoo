@@ -7,5 +7,6 @@ target 'ToDoo' do
   pod 'Firebase/Firestore'
   pod 'Toast-Swift', '~> 5.0.0'
   pod 'SwipeCellKit'
+  pod 'KDCalendar', '~> 1.8.9'
 
 end

@@ -1,0 +1,6 @@
+framework module KDCalendar {
+  umbrella header "KDCalendar-umbrella.h"
+
+  export *
+  module * { export * }
+}

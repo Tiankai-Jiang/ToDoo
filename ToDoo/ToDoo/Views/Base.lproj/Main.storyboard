@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hau-Xl-Rc0">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +12,7 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="HomeViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lgi-Jr-DEU">
@@ -46,18 +46,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1673.913043478261" y="-1195.3125"/>
+            <point key="canvasLocation" x="1674" y="-956"/>
         </scene>
         <!--Add Habit View Controller-->
         <scene sceneID="Zex-N3-GUy">
             <objects>
                 <viewController id="8DJ-6u-loa" customClass="AddHabitViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B9g-1X-CxU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ODE-ny-fho">
-                                <rect key="frame" x="57" y="128" width="300" height="40"/>
+                                <rect key="frame" x="37.666666666666657" y="128" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="8p9-xw-fbi"/>
                                     <constraint firstAttribute="height" constant="40" id="Qdc-NM-IPT"/>
@@ -80,14 +80,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTa-tf-dJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2707" y="-1195"/>
+            <point key="canvasLocation" x="3138" y="-956"/>
         </scene>
         <!--Chat-->
         <scene sceneID="t7d-Y4-HI6">
             <objects>
                 <viewController id="sMp-hw-ODw" customClass="ChatViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ryy-dr-n1i">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="nOQ-7v-K0R"/>
@@ -96,34 +96,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDX-pk-pRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3068" y="-486"/>
+            <point key="canvasLocation" x="3138" y="50"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="CalendarViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6A-i3-6V3" customClass="CalendarView" customModule="KDCalendar">
+                                <rect key="frame" x="37.666666666666657" y="118" width="300" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="1Nu-er-aYx"/>
+                                    <constraint firstAttribute="height" constant="250" id="Kcp-ai-AyH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="s6A-i3-6V3" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Yjl-G2-bWZ"/>
+                            <constraint firstItem="s6A-i3-6V3" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="30" id="oXO-k0-Kmc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="calendarView" destination="s6A-i3-6V3" id="e5v-Zm-2nN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1674" y="1077"/>
+            <point key="canvasLocation" x="1674" y="837"/>
         </scene>
         <!--Settings-->
         <scene sceneID="NLH-vp-cCy">
             <objects>
                 <viewController id="jZr-It-nXh" customClass="SettingsViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jSX-x4-giB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyW-dS-paw">
-                                <rect key="frame" x="107" y="732" width="200" height="51"/>
+                                <rect key="frame" x="87.666666666666686" y="648" width="200" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="vOX-ZV-vkw"/>
                                 </constraints>
@@ -147,21 +164,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fe-Vw-FSQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3100" y="222"/>
+            <point key="canvasLocation" x="3139" y="848"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="nnX-QU-EPL">
             <objects>
                 <viewController id="AR7-2x-x8T" customClass="WelcomeViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KE0-Oj-cdh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="qLG-Jg-kgG" userLabel="WelcomeButtonView">
-                                <rect key="frame" x="0.0" y="739" width="414" height="103"/>
+                                <rect key="frame" x="0.0" y="655" width="375" height="103"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jz6-2K-Sxl">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -171,7 +188,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiv-SI-cbd">
-                                        <rect key="frame" x="0.0" y="52" width="414" height="51"/>
+                                        <rect key="frame" x="0.0" y="52" width="375" height="51"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <state key="normal" title="Register">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -202,14 +219,14 @@
             <objects>
                 <viewController id="EMw-Lw-3FF" customClass="LoginViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ksH-rc-A5q">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4Mn-zb-7oh" userLabel="LoginTextStackView">
-                                <rect key="frame" x="50" y="128" width="314" height="120"/>
+                                <rect key="frame" x="50" y="128" width="275" height="120"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1@2.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oi1-e4-Qdh" userLabel="LoginEmailTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="m1M-TD-kmH"/>
                                         </constraints>
@@ -217,7 +234,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYk-SH-TxN" userLabel="LoginPasswordTextField">
-                                        <rect key="frame" x="0.0" y="70" width="314" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="275" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="AGC-I9-V0x"/>
                                         </constraints>
@@ -227,7 +244,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGa-nM-6U1">
-                                <rect key="frame" x="107" y="288" width="200" height="51"/>
+                                <rect key="frame" x="87.666666666666686" y="288" width="200" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="if4-en-gyV"/>
                                 </constraints>
@@ -240,7 +257,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aha-In-fiR">
-                                <rect key="frame" x="145.66666666666666" y="802" width="122.99999999999997" height="30"/>
+                                <rect key="frame" x="126" y="718" width="123" height="30"/>
                                 <state key="normal" title="Forgot password?">
                                     <color key="titleColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -275,14 +292,14 @@
             <objects>
                 <viewController id="5sA-1R-4pm" customClass="RegisterViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ney-4q-dH5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q1i-DR-39B" userLabel="RegisterTextStackView">
-                                <rect key="frame" x="50" y="128" width="314" height="120"/>
+                                <rect key="frame" x="50" y="128" width="275" height="120"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mOX-jb-tJj" userLabel="RegisterEmailTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="eY9-9S-HhM"/>
                                         </constraints>
@@ -290,7 +307,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z1D-9P-MGC" userLabel="RegisterPasswordTextField">
-                                        <rect key="frame" x="0.0" y="70" width="314" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="275" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Yiy-L2-5mw"/>
                                         </constraints>
@@ -300,7 +317,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DM2-Pl-dv6">
-                                <rect key="frame" x="107" y="288" width="200" height="51"/>
+                                <rect key="frame" x="87.666666666666686" y="288" width="200" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="V8s-g5-tBK"/>
                                 </constraints>
@@ -354,7 +371,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910.14492753623199" y="0.0"/>
+            <point key="canvasLocation" x="1674" y="50"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DrS-Ws-pzE">
@@ -362,7 +379,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hau-Xl-Rc0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f2w-BJ-PZq">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
