@@ -65,6 +65,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3db-Rc-1wK">
                                 <rect key="frame" x="0.0" y="88" width="414" height="325"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="325" id="gec-ab-lcO"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="addHabitNameCell" rowHeight="80" id="0mI-H6-GIw" customClass="AddHabitNameCell" customModule="ToDoo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
@@ -74,9 +77,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Habit Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wwp-AQ-hrK">
-                                                    <rect key="frame" x="50" y="0.0" width="314" height="80"/>
+                                                    <rect key="frame" x="42" y="0.0" width="322" height="80"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="QDJ-wc-LQX"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="QDJ-wc-LQX"/>
                                                         <constraint firstAttribute="height" constant="80" id="fav-Id-OH2"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -85,7 +88,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wwp-AQ-hrK" firstAttribute="centerY" secondItem="R4B-lA-EdR" secondAttribute="centerY" id="ayv-Po-lwo"/>
-                                                <constraint firstItem="wwp-AQ-hrK" firstAttribute="leading" secondItem="R4B-lA-EdR" secondAttribute="leadingMargin" constant="30" id="b18-hD-Cdi"/>
+                                                <constraint firstItem="wwp-AQ-hrK" firstAttribute="leftMargin" secondItem="R4B-lA-EdR" secondAttribute="leftMargin" constant="30" id="b18-hD-Cdi"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="wwp-AQ-hrK" secondAttribute="trailing" constant="30" id="sqU-kf-kbL"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -159,6 +162,9 @@
                             </tableView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3Zr-XG-b3b">
                                 <rect key="frame" x="47" y="453" width="320" height="216"/>
+                                <connections>
+                                    <action selector="timePickerChanged:" destination="8DJ-6u-loa" eventType="valueChanged" id="eMV-k4-76n"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -175,7 +181,7 @@
                     <navigationItem key="navigationItem" id="TgL-d5-wKd"/>
                     <connections>
                         <outlet property="tableView" destination="3db-Rc-1wK" id="gW0-Af-DVr"/>
-                        <outlet property="timePicker" destination="3Zr-XG-b3b" id="xPL-yW-6A4"/>
+                        <outlet property="timePicker" destination="3Zr-XG-b3b" id="ba1-5D-eSQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTa-tf-dJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

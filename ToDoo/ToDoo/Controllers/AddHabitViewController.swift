@@ -12,8 +12,8 @@ import Firebase
 
 class AddHabitViewController: UIViewController {
     
-    @IBOutlet weak var timePicker: UIDatePicker!
     
+    @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
     
     let db = Firestore.firestore()
@@ -35,7 +35,19 @@ class AddHabitViewController: UIViewController {
         timePicker.isHidden = true
     }
 
-//  return to home scene
+    
+    @IBAction func timePickerChanged(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.short
+
+        let strDate = dateFormatter.string(from: timePicker.date)
+        print(strDate)
+    }
+    
+    
+    //  return to home scene
     @objc func back(){
         navigationController?.popViewController(animated: true)
     }
