@@ -144,18 +144,25 @@
                                     <outlet property="delegate" destination="8DJ-6u-loa" id="PXM-MV-ytY"/>
                                 </connections>
                             </tableView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3Zr-XG-b3b">
+                                <rect key="frame" x="20" y="453" width="335" height="216"/>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="3Zr-XG-b3b" secondAttribute="trailing" constant="20" symbolic="YES" id="1B8-TS-Hb6"/>
+                            <constraint firstItem="3Zr-XG-b3b" firstAttribute="top" secondItem="3db-Rc-1wK" secondAttribute="bottom" constant="40" id="aQS-Rn-1u8"/>
                             <constraint firstItem="3db-Rc-1wK" firstAttribute="leading" secondItem="B9g-1X-CxU" secondAttribute="leading" id="h8k-A7-ZGf"/>
                             <constraint firstItem="3db-Rc-1wK" firstAttribute="top" secondItem="4EU-GH-ukE" secondAttribute="top" id="hkg-e0-72W"/>
                             <constraint firstItem="3db-Rc-1wK" firstAttribute="trailing" secondItem="4EU-GH-ukE" secondAttribute="trailing" id="j4V-IZ-pag"/>
+                            <constraint firstItem="3Zr-XG-b3b" firstAttribute="leading" secondItem="B9g-1X-CxU" secondAttribute="leading" constant="20" symbolic="YES" id="lWI-gw-tCk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4EU-GH-ukE"/>
                     </view>
                     <navigationItem key="navigationItem" id="TgL-d5-wKd"/>
                     <connections>
                         <outlet property="tableView" destination="3db-Rc-1wK" id="gW0-Af-DVr"/>
+                        <outlet property="timePicker" destination="3Zr-XG-b3b" id="xPL-yW-6A4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTa-tf-dJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

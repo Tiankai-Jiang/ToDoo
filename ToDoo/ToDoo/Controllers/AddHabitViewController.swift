@@ -12,6 +12,8 @@ import Firebase
 
 class AddHabitViewController: UIViewController {
     
+    @IBOutlet weak var timePicker: UIDatePicker!
+    
     @IBOutlet weak var tableView: UITableView!
     
     let db = Firestore.firestore()
@@ -29,6 +31,8 @@ class AddHabitViewController: UIViewController {
         navigationItem.rightBarButtonItem = addButton
         
         self.hideKeyboardWhenTappedAround()
+        
+        timePicker.isHidden = true
     }
 
 //  return to home scene
@@ -111,9 +115,7 @@ extension AddHabitViewController: UITableViewDataSource{
     }
     
     @objc func switchChanged(_ sender : UISwitch!){
-
-          print("table row switch Changed \(sender.tag)")
-          print("The switch is \(sender.isOn ? "ON" : "OFF")")
+        timePicker.isHidden = !sender.isOn
     }
 }
 

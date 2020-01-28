@@ -40,6 +40,7 @@ extension AddHabitColorCell: UICollectionViewDelegate, UICollectionViewDataSourc
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath) as? ColorCell else{
             return UICollectionViewCell()
         }
+        cell.layer.cornerRadius = 25
         cell.backgroundColor = colors[indexPath.row]
         cell.isUserInteractionEnabled = true
         return cell
