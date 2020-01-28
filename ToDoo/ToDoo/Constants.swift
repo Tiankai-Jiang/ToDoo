@@ -7,7 +7,10 @@ struct K {
     static let chatTitle = "Chat"
     static let settingsTitle = "Settings"
     static let habitTableViewCell = "habitTableViewCell"
-    static let addHabitNameTableViewCell = "addHabitNameTableViewCell"
+    static let addHabitNameCell = "addHabitNameCell"
+    static let addHabitRepeatCell = "addHabitRepeatCell"
+    static let addHabitToggleCell = "addHabitToggleCell"
+    static let addHabitColorCell = "addHabitColorCell"
     
     struct FStore {
         static let userCollection = "users"

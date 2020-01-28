@@ -13,6 +13,7 @@ import SwipeCellKit
 
 class HomeViewController: UIViewController {
     
+    
     @IBOutlet weak var tableView: UITableView!
     
     let db = Firestore.firestore()
@@ -90,7 +91,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+//        print(indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

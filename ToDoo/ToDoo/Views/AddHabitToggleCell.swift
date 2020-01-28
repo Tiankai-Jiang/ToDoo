@@ -1,16 +1,15 @@
 //
-//  AddHabitTableViewCell.swift
+//  AddHabitToggleTableViewCell.swift
 //  ToDoo
 //
-//  Created by tiankai on 2020-01-27.
+//  Created by tiankai on 2020-01-28.
 //  Copyright © 2020 tiankai. All rights reserved.
 //
 
 import UIKit
 
-class AddHabitNameTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var lblTest: UILabel!
+class AddHabitToggleCell: UITableViewCell {
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
