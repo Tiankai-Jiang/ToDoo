@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hau-Xl-Rc0">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,18 +13,18 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="HomeViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0JO-oI-PW5">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="habitTableViewCell" id="t3d-nm-KTs" customClass="HabitTableViewCell" customModule="ToDoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t3d-nm-KTs" id="axB-eH-IlH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -59,62 +59,70 @@
             <objects>
                 <viewController id="8DJ-6u-loa" customClass="AddHabitViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B9g-1X-CxU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3db-Rc-1wK">
-                                <rect key="frame" x="0.0" y="88" width="375" height="325"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="325"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="325" id="3IV-6e-8uj"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="addHabitNameCell" rowHeight="80" id="0mI-H6-GIw" customClass="AddHabitNameCell" customModule="ToDoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0mI-H6-GIw" id="R4B-lA-EdR" customClass="AddHabitNameCell" customModule="ToDoo" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Habit Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wwp-AQ-hrK">
-                                                    <rect key="frame" x="15" y="23" width="345" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Habit Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wwp-AQ-hrK">
+                                                    <rect key="frame" x="50" y="0.0" width="314" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="QDJ-wc-LQX"/>
+                                                        <constraint firstAttribute="height" constant="80" id="fav-Id-OH2"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wwp-AQ-hrK" firstAttribute="centerY" secondItem="R4B-lA-EdR" secondAttribute="centerY" id="ayv-Po-lwo"/>
+                                                <constraint firstItem="wwp-AQ-hrK" firstAttribute="leading" secondItem="R4B-lA-EdR" secondAttribute="leadingMargin" constant="30" id="b18-hD-Cdi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="wwp-AQ-hrK" secondAttribute="trailing" constant="30" id="sqU-kf-kbL"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="habitNameTextField" destination="wwp-AQ-hrK" id="DUH-G5-EcE"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="addHabitRepeatCell" rowHeight="80" id="3Gf-kD-Jj6" customClass="AddHabitRepeatCell" customModule="ToDoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="108" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Gf-kD-Jj6" id="pSk-RL-y4O" customClass="AddHabitNameCell" customModule="ToDoo" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="349" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="addHabitToggleCell" rowHeight="80" id="eFt-9q-X57" customClass="AddHabitToggleCell" customModule="ToDoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="188" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eFt-9q-X57" id="MG0-qa-tpp" customClass="AddHabitToggleCell" customModule="ToDoo" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="addHabitColorCell" rowHeight="80" id="qqt-hl-cIX" customClass="AddHabitColorCell" customModule="ToDoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="268" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="268" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qqt-hl-cIX" id="L6g-UU-Ilr" customClass="AddHabitToggleCell" customModule="ToDoo" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MCm-Go-3DK">
-                                                    <rect key="frame" x="15" y="19" width="353" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MCm-Go-3DK">
+                                                    <rect key="frame" x="50" y="0.0" width="374" height="80"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="374" id="Wuz-eR-W8N"/>
+                                                        <constraint firstAttribute="height" constant="80" id="rul-lO-hU1"/>
+                                                    </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="auL-r4-e4m">
                                                         <size key="itemSize" width="50" height="50"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -123,7 +131,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorCell" id="Wjy-yR-CV8" customClass="ColorCell" customModule="ToDoo" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="-3" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="15" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fma-tW-7Pe">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -133,6 +141,11 @@
                                                     </cells>
                                                 </collectionView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MCm-Go-3DK" firstAttribute="centerY" secondItem="L6g-UU-Ilr" secondAttribute="centerY" id="IFH-5M-qCE"/>
+                                                <constraint firstItem="MCm-Go-3DK" firstAttribute="leading" secondItem="L6g-UU-Ilr" secondAttribute="leadingMargin" constant="30" id="sA3-gq-LHZ"/>
+                                                <constraint firstItem="MCm-Go-3DK" firstAttribute="trailing" secondItem="L6g-UU-Ilr" secondAttribute="trailingMargin" constant="30" id="xN6-K9-heS"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="collectionView" destination="MCm-Go-3DK" id="CFd-Gj-3v3"/>
@@ -145,17 +158,17 @@
                                 </connections>
                             </tableView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3Zr-XG-b3b">
-                                <rect key="frame" x="20" y="453" width="335" height="216"/>
+                                <rect key="frame" x="47" y="453" width="320" height="216"/>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="3Zr-XG-b3b" secondAttribute="trailing" constant="20" symbolic="YES" id="1B8-TS-Hb6"/>
-                            <constraint firstItem="3Zr-XG-b3b" firstAttribute="top" secondItem="3db-Rc-1wK" secondAttribute="bottom" constant="40" id="aQS-Rn-1u8"/>
-                            <constraint firstItem="3db-Rc-1wK" firstAttribute="leading" secondItem="B9g-1X-CxU" secondAttribute="leading" id="h8k-A7-ZGf"/>
-                            <constraint firstItem="3db-Rc-1wK" firstAttribute="top" secondItem="4EU-GH-ukE" secondAttribute="top" id="hkg-e0-72W"/>
-                            <constraint firstItem="3db-Rc-1wK" firstAttribute="trailing" secondItem="4EU-GH-ukE" secondAttribute="trailing" id="j4V-IZ-pag"/>
-                            <constraint firstItem="3Zr-XG-b3b" firstAttribute="leading" secondItem="B9g-1X-CxU" secondAttribute="leading" constant="20" symbolic="YES" id="lWI-gw-tCk"/>
+                            <constraint firstItem="3db-Rc-1wK" firstAttribute="leading" secondItem="4EU-GH-ukE" secondAttribute="leading" id="1yo-8I-Ipn"/>
+                            <constraint firstItem="3db-Rc-1wK" firstAttribute="centerX" secondItem="3Zr-XG-b3b" secondAttribute="centerX" id="FZH-yr-jVt"/>
+                            <constraint firstItem="3db-Rc-1wK" firstAttribute="top" secondItem="4EU-GH-ukE" secondAttribute="top" id="MMl-TL-xhR"/>
+                            <constraint firstAttribute="trailing" secondItem="3db-Rc-1wK" secondAttribute="trailing" id="g7j-QT-a9C"/>
+                            <constraint firstItem="3Zr-XG-b3b" firstAttribute="top" secondItem="3db-Rc-1wK" secondAttribute="bottom" constant="40" id="nCY-lM-OQF"/>
+                            <constraint firstItem="4EU-GH-ukE" firstAttribute="bottom" secondItem="3Zr-XG-b3b" secondAttribute="bottom" constant="193" id="rsA-Nt-Ait"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4EU-GH-ukE"/>
                     </view>
@@ -167,14 +180,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTa-tf-dJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3136.8000000000002" y="-956.1576354679803"/>
+            <point key="canvasLocation" x="3136.2318840579715" y="-956.25"/>
         </scene>
         <!--Chat-->
         <scene sceneID="t7d-Y4-HI6">
             <objects>
                 <viewController id="sMp-hw-ODw" customClass="ChatViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ryy-dr-n1i">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="nOQ-7v-K0R"/>
@@ -190,11 +203,11 @@
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="CalendarViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6A-i3-6V3" customClass="CalendarView" customModule="KDCalendar">
-                                <rect key="frame" x="37.666666666666657" y="118" width="300" height="250"/>
+                                <rect key="frame" x="57" y="118" width="300" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="1Nu-er-aYx"/>
@@ -223,11 +236,11 @@
             <objects>
                 <viewController id="jZr-It-nXh" customClass="SettingsViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jSX-x4-giB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyW-dS-paw">
-                                <rect key="frame" x="87.666666666666686" y="648" width="200" height="51"/>
+                                <rect key="frame" x="107" y="732" width="200" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="vOX-ZV-vkw"/>
                                 </constraints>
@@ -258,14 +271,14 @@
             <objects>
                 <viewController id="AR7-2x-x8T" customClass="WelcomeViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KE0-Oj-cdh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="qLG-Jg-kgG" userLabel="WelcomeButtonView">
-                                <rect key="frame" x="0.0" y="655" width="375" height="103"/>
+                                <rect key="frame" x="0.0" y="739" width="414" height="103"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jz6-2K-Sxl">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -275,7 +288,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiv-SI-cbd">
-                                        <rect key="frame" x="0.0" y="52" width="375" height="51"/>
+                                        <rect key="frame" x="0.0" y="52" width="414" height="51"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <state key="normal" title="Register">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -306,14 +319,14 @@
             <objects>
                 <viewController id="EMw-Lw-3FF" customClass="LoginViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ksH-rc-A5q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4Mn-zb-7oh" userLabel="LoginTextStackView">
-                                <rect key="frame" x="50" y="128" width="275" height="120"/>
+                                <rect key="frame" x="50" y="128" width="314" height="120"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1@2.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oi1-e4-Qdh" userLabel="LoginEmailTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="275" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="m1M-TD-kmH"/>
                                         </constraints>
@@ -321,7 +334,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYk-SH-TxN" userLabel="LoginPasswordTextField">
-                                        <rect key="frame" x="0.0" y="70" width="275" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="314" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="AGC-I9-V0x"/>
                                         </constraints>
@@ -331,7 +344,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGa-nM-6U1">
-                                <rect key="frame" x="87.666666666666686" y="288" width="200" height="51"/>
+                                <rect key="frame" x="107" y="288" width="200" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="if4-en-gyV"/>
                                 </constraints>
@@ -344,7 +357,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aha-In-fiR">
-                                <rect key="frame" x="126" y="718" width="123" height="30"/>
+                                <rect key="frame" x="145.66666666666666" y="802" width="122.99999999999997" height="30"/>
                                 <state key="normal" title="Forgot password?">
                                     <color key="titleColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -379,14 +392,14 @@
             <objects>
                 <viewController id="5sA-1R-4pm" customClass="RegisterViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ney-4q-dH5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q1i-DR-39B" userLabel="RegisterTextStackView">
-                                <rect key="frame" x="50" y="128" width="275" height="120"/>
+                                <rect key="frame" x="50" y="128" width="314" height="120"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mOX-jb-tJj" userLabel="RegisterEmailTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="275" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="eY9-9S-HhM"/>
                                         </constraints>
@@ -394,7 +407,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z1D-9P-MGC" userLabel="RegisterPasswordTextField">
-                                        <rect key="frame" x="0.0" y="70" width="275" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="314" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Yiy-L2-5mw"/>
                                         </constraints>
@@ -404,7 +417,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DM2-Pl-dv6">
-                                <rect key="frame" x="87.666666666666686" y="288" width="200" height="51"/>
+                                <rect key="frame" x="107" y="288" width="200" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="V8s-g5-tBK"/>
                                 </constraints>
@@ -466,7 +479,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hau-Xl-Rc0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f2w-BJ-PZq">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
