@@ -91,9 +91,6 @@ extension AddHabitViewController: UITableViewDataSource{
             return cell
         }else if(indexPath.row == 1){
             let cell = tableView.dequeueReusableCell(withIdentifier: K.addHabitColorCell, for: indexPath) as! AddHabitColorCell
-//            cell.collectionView.isUserInteractionEnabled = true
-//            cell.collectionView.allowsSelection = true
-//            cell.textLabel?.text = "select a color"
             return cell
         }else if(indexPath.row == 2){
             let cell = tableView.dequeueReusableCell(withIdentifier: K.addHabitRepeatCell, for: indexPath) as! AddHabitRepeatCell

@@ -63,10 +63,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3db-Rc-1wK">
-                                <rect key="frame" x="0.0" y="88" width="375" height="330"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="325"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="330" id="kzf-9p-MgJ"/>
+                                    <constraint firstAttribute="height" constant="325" id="3IV-6e-8uj"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="addHabitNameCell" rowHeight="80" id="0mI-H6-GIw" customClass="AddHabitNameCell" customModule="ToDoo" customModuleProvider="target">
@@ -77,7 +77,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Habit Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wwp-AQ-hrK">
-                                                    <rect key="frame" x="15" y="11" width="345" height="34"/>
+                                                    <rect key="frame" x="15" y="23" width="345" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -88,7 +88,7 @@
                                             <outlet property="habitNameTextField" destination="wwp-AQ-hrK" id="DUH-G5-EcE"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="addHabitRepeatCell" rowHeight="80" id="3Gf-kD-Jj6" customClass="AddHabitRepeatCell" customModule="ToDoo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="addHabitRepeatCell" rowHeight="80" id="3Gf-kD-Jj6" customClass="AddHabitRepeatCell" customModule="ToDoo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="108" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Gf-kD-Jj6" id="pSk-RL-y4O" customClass="AddHabitNameCell" customModule="ToDoo" customModuleProvider="target">
