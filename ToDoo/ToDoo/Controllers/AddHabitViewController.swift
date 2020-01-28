@@ -12,6 +12,9 @@ import Firebase
 
 class AddHabitViewController: UIViewController {
     
+    var testArray = ["test","test","test","test","test","test","test","test"]
+    
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var habitNameTextField: UITextField!
     let db = Firestore.firestore()
@@ -77,4 +80,22 @@ extension AddHabitViewController: UITextFieldDelegate{
         
         return true
     }
+}
+
+extension AddHabitViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return testArray.count;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.addHabitNameTableViewCell, for: indexPath) as! AddHabitNameTableViewCell
+        cell.lblTest.text = testArray[indexPath.row]
+        return cell
+    }
+    
+    
+}
+
+extension AddHabitViewController: UITableViewDelegate{
+    
 }

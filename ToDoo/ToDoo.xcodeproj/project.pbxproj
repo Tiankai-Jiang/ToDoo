@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		360E0DCA23DFB00500ADD65A /* AddHabitNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360E0DC923DFB00500ADD65A /* AddHabitNameTableViewCell.swift */; };
 		36106D6623CF6C5F00E4143A /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36106D6523CF6C5F00E4143A /* AddHabitViewController.swift */; };
 		3611111E23CF70DD0031B7EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3611111D23CF70DD0031B7EB /* GoogleService-Info.plist */; };
 		36118A8023D3875E00323AA1 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36118A7F23D3875E00323AA1 /* Habit.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		360E0DC923DFB00500ADD65A /* AddHabitNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitNameTableViewCell.swift; sourceTree = "<group>"; };
 		36106D6523CF6C5F00E4143A /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddHabitViewController.swift; path = ToDoo/Controllers/AddHabitViewController.swift; sourceTree = SOURCE_ROOT; };
 		3611111D23CF70DD0031B7EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36118A7F23D3875E00323AA1 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				3620342123CE4D5C00939EAF /* Main.storyboard */,
+				360E0DC923DFB00500ADD65A /* AddHabitNameTableViewCell.swift */,
 				362F958723CFAA620056E4C9 /* HabitTableViewCell.swift */,
 			);
 			path = Views;
@@ -399,6 +402,7 @@
 				36118A8023D3875E00323AA1 /* Habit.swift in Sources */,
 				3620341C23CE4D5C00939EAF /* SceneDelegate.swift in Sources */,
 				362F958823CFAA620056E4C9 /* HabitTableViewCell.swift in Sources */,
+				360E0DCA23DFB00500ADD65A /* AddHabitNameTableViewCell.swift in Sources */,
 				364CBE1623CE5C2B00B14A95 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

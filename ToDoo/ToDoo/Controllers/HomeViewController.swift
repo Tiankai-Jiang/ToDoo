@@ -13,7 +13,7 @@ import SwipeCellKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var habitTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     let db = Firestore.firestore()
     
@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        habitTableView.rowHeight = 80.0
+        tableView.rowHeight = 80.0
         //        habitTableView.separatorStyle = .none
         loadHabits()
     }
@@ -63,10 +63,10 @@ class HomeViewController: UIViewController {
                     }
                     
                     DispatchQueue.main.async {
-                        self.habitTableView.reloadData()
+                        self.tableView.reloadData()
                         if self.habits.count > 1{
                             let indexPath = IndexPath(row: self.habits.count - 1, section: 0)
-                            self.habitTableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                            self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
                         }
                     }
                 }
@@ -82,7 +82,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = habitTableView.dequeueReusableCell(withIdentifier: K.habitTableViewCell, for: indexPath) as! SwipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.habitTableViewCell, for: indexPath) as! SwipeTableViewCell
         
         cell.textLabel?.text = habits[indexPath.row].name
         cell.delegate = self
@@ -113,7 +113,7 @@ extension HomeViewController: SwipeTableViewCellDelegate{
                         if let err = err {
                             print("Error removing document: \(err)")
                         } else {
-                            self.habitTableView.reloadData()
+                            self.tableView.reloadData()
                         }
                     }
                 }
