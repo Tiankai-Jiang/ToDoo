@@ -46,6 +46,6 @@ extension AddHabitColorCell: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("123")
+        print(indexPath.row)
     }
 }
