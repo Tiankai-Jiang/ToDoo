@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hau-Xl-Rc0">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -21,10 +21,10 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="habitTableViewCell" id="t3d-nm-KTs" customClass="HabitTableViewCell" customModule="ToDoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t3d-nm-KTs" id="axB-eH-IlH">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -79,7 +79,6 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Habit Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wwp-AQ-hrK">
                                                     <rect key="frame" x="42" y="0.0" width="322" height="80"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="QDJ-wc-LQX"/>
                                                         <constraint firstAttribute="height" constant="80" id="fav-Id-OH2"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -88,8 +87,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wwp-AQ-hrK" firstAttribute="centerY" secondItem="R4B-lA-EdR" secondAttribute="centerY" id="ayv-Po-lwo"/>
-                                                <constraint firstItem="wwp-AQ-hrK" firstAttribute="leftMargin" secondItem="R4B-lA-EdR" secondAttribute="leftMargin" constant="30" id="b18-hD-Cdi"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="wwp-AQ-hrK" secondAttribute="trailing" constant="30" id="sqU-kf-kbL"/>
+                                                <constraint firstItem="wwp-AQ-hrK" firstAttribute="leadingMargin" secondItem="R4B-lA-EdR" secondAttribute="leadingMargin" constant="30" id="b18-hD-Cdi"/>
+                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="wwp-AQ-hrK" secondAttribute="trailing" constant="30" id="sqU-kf-kbL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -199,10 +198,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="selectDayCell" id="6mZ-aR-gHl">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6mZ-aR-gHl" id="FQr-gG-wDi">
-                                    <rect key="frame" x="0.0" y="0.0" width="370" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -393,7 +392,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aha-In-fiR">
-                                <rect key="frame" x="145.66666666666666" y="802" width="122.99999999999997" height="30"/>
+                                <rect key="frame" x="145.5" y="802" width="123" height="30"/>
                                 <state key="normal" title="Forgot password?">
                                     <color key="titleColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>

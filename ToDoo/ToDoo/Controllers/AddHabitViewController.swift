@@ -17,6 +17,8 @@ class AddHabitViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let db = Firestore.firestore()
+    var isNotificationOn = false
+    var selectedDays: [Bool] = []
     
     let addButton = UIBarButtonItem(title: "Add",  style: .plain, target: self, action: #selector(addItem))
     
@@ -31,6 +33,11 @@ class AddHabitViewController: UIViewController {
         navigationItem.rightBarButtonItem = addButton
         
         self.hideKeyboardWhenTappedAround()
+        
+        if(UserDefaults.standard.object(forKey: K.selectedDayKey) == nil){
+            UserDefaults.standard.set(Array(repeating: true, count: 7), forKey : K.selectedDayKey)
+        }
+        selectedDays = UserDefaults.standard.object(forKey: K.selectedDayKey) as! [Bool]
         
         timePicker.isHidden = true
     }
@@ -63,7 +70,7 @@ class AddHabitViewController: UIViewController {
                 if let document = document, document.exists {
                     self.view.makeToast("A habit with this name already exists", duration: 2.0, position: .top)
                 } else {
-                    habitColRef.document(habitName).setData([K.FStore.habitNameField: habitName, K.FStore.dateField: Date().timeIntervalSince1970], completion: { (error) in
+                    habitColRef.document(habitName).setData([K.FStore.habitNameField: habitName, K.FStore.dateField: Date().timeIntervalSince1970, K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: self.selectedDays], completion: { (error) in
                         if let e = error{
                             self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
                         }else{
@@ -135,6 +142,7 @@ extension AddHabitViewController: UITableViewDataSource{
     
     @objc func switchChanged(_ sender : UISwitch!){
         timePicker.isHidden = !sender.isOn
+        isNotificationOn = sender.isOn
     }
 }
 

@@ -12,19 +12,16 @@ class SelectDayViewController: UITableViewController {
     
     let days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
     
-    var selectedDays: [Bool] = {
-        UserDefaults.standard.register(defaults: [K.selectedDayKey : [true, true, true, true, true, true, true]])
-        return UserDefaults.standard.object(forKey: K.selectedDayKey) as! [Bool]
-    }(){
-        didSet {
-            UserDefaults.standard.set(selectedDays, forKey: K.selectedDayKey)
-        }
-    }
+    var selectedDays: [Bool] = UserDefaults.standard.object(forKey: K.selectedDayKey) as! [Bool]
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UserDefaults.standard.set(selectedDays, forKey : K.selectedDayKey)
+    }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return days.count
@@ -43,7 +40,6 @@ class SelectDayViewController: UITableViewController {
         selectedDays[indexPath.row] = !selectedDays[indexPath.row]
         tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
-        print(selectedDays)
     }
     
     @objc func daysSelected(){

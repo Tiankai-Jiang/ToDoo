@@ -58,8 +58,8 @@ class HomeViewController: UIViewController {
                     if let snapshotDocument = querySnapshot?.documents{
                         for doc in snapshotDocument {
                             let data = doc.data()
-                            if let habitName = data[K.FStore.habitNameField] as? String {
-                                self.habits.append(Habit(name: habitName))
+                            if let habitName = data[K.FStore.habitNameField] as? String, let isNotificationOn = data[K.FStore.remindField] as? Bool, let selectedDays = data[K.FStore.remindDaysField] as? [Bool] {
+                                self.habits.append(Habit(name: habitName, ifRemind: isNotificationOn, remindDays: selectedDays))
                             }
                         }
                     }
