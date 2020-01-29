@@ -29,6 +29,7 @@
 		364CBE1423CE5C1900B14A95 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CBE1323CE5C1900B14A95 /* ChatViewController.swift */; };
 		364CBE1623CE5C2B00B14A95 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CBE1523CE5C2B00B14A95 /* SettingsViewController.swift */; };
 		364CBE1823CE6BFA00B14A95 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CBE1723CE6BFA00B14A95 /* Constants.swift */; };
+		365787D623E104C2003699FA /* SelectDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365787D523E104C2003699FA /* SelectDayViewController.swift */; };
 		36B6C67423CE599900DD4839 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6C67323CE599900DD4839 /* RegisterViewController.swift */; };
 		36B6C67623CE59CB00DD4839 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6C67523CE59CB00DD4839 /* LoginViewController.swift */; };
 		57FDB228972BAC065FEDDFBA /* Pods_ToDoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FE7093839B0AE6E866627D /* Pods_ToDoo.framework */; };
@@ -81,6 +82,7 @@
 		364CBE1323CE5C1900B14A95 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		364CBE1523CE5C2B00B14A95 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		364CBE1723CE6BFA00B14A95 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		365787D523E104C2003699FA /* SelectDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDayViewController.swift; sourceTree = "<group>"; };
 		36B6C67323CE599900DD4839 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		36B6C67523CE59CB00DD4839 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		63FE7093839B0AE6E866627D /* Pods_ToDoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +202,7 @@
 				36B6C67323CE599900DD4839 /* RegisterViewController.swift */,
 				3620344C23CE53C700939EAF /* WelcomeViewController.swift */,
 				36106D6523CF6C5F00E4143A /* AddHabitViewController.swift */,
+				365787D523E104C2003699FA /* SelectDayViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				362F958823CFAA620056E4C9 /* HabitTableViewCell.swift in Sources */,
 				360E0DCA23DFB00500ADD65A /* AddHabitNameCell.swift in Sources */,
 				364CBE1623CE5C2B00B14A95 /* SettingsViewController.swift in Sources */,
+				365787D623E104C2003699FA /* SelectDayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

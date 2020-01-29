@@ -20,6 +20,13 @@ class HomeViewController: UIViewController {
     
     var habits: [Habit] = []
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.rowHeight = 80.0
+        //        habitTableView.separatorStyle = .none
+        loadHabits()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationItem.hidesBackButton = true
@@ -29,22 +36,16 @@ class HomeViewController: UIViewController {
         
     }
     
-    //    override func viewWillDisappear(_ animated: Bool) {
-    //        super.viewWillDisappear(animated)
-    //        self.tabBarController?.navigationItem.rightBarButtonItem = nil
-    //    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.rowHeight = 80.0
-        //        habitTableView.separatorStyle = .none
-        loadHabits()
+    override func viewDidAppear(_ animated: Bool) {
+        if(UserDefaults.standard.object(forKey: K.selectedDayKey) != nil){
+            UserDefaults.standard.removeObject(forKey: K.selectedDayKey)
+        }
     }
     
     @objc func addClicked(){
         self.performSegue(withIdentifier: K.addHabitSegue, sender: self)
     }
-    
+// MARK: - Load Habbits
     func loadHabits(){
         if let messageSender = Auth.auth().currentUser?.email{
             let habitColRef = db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
@@ -95,7 +96,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
-
 
 
 extension HomeViewController: SwipeTableViewCellDelegate{

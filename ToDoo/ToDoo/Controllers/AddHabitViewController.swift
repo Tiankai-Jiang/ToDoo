@@ -93,6 +93,13 @@ extension AddHabitViewController: UITableViewDataSource{
         return 4;
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.row == 2){
+            tableView.deselectRow(at: indexPath, animated: true)
+            self.performSegue(withIdentifier: K.selectDaySegue, sender: self)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if(indexPath.row == 0){

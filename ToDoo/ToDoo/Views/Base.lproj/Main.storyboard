@@ -182,11 +182,41 @@
                     <connections>
                         <outlet property="tableView" destination="3db-Rc-1wK" id="gW0-Af-DVr"/>
                         <outlet property="timePicker" destination="3Zr-XG-b3b" id="ba1-5D-eSQ"/>
+                        <segue destination="U3S-5v-FvO" kind="show" identifier="addHabitToSelectDay" id="pBs-nN-07U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTa-tf-dJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3136.2318840579715" y="-956.25"/>
+        </scene>
+        <!--Select Day View Controller-->
+        <scene sceneID="16X-qW-QiD">
+            <objects>
+                <tableViewController id="U3S-5v-FvO" customClass="SelectDayViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jso-7i-ken">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="selectDayCell" id="6mZ-aR-gHl">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6mZ-aR-gHl" id="FQr-gG-wDi">
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="U3S-5v-FvO" id="Bvo-LF-rsP"/>
+                            <outlet property="delegate" destination="U3S-5v-FvO" id="7pf-k6-2sI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="xc0-zQ-x0a"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xeC-ie-8r3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4030" y="-956"/>
         </scene>
         <!--Chat-->
         <scene sceneID="t7d-Y4-HI6">

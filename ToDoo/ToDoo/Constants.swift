@@ -2,15 +2,21 @@ struct K {
     static let loginSegue = "LoginToHome"
     static let registerSegue = "RegisterToHome"
     static let addHabitSegue = "HomeToAddHabit"
+    static let selectDaySegue = "addHabitToSelectDay"
+    
     static let homeTitle = "Home"
     static let calendarTitle = "Calendar"
     static let chatTitle = "Chat"
     static let settingsTitle = "Settings"
+    
     static let habitTableViewCell = "habitTableViewCell"
     static let addHabitNameCell = "addHabitNameCell"
     static let addHabitRepeatCell = "addHabitRepeatCell"
     static let addHabitToggleCell = "addHabitToggleCell"
     static let addHabitColorCell = "addHabitColorCell"
+    static let selectDayCell = "selectDayCell"
+    
+    static let selectedDayKey = "selectedDays"
     
     struct FStore {
         static let userCollection = "users"
