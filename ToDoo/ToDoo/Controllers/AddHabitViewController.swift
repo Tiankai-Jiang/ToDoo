@@ -34,12 +34,14 @@ class AddHabitViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         
+        timePicker.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if(UserDefaults.standard.object(forKey: K.selectedDayKey) == nil){
             UserDefaults.standard.set(Array(repeating: true, count: 7), forKey : K.selectedDayKey)
         }
         selectedDays = UserDefaults.standard.object(forKey: K.selectedDayKey) as! [Bool]
-        
-        timePicker.isHidden = true
     }
 
     
@@ -61,6 +63,8 @@ class AddHabitViewController: UIViewController {
     
     
     @objc func addItem(){
+        print(selectedDays)
+        print(timePicker.date)
         let habitName = (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! AddHabitNameCell).habitNameTextField.text!.trimmingCharacters(in: .whitespaces);
         
         if let messageSender = Auth.auth().currentUser?.email{
@@ -70,7 +74,7 @@ class AddHabitViewController: UIViewController {
                 if let document = document, document.exists {
                     self.view.makeToast("A habit with this name already exists", duration: 2.0, position: .top)
                 } else {
-                    habitColRef.document(habitName).setData([K.FStore.habitNameField: habitName, K.FStore.dateField: Date().timeIntervalSince1970, K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: self.selectedDays], completion: { (error) in
+                    habitColRef.document(habitName).setData([K.FStore.habitNameField: habitName, K.FStore.dateField: Date().timeIntervalSince1970, K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: self.selectedDays, K.FStore.notificationTimeField: self.timePicker.date.timeIntervalSince1970], completion: { (error) in
                         if let e = error{
                             self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
                         }else{

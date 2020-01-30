@@ -26,6 +26,7 @@ struct K {
         static let dateField = "addedDate"
         static let remindField = "ifRemind"
         static let remindDaysField = "remindDays"
+        static let notificationTimeField = "notificationTime"
     }
     
 }
