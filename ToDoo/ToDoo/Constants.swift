@@ -15,8 +15,12 @@ struct K {
     static let addHabitToggleCell = "addHabitToggleCell"
     static let addHabitColorCell = "addHabitColorCell"
     static let selectDayCell = "selectDayCell"
+    static let colorCell = "ColorCell"
     
     static let selectedDayKey = "selectedDays"
+    static let selectedColorKey = "selectedColor"
+    
+    static let defaultColor = "9DF3C4"
     
     struct FStore {
         static let userCollection = "users"
@@ -27,6 +31,7 @@ struct K {
         static let remindField = "ifRemind"
         static let remindDaysField = "remindDays"
         static let notificationTimeField = "notificationTime"
+        static let colorField = "cellColor"
     }
     
 }

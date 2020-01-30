@@ -9,8 +9,10 @@
 import UIKit
 
 class AddHabitColorCell: UITableViewCell {
-
-    let colors = [UIColor.red, UIColor.blue, UIColor.green, UIColor.yellow, UIColor.red, UIColor.blue, UIColor.green, UIColor.yellow, UIColor.red, UIColor.blue, UIColor.green, UIColor.yellow]
+    
+    var selectedColor = K.defaultColor
+    
+    let colors = ["9DF3C4","62D2A2","1FAB89", "C6F1E7", "70ACB1", "59606D", "FFFE9F", "FFD480", "FCA180", "F56262"]
     
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
@@ -32,21 +34,58 @@ class AddHabitColorCell: UITableViewCell {
 }
 
 extension AddHabitColorCell: UICollectionViewDelegate, UICollectionViewDataSource{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath) as? ColorCell else{
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.colorCell, for: indexPath) as? ColorCell else{
             return UICollectionViewCell()
         }
         cell.layer.cornerRadius = 25
-        cell.backgroundColor = colors[indexPath.row]
+        cell.backgroundColor = hexStringToUIColor(hex: colors[indexPath.row])
         cell.isUserInteractionEnabled = true
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        selectedColor = colors[indexPath.row]
+//        self.tableView
+//        print(selectedColor)
     }
 }
+
+extension UITableViewCell {
+    var tableView: UITableView? {
+        var view = superview
+        while let v = view, v.isKind(of: UITableView.self) == false {
+            view = v.superview
+        }
+        return view as? UITableView
+    }
+}
+
+
+func hexStringToUIColor (hex:String) -> UIColor {
+    var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+    if (cString.hasPrefix("#")) {
+        cString.remove(at: cString.startIndex)
+    }
+
+    if ((cString.count) != 6) {
+        return UIColor.gray
+    }
+
+    var rgbValue:UInt64 = 0
+    Scanner(string: cString).scanHexInt64(&rgbValue)
+
+    return UIColor(
+        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+        alpha: CGFloat(1.0)
+    )
+}
+

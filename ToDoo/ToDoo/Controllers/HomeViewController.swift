@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 80.0
-        //        habitTableView.separatorStyle = .none
+        tableView.separatorStyle = .none
         loadHabits()
     }
     
@@ -58,8 +58,8 @@ class HomeViewController: UIViewController {
                     if let snapshotDocument = querySnapshot?.documents{
                         for doc in snapshotDocument {
                             let data = doc.data()
-                            if let habitName = data[K.FStore.habitNameField] as? String, let isNotificationOn = data[K.FStore.remindField] as? Bool, let selectedDays = data[K.FStore.remindDaysField] as? [Bool], let notificationTime = data[K.FStore.notificationTimeField] as? Int {
-                                self.habits.append(Habit(name: habitName, ifRemind: isNotificationOn, remindDays: selectedDays, notificationTime: notificationTime))
+                            if let habitName = data[K.FStore.habitNameField] as? String, let isNotificationOn = data[K.FStore.remindField] as? Bool, let selectedDays = data[K.FStore.remindDaysField] as? [Bool], let notificationTime = data[K.FStore.notificationTimeField] as? Double, let cellColor = data[K.FStore.colorField] as? String {
+                                self.habits.append(Habit(name: habitName, ifRemind: isNotificationOn, remindDays: selectedDays, notificationTime: notificationTime, color: cellColor))
                             }
                         }
                     }
@@ -87,6 +87,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: K.habitTableViewCell, for: indexPath) as! SwipeTableViewCell
         
         cell.textLabel?.text = habits[indexPath.row].name
+        cell.contentView.backgroundColor = hexStringToUIColor(hex: habits[indexPath.row].color)
         cell.delegate = self
         return cell
     }
