@@ -51,6 +51,7 @@ extension AddHabitColorCell: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedColor = colors[indexPath.row]
+        
 //        self.tableView
 //        print(selectedColor)
     }
