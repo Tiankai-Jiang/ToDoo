@@ -25,6 +25,7 @@ class AddHabitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 80.0
+        tableView.separatorStyle = .none
         
 //      change back buttton to cancel button
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(back))
@@ -35,6 +36,8 @@ class AddHabitViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         
         timePicker.isHidden = true
+        
+        navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: K.defaultColor)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +45,6 @@ class AddHabitViewController: UIViewController {
             UserDefaults.standard.set(Array(repeating: true, count: 7), forKey : K.selectedDayKey)
         }
         selectedDays = UserDefaults.standard.object(forKey: K.selectedDayKey) as! [Bool]
-                
     }
 
     

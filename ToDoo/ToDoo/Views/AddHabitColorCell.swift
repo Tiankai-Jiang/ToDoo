@@ -51,7 +51,7 @@ extension AddHabitColorCell: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedColor = colors[indexPath.row]
-        
+        viewController(forView: self)?.navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: colors[indexPath.row])
 //        self.tableView
 //        print(selectedColor)
     }
@@ -90,3 +90,10 @@ func hexStringToUIColor (hex:String) -> UIColor {
     )
 }
 
+func viewController(forView: UIView) -> UIViewController? {
+    var nr = forView.next
+    while nr != nil && !(nr! is UIViewController) {
+        nr = nr!.next
+    }
+    return nr as? UIViewController
+}

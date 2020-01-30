@@ -34,6 +34,8 @@ class HomeViewController: UIViewController {
         
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addClicked))
         
+        self.navigationController?.navigationBar.barTintColor = nil
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
