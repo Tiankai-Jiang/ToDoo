@@ -12,15 +12,13 @@ import Firebase
 
 class AddHabitViewController: UIViewController {
     
-    
+    @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
     
     let db = Firestore.firestore()
     var isNotificationOn = false
     var selectedDays: [Bool] = []
-    
-    let addButton = UIBarButtonItem(title: "Add",  style: .plain, target: self, action: #selector(addItem))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +28,6 @@ class AddHabitViewController: UIViewController {
 //      change back buttton to cancel button
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(back))
         
-//      add right navigation button
-        navigationItem.rightBarButtonItem = addButton
-        
         self.hideKeyboardWhenTappedAround()
         
         timePicker.isHidden = true
@@ -41,10 +36,13 @@ class AddHabitViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         if(UserDefaults.standard.object(forKey: K.selectedDayKey) == nil){
             UserDefaults.standard.set(Array(repeating: true, count: 7), forKey : K.selectedDayKey)
         }
         selectedDays = UserDefaults.standard.object(forKey: K.selectedDayKey) as! [Bool]
+        
+        print()
     }
 
     
@@ -64,9 +62,7 @@ class AddHabitViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    
-    @objc func addItem(){
-        
+    @IBAction func addItem(_ sender: UIBarButtonItem) {
         let habitName = (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! AddHabitNameCell).habitNameTextField.text!.trimmingCharacters(in: .whitespaces);
         
         let selectedColor = (tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! AddHabitColorCell).selectedColor
@@ -89,7 +85,6 @@ class AddHabitViewController: UIViewController {
             }
         }
     }
-    
 }
 
 extension AddHabitViewController: UITextFieldDelegate{
@@ -144,8 +139,6 @@ extension AddHabitViewController: UITableViewDataSource{
             cell.textLabel?.text = "Notification"
             return cell
         }
-        
-//        return cell
     }
     
     @objc func switchChanged(_ sender : UISwitch!){

@@ -177,8 +177,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4EU-GH-ukE"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TgL-d5-wKd"/>
+                    <navigationItem key="navigationItem" id="TgL-d5-wKd">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="u1b-N8-ptm">
+                            <connections>
+                                <action selector="addItem:" destination="8DJ-6u-loa" id="7EF-uk-SCa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="u1b-N8-ptm" id="BQP-nn-dWz"/>
                         <outlet property="tableView" destination="3db-Rc-1wK" id="gW0-Af-DVr"/>
                         <outlet property="timePicker" destination="3Zr-XG-b3b" id="ba1-5D-eSQ"/>
                         <segue destination="U3S-5v-FvO" kind="show" identifier="addHabitToSelectDay" id="pBs-nN-07U"/>
