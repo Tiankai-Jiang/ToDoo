@@ -1,11 +1,3 @@
-//
-//  AddHabitViewController.swift
-//  ToDoo
-//
-//  Created by tiankai on 2020-01-15.
-//  Copyright © 2020 tiankai. All rights reserved.
-//
-
 import UIKit
 import Toast_Swift
 import Firebase
@@ -43,17 +35,6 @@ class AddHabitViewController: UIViewController {
         selectedDays = UserDefaults.standard.object(forKey: K.selectedDayKey) as! [Bool]
         
         print()
-    }
-
-    
-    @IBAction func timePickerChanged(_ sender: Any) {
-        let dateFormatter = DateFormatter()
-
-        dateFormatter.dateStyle = DateFormatter.Style.short
-        dateFormatter.timeStyle = DateFormatter.Style.short
-
-        let strDate = dateFormatter.string(from: timePicker.date)
-        print(strDate)
     }
     
     

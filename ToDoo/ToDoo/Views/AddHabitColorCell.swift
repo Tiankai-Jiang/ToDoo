@@ -1,11 +1,3 @@
-//
-//  AddHabitColorCell.swift
-//  ToDoo
-//
-//  Created by tiankai on 2020-01-28.
-//  Copyright © 2020 tiankai. All rights reserved.
-//
-
 import UIKit
 
 class AddHabitColorCell: UITableViewCell {
@@ -52,48 +44,5 @@ extension AddHabitColorCell: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedColor = colors[indexPath.row]
         viewController(forView: self)?.navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: colors[indexPath.row])
-//        self.tableView
-//        print(selectedColor)
     }
-}
-
-extension UITableViewCell {
-    var tableView: UITableView? {
-        var view = superview
-        while let v = view, v.isKind(of: UITableView.self) == false {
-            view = v.superview
-        }
-        return view as? UITableView
-    }
-}
-
-
-func hexStringToUIColor (hex:String) -> UIColor {
-    var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
-    if (cString.hasPrefix("#")) {
-        cString.remove(at: cString.startIndex)
-    }
-
-    if ((cString.count) != 6) {
-        return UIColor.gray
-    }
-
-    var rgbValue:UInt64 = 0
-    Scanner(string: cString).scanHexInt64(&rgbValue)
-
-    return UIColor(
-        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-        alpha: CGFloat(1.0)
-    )
-}
-
-func viewController(forView: UIView) -> UIViewController? {
-    var nr = forView.next
-    while nr != nil && !(nr! is UIViewController) {
-        nr = nr!.next
-    }
-    return nr as? UIViewController
 }

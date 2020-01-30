@@ -1,11 +1,3 @@
-//
-//  HabitTableViewCell.swift
-//  ToDoo
-//
-//  Created by tiankai on 2020-01-15.
-//  Copyright © 2020 tiankai. All rights reserved.
-//
-
 import UIKit
 import SwipeCellKit
 

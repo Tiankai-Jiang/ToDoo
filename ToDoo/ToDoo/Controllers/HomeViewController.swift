@@ -1,11 +1,3 @@
-//
-//  FirstViewController.swift
-//  ToDoo
-//
-//  Created by tiankai on 2020-01-14.
-//  Copyright © 2020 tiankai. All rights reserved.
-//
-
 import UIKit
 import Toast_Swift
 import Firebase
@@ -47,6 +39,7 @@ class HomeViewController: UIViewController {
     @objc func addClicked(){
         self.performSegue(withIdentifier: K.addHabitSegue, sender: self)
     }
+    
 // MARK: - Load Habbits
     func loadHabits(){
         if let messageSender = Auth.auth().currentUser?.email{
@@ -138,19 +131,5 @@ extension HomeViewController: SwipeTableViewCellDelegate{
         doneAction.backgroundColor = .green
         doneAction.image = UIImage(systemName: "checkmark.circle")
         return [deleteAction, doneAction]
-    }
-}
-
-
-
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
 }
