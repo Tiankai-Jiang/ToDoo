@@ -15,8 +15,8 @@ class AddHabitColorCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let nibName = UINib(nibName: "ColorCell", bundle:nil)
-        collectionView.register(nibName, forCellWithReuseIdentifier: "ColorCell")
+        let nibName = UINib(nibName: K.Cells.colorXib, bundle:nil)
+        collectionView.register(nibName, forCellWithReuseIdentifier: K.Cells.colorCell)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,7 +34,7 @@ extension AddHabitColorCell: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.colorCell, for: indexPath) as? ColorCell else{
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Cells.colorCell, for: indexPath) as? ColorCell else{
             return UICollectionViewCell()
         }
         cell.layer.cornerRadius = 25

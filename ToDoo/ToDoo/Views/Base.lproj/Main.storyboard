@@ -69,24 +69,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="325" id="gec-ab-lcO"/>
                                 </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="addHabitRepeatCell" rowHeight="80" id="3Gf-kD-Jj6" customClass="AddHabitRepeatCell" customModule="ToDoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Gf-kD-Jj6" id="pSk-RL-y4O" customClass="AddHabitNameCell" customModule="ToDoo" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="addHabitToggleCell" rowHeight="80" id="eFt-9q-X57" customClass="AddHabitToggleCell" customModule="ToDoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="414" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eFt-9q-X57" id="MG0-qa-tpp" customClass="AddHabitToggleCell" customModule="ToDoo" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="8DJ-6u-loa" id="TGa-7T-Z0h"/>
                                     <outlet property="delegate" destination="8DJ-6u-loa" id="PXM-MV-ytY"/>

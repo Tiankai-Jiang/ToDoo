@@ -24,7 +24,11 @@ class AddHabitViewController: UIViewController {
         
         tableView.register(UINib(nibName: K.Cells.addHabitNameXib, bundle: nil), forCellReuseIdentifier: K.Cells.addHabitNameCell)
         
-        tableView.register(UINib(nibName: "AddHabitColorCell", bundle: nil), forCellReuseIdentifier: K.addHabitColorCell)
+        tableView.register(UINib(nibName: K.Cells.addHabitColorXib, bundle: nil), forCellReuseIdentifier: K.Cells.addHabitColorCell)
+        
+        tableView.register(UINib(nibName: K.Cells.addHabitRepeatXib, bundle: nil), forCellReuseIdentifier: K.Cells.addHabitRepeatCell)
+        
+        tableView.register(UINib(nibName: K.Cells.addHabitToggleXib, bundle: nil), forCellReuseIdentifier: K.Cells.addHabitToggleCell)
         
         timePicker.isHidden = true
         
@@ -98,7 +102,7 @@ extension AddHabitViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if(indexPath.row == 0){
-            let cell = tableView.dequeueReusableCell(withIdentifier: K.addHabitNameCell, for: indexPath) as! AddHabitNameCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitNameCell, for: indexPath) as! AddHabitNameCell
             cell.habitNameTextField.delegate = self;
             if cell.habitNameTextField.text!.isEmpty{
                 addButton.isEnabled = false
@@ -108,14 +112,14 @@ extension AddHabitViewController: UITableViewDataSource{
             cell.habitNameTextField.font = .systemFont(ofSize: 20)
             return cell
         }else if(indexPath.row == 1){
-            let cell = tableView.dequeueReusableCell(withIdentifier: K.addHabitColorCell, for: indexPath) as! AddHabitColorCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitColorCell, for: indexPath) as! AddHabitColorCell
             return cell
         }else if(indexPath.row == 2){
-            let cell = tableView.dequeueReusableCell(withIdentifier: K.addHabitRepeatCell, for: indexPath) as! AddHabitRepeatCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitRepeatCell, for: indexPath) as! AddHabitRepeatCell
             cell.textLabel?.text = "select repeat frequency"
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: K.addHabitToggleCell, for: indexPath) as! AddHabitToggleCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitToggleCell, for: indexPath) as! AddHabitToggleCell
             let switchView = UISwitch(frame: .zero)
             switchView.setOn(false, animated: true)
             switchView.tag = indexPath.row // for detect which row switch Changed

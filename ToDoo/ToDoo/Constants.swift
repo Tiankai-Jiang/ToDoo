@@ -10,12 +10,7 @@ struct K {
     static let settingsTitle = "Settings"
     
     static let habitTableViewCell = "habitTableViewCell"
-    static let addHabitNameCell = "addHabitNameCell"
-    static let addHabitRepeatCell = "addHabitRepeatCell"
-    static let addHabitToggleCell = "addHabitToggleCell"
-    static let addHabitColorCell = "addHabitColorCell"
     static let selectDayCell = "selectDayCell"
-    static let colorCell = "ColorCell"
     
     static let selectedDayKey = "selectedDays"
     static let selectedColorKey = "selectedColor"
@@ -25,6 +20,14 @@ struct K {
     struct Cells {
         static let addHabitNameCell = "addHabitNameCell"
         static let addHabitNameXib = "AddHabitNameCell"
+        static let addHabitColorCell = "addHabitColorCell"
+        static let addHabitColorXib = "AddHabitColorCell"
+        static let colorCell = "colorCell"
+        static let colorXib = "ColorCell"
+        static let addHabitRepeatCell = "addHabitRepeatCell"
+        static let addHabitRepeatXib = "AddHabitRepeatCell"
+        static let addHabitToggleCell = "addHabitToggleCell"
+        static let addHabitToggleXib = "AddHabitToggleCell"
     }
     
     struct FStore {
