@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -71,34 +70,8 @@
                                     <constraint firstAttribute="height" constant="325" id="gec-ab-lcO"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="addHabitNameCell" rowHeight="80" id="0mI-H6-GIw" customClass="AddHabitNameCell" customModule="ToDoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0mI-H6-GIw" id="R4B-lA-EdR" customClass="AddHabitNameCell" customModule="ToDoo" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Habit Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wwp-AQ-hrK">
-                                                    <rect key="frame" x="42" y="0.0" width="322" height="80"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="fav-Id-OH2"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="wwp-AQ-hrK" firstAttribute="centerY" secondItem="R4B-lA-EdR" secondAttribute="centerY" id="ayv-Po-lwo"/>
-                                                <constraint firstItem="wwp-AQ-hrK" firstAttribute="leadingMargin" secondItem="R4B-lA-EdR" secondAttribute="leadingMargin" constant="30" id="b18-hD-Cdi"/>
-                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="wwp-AQ-hrK" secondAttribute="trailing" constant="30" id="sqU-kf-kbL"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="habitNameTextField" destination="wwp-AQ-hrK" id="DUH-G5-EcE"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="addHabitRepeatCell" rowHeight="80" id="3Gf-kD-Jj6" customClass="AddHabitRepeatCell" customModule="ToDoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Gf-kD-Jj6" id="pSk-RL-y4O" customClass="AddHabitNameCell" customModule="ToDoo" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
@@ -106,54 +79,12 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="addHabitToggleCell" rowHeight="80" id="eFt-9q-X57" customClass="AddHabitToggleCell" customModule="ToDoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="188" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="108" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eFt-9q-X57" id="MG0-qa-tpp" customClass="AddHabitToggleCell" customModule="ToDoo" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="addHabitColorCell" rowHeight="80" id="qqt-hl-cIX" customClass="AddHabitColorCell" customModule="ToDoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="268" width="414" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qqt-hl-cIX" id="L6g-UU-Ilr" customClass="AddHabitToggleCell" customModule="ToDoo" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MCm-Go-3DK">
-                                                    <rect key="frame" x="50" y="0.0" width="374" height="80"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="374" id="Wuz-eR-W8N"/>
-                                                        <constraint firstAttribute="height" constant="80" id="rul-lO-hU1"/>
-                                                    </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="auL-r4-e4m">
-                                                        <size key="itemSize" width="50" height="50"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorCell" id="Wjy-yR-CV8" customClass="ColorCell" customModule="ToDoo" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="15" width="50" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fma-tW-7Pe">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                            </collectionViewCellContentView>
-                                                        </collectionViewCell>
-                                                    </cells>
-                                                </collectionView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="MCm-Go-3DK" firstAttribute="centerY" secondItem="L6g-UU-Ilr" secondAttribute="centerY" id="IFH-5M-qCE"/>
-                                                <constraint firstItem="MCm-Go-3DK" firstAttribute="leading" secondItem="L6g-UU-Ilr" secondAttribute="leadingMargin" constant="30" id="sA3-gq-LHZ"/>
-                                                <constraint firstItem="MCm-Go-3DK" firstAttribute="trailing" secondItem="L6g-UU-Ilr" secondAttribute="trailingMargin" constant="30" id="xN6-K9-heS"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="collectionView" destination="MCm-Go-3DK" id="CFd-Gj-3v3"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

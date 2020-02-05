@@ -22,6 +22,11 @@ struct K {
     
     static let defaultColor = "9DF3C4"
     
+    struct Cells {
+        static let addHabitNameCell = "addHabitNameCell"
+        static let addHabitNameXib = "AddHabitNameCell"
+    }
+    
     struct FStore {
         static let userCollection = "users"
         static let habitCollection = "habits"

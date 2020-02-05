@@ -1,11 +1,13 @@
 import UIKit
 
 class AddHabitNameCell: UITableViewCell {
-    
+
+
     @IBOutlet weak var habitNameTextField: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -13,5 +15,5 @@ class AddHabitNameCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

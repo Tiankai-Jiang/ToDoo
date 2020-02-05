@@ -22,6 +22,10 @@ class AddHabitViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         
+        tableView.register(UINib(nibName: K.Cells.addHabitNameXib, bundle: nil), forCellReuseIdentifier: K.Cells.addHabitNameCell)
+        
+        tableView.register(UINib(nibName: "AddHabitColorCell", bundle: nil), forCellReuseIdentifier: K.addHabitColorCell)
+        
         timePicker.isHidden = true
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: K.defaultColor)

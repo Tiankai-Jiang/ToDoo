@@ -15,6 +15,8 @@ class AddHabitColorCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        let nibName = UINib(nibName: "ColorCell", bundle:nil)
+        collectionView.register(nibName, forCellWithReuseIdentifier: "ColorCell")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
