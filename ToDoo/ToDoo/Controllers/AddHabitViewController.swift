@@ -108,19 +108,15 @@ extension AddHabitViewController: UITableViewDataSource{
                 addButton.isEnabled = false
             }
             cell.habitNameTextField.borderStyle = .none
-//            cell.habitNameTextField.frame.size.height = 80.0
-            cell.habitNameTextField.font = .systemFont(ofSize: 20)
             return cell
         }else if(indexPath.row == 1){
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitColorCell, for: indexPath) as! AddHabitColorCell
             return cell
         }else if(indexPath.row == 2){
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitRepeatCell, for: indexPath) as! AddHabitRepeatCell
-            cell.textLabel?.text = "select repeat frequency"
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitToggleCell, for: indexPath) as! AddHabitToggleCell
-            cell.textLabel?.text = "Notification"
             return cell
         }
     }
