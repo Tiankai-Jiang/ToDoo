@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Habit Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a9Z-gZ-ZfP">
-                        <rect key="frame" x="15" y="0.0" width="290" height="80"/>
+                        <rect key="frame" x="16" y="0.0" width="288" height="80"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="GPo-54-oI7"/>
                         </constraints>
@@ -27,9 +27,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="a9Z-gZ-ZfP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CCr-iE-x60"/>
-                    <constraint firstItem="a9Z-gZ-ZfP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="LRU-iE-mD2"/>
+                    <constraint firstItem="a9Z-gZ-ZfP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="LRU-iE-mD2"/>
                     <constraint firstItem="a9Z-gZ-ZfP" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="fDh-T5-JOA"/>
-                    <constraint firstAttribute="trailing" secondItem="a9Z-gZ-ZfP" secondAttribute="trailing" constant="15" id="wmk-8C-yuL"/>
+                    <constraint firstAttribute="trailing" secondItem="a9Z-gZ-ZfP" secondAttribute="trailing" constant="16" id="wmk-8C-yuL"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

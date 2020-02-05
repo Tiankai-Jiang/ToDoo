@@ -108,7 +108,7 @@ extension AddHabitViewController: UITableViewDataSource{
                 addButton.isEnabled = false
             }
             cell.habitNameTextField.borderStyle = .none
-            cell.habitNameTextField.frame.size.height = 80.0
+//            cell.habitNameTextField.frame.size.height = 80.0
             cell.habitNameTextField.font = .systemFont(ofSize: 20)
             return cell
         }else if(indexPath.row == 1){
@@ -120,19 +120,9 @@ extension AddHabitViewController: UITableViewDataSource{
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitToggleCell, for: indexPath) as! AddHabitToggleCell
-            let switchView = UISwitch(frame: .zero)
-            switchView.setOn(false, animated: true)
-            switchView.tag = indexPath.row // for detect which row switch Changed
-            switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
-            cell.accessoryView = switchView
             cell.textLabel?.text = "Notification"
             return cell
         }
-    }
-    
-    @objc func switchChanged(_ sender : UISwitch!){
-        timePicker.isHidden = !sender.isOn
-        isNotificationOn = sender.isOn
     }
 }
 

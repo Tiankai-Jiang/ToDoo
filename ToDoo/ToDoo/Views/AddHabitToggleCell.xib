@@ -15,6 +15,18 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bXd-Js-GwL">
+                        <rect key="frame" x="255" y="24.5" width="51" height="31"/>
+                        <connections>
+                            <action selector="switchView:" destination="KGk-i7-Jjw" eventType="valueChanged" id="lqc-1P-kDI"/>
+                        </connections>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="bXd-Js-GwL" secondAttribute="trailing" constant="16" id="FUB-HQ-pbm"/>
+                    <constraint firstItem="bXd-Js-GwL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GIC-mV-P4C"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <point key="canvasLocation" x="139" y="104"/>
