@@ -82,9 +82,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.habitCell, for: indexPath) as! SwipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.habitCell, for: indexPath) as! HabitCell
         
-        cell.textLabel?.text = habits[indexPath.row].name
+        cell.habitNameLabel.text = habits[indexPath.row].name
         cell.contentView.backgroundColor = hexStringToUIColor(hex: habits[indexPath.row].color)
         cell.delegate = self
         return cell

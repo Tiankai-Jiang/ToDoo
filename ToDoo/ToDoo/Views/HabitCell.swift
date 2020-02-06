@@ -3,6 +3,8 @@ import SwipeCellKit
 
 class HabitCell: SwipeTableViewCell {
     
+    @IBOutlet weak var habitNameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
