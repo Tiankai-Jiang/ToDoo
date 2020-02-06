@@ -4,6 +4,7 @@ import SwipeCellKit
 class HabitCell: SwipeTableViewCell {
     
     @IBOutlet weak var habitNameLabel: UILabel!
+    @IBOutlet weak var checkmark: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

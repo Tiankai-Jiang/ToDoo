@@ -6,5 +6,6 @@ struct Habit{
     let remindDays: [Bool]
     let notificationTime: Double
     let color: String
+    let todayStatus: Bool
 //    let body: String
 }

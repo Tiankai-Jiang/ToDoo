@@ -22,17 +22,27 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="INn-Oq-PdP">
+                        <rect key="frame" x="274" y="25" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="PSH-xb-fsE"/>
+                            <constraint firstAttribute="height" constant="30" id="vBP-m5-g6Z"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="INn-Oq-PdP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8UK-ug-Qmx"/>
+                    <constraint firstAttribute="trailing" secondItem="INn-Oq-PdP" secondAttribute="trailing" constant="16" id="8X5-av-cjB"/>
                     <constraint firstItem="0gC-QF-sbe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="om8-qG-awH"/>
                     <constraint firstItem="0gC-QF-sbe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="whs-A4-Qn6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="checkmark" destination="INn-Oq-PdP" id="t9X-Tw-D0P"/>
                 <outlet property="habitNameLabel" destination="0gC-QF-sbe" id="O9D-WX-GaO"/>
             </connections>
-            <point key="canvasLocation" x="139" y="145"/>
+            <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
         </tableViewCell>
     </objects>
 </document>

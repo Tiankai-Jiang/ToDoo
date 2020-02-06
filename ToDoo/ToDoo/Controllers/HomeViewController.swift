@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
         
         tableView.separatorStyle = .none
         loadHabits()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +48,7 @@ class HomeViewController: UIViewController {
         if let messageSender = Auth.auth().currentUser?.email{
             let habitColRef = db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
             
+            
             habitColRef.order(by: K.FStore.dateField).addSnapshotListener { (querySnapshot, error) in
                 self.habits = []
                 if let e = error{
@@ -55,14 +57,23 @@ class HomeViewController: UIViewController {
                     if let snapshotDocument = querySnapshot?.documents{
                         for doc in snapshotDocument {
                             let data = doc.data()
+                            
+                            var todayStatus: Bool = false
+                            if let checkedDict = data[K.FStore.checkedField] as? Dictionary<String, AnyObject> {
+                                todayStatus = checkedDict[Date().Noon()] != nil
+                            }
+                            
                             if let habitName = data[K.FStore.habitNameField] as? String, let isNotificationOn = data[K.FStore.remindField] as? Bool, let selectedDays = data[K.FStore.remindDaysField] as? [Bool], let notificationTime = data[K.FStore.notificationTimeField] as? Double, let cellColor = data[K.FStore.colorField] as? String {
-                                self.habits.append(Habit(name: habitName, ifRemind: isNotificationOn, remindDays: selectedDays, notificationTime: notificationTime, color: cellColor))
+                                self.habits.append(Habit(name: habitName, ifRemind: isNotificationOn, remindDays: selectedDays, notificationTime: notificationTime, color: cellColor, todayStatus: todayStatus))
                             }
                         }
                     }
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+//                        for h in self.habits{
+//                            print(h.todayStatus)
+//                        }
                         if self.habits.count > 1{
                             let indexPath = IndexPath(row: self.habits.count - 1, section: 0)
                             self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
@@ -85,6 +96,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         
         cell.habitNameLabel.text = habits[indexPath.row].name
         cell.contentView.backgroundColor = hexStringToUIColor(hex: habits[indexPath.row].color)
+        cell.checkmark.image = habits[indexPath.row].todayStatus ? UIImage(systemName: "checkmark") : nil
         cell.delegate = self
         return cell
     }
@@ -99,7 +111,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
 
 extension HomeViewController: SwipeTableViewCellDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-//        guard orientation == .right else { return nil }
+
         switch orientation{
         case .right:
             let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
@@ -127,20 +139,33 @@ extension HomeViewController: SwipeTableViewCellDelegate{
             deleteAction.backgroundColor = hexStringToUIColor(hex: "FD5E53")
             return [deleteAction]
             
+            
         case .left:
-            let doneAction = SwipeAction(style: .destructive, title: "Done") { (action, indexPath) in
-                
-                if let messageSender = Auth.auth().currentUser?.email{
-                    self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).setData(["checked" : [Date().Noon(): Date().timeIntervalSince1970]], merge: true) { (error) in
-                        if let e = error{
-                            self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
+            if(!habits[indexPath.row].todayStatus){
+                let doneAction = SwipeAction(style: .destructive, title: "Done") { (action, indexPath) in
+                    if let messageSender = Auth.auth().currentUser?.email{
+                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).setData(["checked" : [Date().Noon(): Date().timeIntervalSince1970]], merge: true) { (error) in
+                            if let e = error{
+                                self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
+                            }
                         }
                     }
                 }
+                doneAction.backgroundColor = hexStringToUIColor(hex: "21BF73")
+                doneAction.image = UIImage(systemName: "checkmark.circle")
+                return [doneAction]
+            }else{
+                let undoAction = SwipeAction(style: .destructive, title: "Undo") { (action, indexPath) in
+                    if let messageSender = Auth.auth().currentUser?.email{
+                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).updateData([K.FStore.checkedField: FieldValue.arrayRemove([Date().Noon()])])
+                    }
+                }
+                
+                undoAction.image = UIImage(systemName: "xmark.circle")
+                undoAction.backgroundColor = hexStringToUIColor(hex: "FDD365")
+                return [undoAction]
             }
-            doneAction.backgroundColor = hexStringToUIColor(hex: "21BF73")
-            doneAction.image = UIImage(systemName: "checkmark.circle")
-            return [doneAction]
+            
         }
     }
     

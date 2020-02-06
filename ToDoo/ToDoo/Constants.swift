@@ -40,6 +40,7 @@ struct K {
         static let habitCollection = "habits"
         static let habitNameField = "habitName"
         //        static let bodyField = "body"
+        static let checkedField = "checked"
         static let dateField = "addedDate"
         static let remindField = "ifRemind"
         static let remindDaysField = "remindDays"
