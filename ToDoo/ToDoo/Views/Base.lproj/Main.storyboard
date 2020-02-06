@@ -7,6 +7,54 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Habit Detail View Controller-->
+        <scene sceneID="bgX-qr-rs0">
+            <objects>
+                <viewController id="3Er-us-sHC" customClass="HabitDetailViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IIo-ch-ZLd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mPl-Zb-OFe">
+                                <rect key="frame" x="0.0" y="404" width="414" height="225"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="Ms2-FQ-FiN"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="3Er-us-sHC" id="gco-U0-tRE"/>
+                                    <outlet property="delegate" destination="3Er-us-sHC" id="EFK-dY-YkI"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLn-np-DvV" customClass="CalendarView" customModule="KDCalendar">
+                                <rect key="frame" x="16" y="104" width="382" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="J4T-CH-3ix"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mPl-Zb-OFe" firstAttribute="leading" secondItem="cwC-NZ-ZGE" secondAttribute="leading" id="B0S-CU-8Ch"/>
+                            <constraint firstItem="mPl-Zb-OFe" firstAttribute="trailing" secondItem="cwC-NZ-ZGE" secondAttribute="trailing" id="Sis-jy-Brf"/>
+                            <constraint firstItem="eLn-np-DvV" firstAttribute="leading" secondItem="cwC-NZ-ZGE" secondAttribute="leading" constant="16" id="Wcl-8X-8pD"/>
+                            <constraint firstItem="mPl-Zb-OFe" firstAttribute="top" secondItem="eLn-np-DvV" secondAttribute="bottom" id="WeJ-sh-wzQ"/>
+                            <constraint firstItem="eLn-np-DvV" firstAttribute="top" secondItem="cwC-NZ-ZGE" secondAttribute="top" constant="16" id="hqv-IA-il1"/>
+                            <constraint firstItem="cwC-NZ-ZGE" firstAttribute="trailing" secondItem="eLn-np-DvV" secondAttribute="trailing" constant="16" id="x87-1o-Wc7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cwC-NZ-ZGE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="N3S-v8-L9f"/>
+                    <connections>
+                        <outlet property="calendarView" destination="eLn-np-DvV" id="vnw-U5-3Xn"/>
+                        <outlet property="tableView" destination="mPl-Zb-OFe" id="0Cp-VB-zdC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rh1-CJ-Bke" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2898.5507246376815" y="-956.25"/>
+        </scene>
         <!--Home-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
@@ -15,7 +63,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0JO-oI-PW5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0JO-oI-PW5">
                                 <rect key="frame" x="0.0" y="88" width="414" height="676"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
@@ -39,6 +87,7 @@
                     <connections>
                         <outlet property="tableView" destination="0JO-oI-PW5" id="r9H-qP-ycB"/>
                         <segue destination="8DJ-6u-loa" kind="show" identifier="HomeToAddHabit" id="kpW-xQ-5ZO"/>
+                        <segue destination="3Er-us-sHC" kind="show" identifier="HomeToHabitDetail" id="xF2-xm-t8c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -95,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTa-tf-dJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3136.2318840579715" y="-956.25"/>
+            <point key="canvasLocation" x="3138" y="-1773"/>
         </scene>
         <!--Select Day View Controller-->
         <scene sceneID="16X-qW-QiD">
@@ -124,7 +173,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xeC-ie-8r3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4030" y="-956"/>
+            <point key="canvasLocation" x="4329" y="-1773"/>
         </scene>
         <!--Chat-->
         <scene sceneID="t7d-Y4-HI6">
@@ -162,7 +211,6 @@
                         <constraints>
                             <constraint firstItem="s6A-i3-6V3" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="16" id="2kM-6A-squ"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="s6A-i3-6V3" secondAttribute="trailing" constant="16" id="TEz-3M-beX"/>
-                            <constraint firstItem="s6A-i3-6V3" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Yjl-G2-bWZ"/>
                             <constraint firstItem="s6A-i3-6V3" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="16" id="oXO-k0-Kmc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>

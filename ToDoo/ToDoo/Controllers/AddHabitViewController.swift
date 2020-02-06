@@ -50,13 +50,13 @@ class AddHabitViewController: UIViewController {
             UserDefaults.standard.set(Array(repeating: true, count: 7), forKey : K.selectedDayKey)
         }
         selectedDays = UserDefaults.standard.object(forKey: K.selectedDayKey) as! [Bool]
-        
+        self.navigationController?.navigationBar.prefersLargeTitles = false
 //        print()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//    }
     
     
     //  return to home scene

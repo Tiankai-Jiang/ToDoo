@@ -10,10 +10,6 @@ class SelectDayViewController: UITableViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = false
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         UserDefaults.standard.set(selectedDays, forKey : K.selectedDayKey)
     }

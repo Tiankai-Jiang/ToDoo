@@ -3,13 +3,14 @@ struct K {
     static let registerSegue = "RegisterToHome"
     static let addHabitSegue = "HomeToAddHabit"
     static let selectDaySegue = "addHabitToSelectDay"
+    static let habitDetailSegue = "HomeToHabitDetail"
     
     static let homeTitle = "Home"
     static let calendarTitle = "Calendar"
     static let chatTitle = "Chat"
     static let settingsTitle = "Settings"
     
-    static let habitTableViewCell = "habitTableViewCell"
+//    static let habitTableViewCell = "habitTableViewCell"
     static let selectDayCell = "selectDayCell"
     
     static let selectedDayKey = "selectedDays"
@@ -30,6 +31,8 @@ struct K {
         static let addHabitRepeatXib = "AddHabitRepeatCell"
         static let addHabitToggleCell = "addHabitToggleCell"
         static let addHabitToggleXib = "AddHabitToggleCell"
+        static let habitDetailCell = "habitDetailCell"
+        static let habitDetailXib = "HabitDetailCell"
     }
     
     struct FStore {

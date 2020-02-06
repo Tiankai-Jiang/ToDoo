@@ -17,7 +17,6 @@ class HomeViewController: UIViewController {
         
         tableView.register(UINib(nibName: K.Cells.habitXib, bundle: nil), forCellReuseIdentifier: K.Cells.habitCell)
         
-        tableView.rowHeight = 80.0
         tableView.separatorStyle = .none
         loadHabits()
     }
@@ -30,7 +29,7 @@ class HomeViewController: UIViewController {
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addClicked))
         
         self.navigationController?.navigationBar.barTintColor = nil
-        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -91,8 +90,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(indexPath.row)
+
         tableView.deselectRow(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: K.habitDetailSegue, sender: self)
     }
 }
 
@@ -125,13 +125,13 @@ extension HomeViewController: SwipeTableViewCellDelegate{
         }
         
         deleteAction.image = UIImage(systemName: "trash")
-        
+        deleteAction.backgroundColor = hexStringToUIColor(hex: "FD5E53")
         
         //      define the done button & action
         let doneAction = SwipeAction(style: .destructive, title: "Done") { (action, indexPath) in
             //
         }
-        doneAction.backgroundColor = .green
+        doneAction.backgroundColor = hexStringToUIColor(hex: "21BF73")
         doneAction.image = UIImage(systemName: "checkmark.circle")
         return [deleteAction, doneAction]
     }
