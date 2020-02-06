@@ -22,6 +22,7 @@ class AddHabitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.rowHeight = 80.0
         tableView.separatorStyle = .none
         
@@ -51,6 +52,10 @@ class AddHabitViewController: UIViewController {
         selectedDays = UserDefaults.standard.object(forKey: K.selectedDayKey) as! [Bool]
         
 //        print()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     
