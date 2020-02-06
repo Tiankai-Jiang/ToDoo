@@ -14,31 +14,7 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let style = CalendarView.Style()
-        
-        style.cellShape = .bevel(8.0)
-        style.cellColorDefault = UIColor.clear
-        style.cellColorToday = UIColor(red:1.00, green:0.84, blue:0.64, alpha:1.00)
-        style.cellSelectedBorderColor = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
-        style.cellEventColor = UIColor(red:1.00, green:0.63, blue:0.24, alpha:1.00)
-        style.headerTextColor = UIColor.gray
-        style.cellTextColorDefault = UIColor(red: 249/255, green: 180/255, blue: 139/255, alpha: 1.0)
-        style.cellTextColorToday = UIColor.orange
-        style.cellTextColorWeekend = UIColor(red: 237/255, green: 103/255, blue: 73/255, alpha: 1.0)
-        style.cellColorOutOfRange = UIColor(red: 249/255, green: 226/255, blue: 212/255, alpha: 1.0)
-            
-        style.headerBackgroundColor = UIColor.white
-        style.weekdaysBackgroundColor = UIColor.white
-        style.firstWeekday = .sunday
-        
-        style.locale = Locale(identifier: "en_US")
-
-        style.cellFont = UIFont(name: "Helvetica", size: 22.0) ?? UIFont.systemFont(ofSize: 22.0)
-        style.headerFont = UIFont(name: "Helvetica", size: 22.0) ?? UIFont.systemFont(ofSize: 22.0)
-        style.weekdaysFont = UIFont(name: "Helvetica", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0)
-        
-        calendarView.style = style
+        calendarView.style = loadCalendarStyle()
         calendarView.dataSource = self
         calendarView.delegate = self
     }
