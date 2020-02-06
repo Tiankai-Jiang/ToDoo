@@ -99,46 +99,60 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
 
 extension HomeViewController: SwipeTableViewCellDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
-        
-        
-        //      define the delete button & action
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+//        guard orientation == .right else { return nil }
+        switch orientation{
+        case .right:
+            let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+                
+                let deleteAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+                
+                deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction) in
+                    if let messageSender = Auth.auth().currentUser?.email{
+                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).delete() { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            } else {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }))
+                
+                deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                
+                self.present(deleteAlert, animated: true, completion: nil)
+            }
             
-            let deleteAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+            deleteAction.image = UIImage(systemName: "trash")
+            deleteAction.backgroundColor = hexStringToUIColor(hex: "FD5E53")
+            return [deleteAction]
             
-            deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction) in
+        case .left:
+            let doneAction = SwipeAction(style: .destructive, title: "Done") { (action, indexPath) in
+                
                 if let messageSender = Auth.auth().currentUser?.email{
-                    self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).delete() { err in
-                        if let err = err {
-                            print("Error removing document: \(err)")
-                        } else {
-                            self.tableView.reloadData()
+                    self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).setData(["checked" : [Date().Noon(): Date().timeIntervalSince1970]], merge: true) { (error) in
+                        if let e = error{
+                            self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
                         }
                     }
                 }
-            }))
-            
-            deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
-            self.present(deleteAlert, animated: true, completion: nil)
-        }
-        
-        deleteAction.image = UIImage(systemName: "trash")
-        deleteAction.backgroundColor = hexStringToUIColor(hex: "FD5E53")
-        
-        //      define the done button & action
-        let doneAction = SwipeAction(style: .destructive, title: "Done") { (action, indexPath) in
-            if let messageSender = Auth.auth().currentUser?.email{
-                self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).setData(["checked" : [Date().Noon(): Date().timeIntervalSince1970]], merge: true) { (error) in
-                    if let e = error{
-                        self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
-                    }
-                }
             }
+            doneAction.backgroundColor = hexStringToUIColor(hex: "21BF73")
+            doneAction.image = UIImage(systemName: "checkmark.circle")
+            return [doneAction]
         }
-        doneAction.backgroundColor = hexStringToUIColor(hex: "21BF73")
-        doneAction.image = UIImage(systemName: "checkmark.circle")
-        return [deleteAction, doneAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        switch orientation {
+        case .right:
+            options.expansionStyle = .none
+        case .left:
+            options.expansionStyle = .selection
+        }
+        options.transitionStyle = .border
+        return options
     }
 }
