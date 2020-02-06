@@ -4,6 +4,13 @@ import Firebase
 
 class AddHabitViewController: UIViewController {
     
+    enum AddHabitCells{
+        case name
+        case color
+        case frequency
+        case toggle
+    }
+    
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
@@ -11,6 +18,7 @@ class AddHabitViewController: UIViewController {
     let db = Firestore.firestore()
     var isNotificationOn = false
     var selectedDays: [Bool] = []
+    var tableCells: [AddHabitCells] = [.name, .color, .frequency, .toggle]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,19 +97,19 @@ extension AddHabitViewController: UITextFieldDelegate{
 extension AddHabitViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4;
+        return tableCells.count;
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.row == 2){
+        if(tableCells[indexPath.row] == .frequency){
             tableView.deselectRow(at: indexPath, animated: true)
             self.performSegue(withIdentifier: K.selectDaySegue, sender: self)
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        if(indexPath.row == 0){
+        switch tableCells[indexPath.row]{
+        case .name:
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitNameCell, for: indexPath) as! AddHabitNameCell
             cell.habitNameTextField.delegate = self;
             if cell.habitNameTextField.text!.isEmpty{
@@ -109,13 +117,13 @@ extension AddHabitViewController: UITableViewDataSource{
             }
             cell.habitNameTextField.borderStyle = .none
             return cell
-        }else if(indexPath.row == 1){
+        case .color:
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitColorCell, for: indexPath) as! AddHabitColorCell
             return cell
-        }else if(indexPath.row == 2){
+        case .frequency:
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitRepeatCell, for: indexPath) as! AddHabitRepeatCell
             return cell
-        }else{
+        case .toggle:
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitToggleCell, for: indexPath) as! AddHabitToggleCell
             return cell
         }
