@@ -14,6 +14,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UINib(nibName: K.Cells.habitXib, bundle: nil), forCellReuseIdentifier: K.Cells.habitCell)
+        
         tableView.rowHeight = 80.0
         tableView.separatorStyle = .none
         loadHabits()
@@ -79,7 +82,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.habitTableViewCell, for: indexPath) as! SwipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.habitCell, for: indexPath) as! SwipeTableViewCell
         
         cell.textLabel?.text = habits[indexPath.row].name
         cell.contentView.backgroundColor = hexStringToUIColor(hex: habits[indexPath.row].color)

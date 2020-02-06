@@ -50,7 +50,7 @@ class AddHabitViewController: UIViewController {
         }
         selectedDays = UserDefaults.standard.object(forKey: K.selectedDayKey) as! [Bool]
         
-        print()
+//        print()
     }
     
     

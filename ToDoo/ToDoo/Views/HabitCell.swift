@@ -1,7 +1,7 @@
 import UIKit
 import SwipeCellKit
 
-class HabitTableViewCell: SwipeTableViewCell {
+class HabitCell: SwipeTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()

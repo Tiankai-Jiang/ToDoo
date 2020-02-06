@@ -18,6 +18,8 @@ struct K {
     static let defaultColor = "9DF3C4"
     
     struct Cells {
+        static let habitCell = "habitCell"
+        static let habitXib = "HabitCell"
         static let addHabitNameCell = "addHabitNameCell"
         static let addHabitNameXib = "AddHabitNameCell"
         static let addHabitColorCell = "addHabitColorCell"
