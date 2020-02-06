@@ -129,7 +129,13 @@ extension HomeViewController: SwipeTableViewCellDelegate{
         
         //      define the done button & action
         let doneAction = SwipeAction(style: .destructive, title: "Done") { (action, indexPath) in
-            //
+            if let messageSender = Auth.auth().currentUser?.email{
+                self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).setData(["checked" : [Date().Noon(): Date().timeIntervalSince1970]], merge: true) { (error) in
+                    if let e = error{
+                        self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
+                    }
+                }
+            }
         }
         doneAction.backgroundColor = hexStringToUIColor(hex: "21BF73")
         doneAction.image = UIImage(systemName: "checkmark.circle")

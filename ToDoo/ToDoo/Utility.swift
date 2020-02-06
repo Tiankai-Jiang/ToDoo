@@ -79,6 +79,20 @@ extension Date {
 
 }
 
+extension Date {
+
+    func Noon() -> String {
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
+        
+        components.hour = 12
+        components.minute = 0
+        components.second = 1
+
+        return String(calendar.date(from: components)!.timeIntervalSince1970)
+    }
+
+}
 
 func loadCalendarStyle() -> CalendarView.Style{
     let style = CalendarView.Style()
