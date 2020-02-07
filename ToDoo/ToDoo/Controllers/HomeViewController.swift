@@ -59,13 +59,20 @@ class HomeViewController: UIViewController {
                             let data = doc.data()
                             
                             var todayStatus: Bool = false
-                            if let checkedDict = data[K.FStore.checkedField] as? Dictionary<String, AnyObject> {
+                            if let checkedDict = data[K.FStore.checkedField] as? Dictionary<String, Int> {
                                 todayStatus = checkedDict[Date().Noon()] != nil
                             }
                             
-                            if let habitName = data[K.FStore.habitNameField] as? String, let isNotificationOn = data[K.FStore.remindField] as? Bool, let selectedDays = data[K.FStore.remindDaysField] as? [Bool], let notificationTime = data[K.FStore.notificationTimeField] as? Double, let cellColor = data[K.FStore.colorField] as? String {
+                            if let habitName = data[K.FStore.habitNameField] as? String, let isNotificationOn = data[K.FStore.remindField] as? Bool, let selectedDays = data[K.FStore.remindDaysField] as? [Bool], let notificationTime = data[K.FStore.notificationTimeField] as? Int, let cellColor = data[K.FStore.colorField] as? String {
                                 self.habits.append(Habit(name: habitName, ifRemind: isNotificationOn, remindDays: selectedDays, notificationTime: notificationTime, color: cellColor, todayStatus: todayStatus))
+                                
+                                if let checkedDict = data[K.FStore.checkedField] as? Dictionary<String, Int> {
+                                    self.habits[self.habits.count - 1].checkedDays = checkedDict
+                                }
                             }
+                            
+                            
+                            
                         }
                     }
                     
@@ -144,7 +151,7 @@ extension HomeViewController: SwipeTableViewCellDelegate{
             if(!habits[indexPath.row].todayStatus){
                 let doneAction = SwipeAction(style: .destructive, title: "Done") { (action, indexPath) in
                     if let messageSender = Auth.auth().currentUser?.email{
-                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).setData(["checked" : [Date().Noon(): Date().timeIntervalSince1970]], merge: true) { (error) in
+                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).setData(["checked" : [Date().Noon(): Int(Date().timeIntervalSince1970)]], merge: true) { (error) in
                             if let e = error{
                                 self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
                             }
@@ -157,7 +164,7 @@ extension HomeViewController: SwipeTableViewCellDelegate{
             }else{
                 let undoAction = SwipeAction(style: .destructive, title: "Undo") { (action, indexPath) in
                     if let messageSender = Auth.auth().currentUser?.email{
-                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).updateData([K.FStore.checkedField: FieldValue.arrayRemove([Date().Noon()])])
+                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).updateData([K.FStore.checkedField + "." + Date().Noon(): FieldValue.delete()])
                     }
                 }
                 

@@ -89,7 +89,7 @@ extension Date {
         components.minute = 0
         components.second = 1
 
-        return String(calendar.date(from: components)!.timeIntervalSince1970)
+        return String(Int(calendar.date(from: components)!.timeIntervalSince1970))
     }
 
 }

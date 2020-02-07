@@ -4,8 +4,17 @@ struct Habit{
     let name: String
     let ifRemind: Bool
     let remindDays: [Bool]
-    let notificationTime: Double
+    let notificationTime: Int
     let color: String
     let todayStatus: Bool
-//    let body: String
+    var checkedDays: [String: Int] = [:]
+    
+    init(name: String, ifRemind: Bool, remindDays: [Bool], notificationTime: Int, color: String, todayStatus: Bool){
+        self.name = name
+        self.ifRemind = ifRemind
+        self.remindDays = remindDays
+        self.notificationTime = notificationTime
+        self.color = color
+        self.todayStatus = todayStatus
+    }
 }
