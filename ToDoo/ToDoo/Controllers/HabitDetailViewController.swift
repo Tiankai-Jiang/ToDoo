@@ -7,7 +7,7 @@ class HabitDetailViewController: UIViewController {
     @IBOutlet weak var calendarView: CalendarView!
     @IBOutlet weak var tableView: UITableView!
     
-    var habitInformation: [HabitInfo] = [HabitInfo(infoName: "Total persisted days", info: "5d"), HabitInfo(infoName: "Current sequential days", info: "2d"), HabitInfo(infoName: "Longest record", info: "3d"), HabitInfo(infoName: "Established date", info: "2020-01-13"), HabitInfo(infoName: "Missed days", info: "23d")]
+    var habitInformation: [HabitInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,6 @@ class HabitDetailViewController: UIViewController {
         
         self.calendarView.setDisplayDate(today)
     }
-
 }
 
 extension HabitDetailViewController: UITableViewDataSource{

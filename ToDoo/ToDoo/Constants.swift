@@ -10,7 +10,6 @@ struct K {
     static let chatTitle = "Chat"
     static let settingsTitle = "Settings"
     
-//    static let habitTableViewCell = "habitTableViewCell"
     static let selectDayCell = "selectDayCell"
     
     static let selectedDayKey = "selectedDays"
@@ -41,7 +40,7 @@ struct K {
         static let habitNameField = "habitName"
         //        static let bodyField = "body"
         static let checkedField = "checked"
-        static let dateField = "addedDate"
+        static let addedDateField = "addedDate"
         static let remindField = "ifRemind"
         static let remindDaysField = "remindDays"
         static let notificationTimeField = "notificationTime"

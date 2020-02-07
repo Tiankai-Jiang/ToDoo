@@ -39,17 +39,34 @@ class HomeViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == K.habitDetailSegue else { return }
+        let destinationVC = segue.destination as! HabitDetailViewController
+//        if let indexPath = tableView.indexPathForSelectedRow{
+//            destinationVC.habitInformation = calculateHabitInfo(at: indexPath.row)
+//        }
+        destinationVC.habitInformation = [HabitInfo(infoName: "Total persisted days", info: "10d"), HabitInfo(infoName: "Current sequential days", info: "7d"), HabitInfo(infoName: "Longest record", info: "3d"), HabitInfo(infoName: "Established date", info: "2020-01-13"), HabitInfo(infoName: "Missed days", info: "23d")]
+        
+    }
+    
     @objc func addClicked(){
         self.performSegue(withIdentifier: K.addHabitSegue, sender: self)
     }
+
+//    func calculateHabitInfo(at row: Int) -> [HabitInfo]{
+//        let total = habits[row].checkedDays.count
+//        let current =habits[row]
+//        longest
+//        let established =
+//        missed
+//    }
     
 // MARK: - Load Habbits
     func loadHabits(){
         if let messageSender = Auth.auth().currentUser?.email{
             let habitColRef = db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
             
-            
-            habitColRef.order(by: K.FStore.dateField).addSnapshotListener { (querySnapshot, error) in
+            habitColRef.order(by: K.FStore.addedDateField).addSnapshotListener { (querySnapshot, error) in
                 self.habits = []
                 if let e = error{
                     print(e.localizedDescription)
@@ -63,16 +80,13 @@ class HomeViewController: UIViewController {
                                 todayStatus = checkedDict[Date().Noon()] != nil
                             }
                             
-                            if let habitName = data[K.FStore.habitNameField] as? String, let isNotificationOn = data[K.FStore.remindField] as? Bool, let selectedDays = data[K.FStore.remindDaysField] as? [Bool], let notificationTime = data[K.FStore.notificationTimeField] as? Int, let cellColor = data[K.FStore.colorField] as? String {
-                                self.habits.append(Habit(name: habitName, ifRemind: isNotificationOn, remindDays: selectedDays, notificationTime: notificationTime, color: cellColor, todayStatus: todayStatus))
+                            if let habitName = data[K.FStore.habitNameField] as? String, let addedDate = data[K.FStore.addedDateField] as? Int, let isNotificationOn = data[K.FStore.remindField] as? Bool, let selectedDays = data[K.FStore.remindDaysField] as? [Bool], let notificationTime = data[K.FStore.notificationTimeField] as? Int, let cellColor = data[K.FStore.colorField] as? String {
+                                self.habits.append(Habit(name: habitName, addedDate: addedDate, ifRemind: isNotificationOn, remindDays: selectedDays, notificationTime: notificationTime, color: cellColor, todayStatus: todayStatus))
                                 
                                 if let checkedDict = data[K.FStore.checkedField] as? Dictionary<String, Int> {
                                     self.habits[self.habits.count - 1].checkedDays = checkedDict
                                 }
                             }
-                            
-                            
-                            
                         }
                     }
                     
