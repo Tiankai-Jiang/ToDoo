@@ -44,6 +44,9 @@ class HomeViewController: UIViewController {
         let destinationVC = segue.destination as! HabitDetailViewController
         if let indexPath = tableView.indexPathForSelectedRow{
             destinationVC.habitInformation = calculateHabitInfo(at: indexPath.row)
+            habits[indexPath.row].checkedDays.forEach{
+                destinationVC.checkedDays.append($1)
+            }
         }
     }
     

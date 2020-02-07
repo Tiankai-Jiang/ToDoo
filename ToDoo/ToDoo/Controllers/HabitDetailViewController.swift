@@ -8,6 +8,7 @@ class HabitDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var habitInformation: [HabitInfo] = []
+    var checkedDays: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +19,14 @@ class HabitDetailViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        let today = Date().toLocalTime()
+    override func viewWillAppear(_ animated: Bool) {
+        checkedDays.forEach{
+            self.calendarView.selectDate(Date(timeIntervalSince1970: TimeInterval($0)).toLocalTime())
+        }
+        self.calendarView.selectDate(Date(timeIntervalSince1970: 1580918339.0).toLocalTime())
+        self.calendarView.selectDate(Date(timeIntervalSince1970: 1580831939.0).toLocalTime())
+//        self.calendarView.setDisplayDate(Date().toLocalTime())
 //        self.calendarView.selectDate(Calendar.current.date(byAdding: .day, value: 1, to: today)!)
-        
-        self.calendarView.setDisplayDate(today)
     }
 }
 
