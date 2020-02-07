@@ -62,7 +62,6 @@ extension UIViewController {
 }
 
 extension Date {
-
     // Convert local time to UTC (or GMT)
     func toGlobalTime() -> Date {
         let timezone = TimeZone.current
@@ -80,7 +79,6 @@ extension Date {
 }
 
 extension Date {
-
     func Noon() -> String {
         let calendar = Calendar.current
         var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
@@ -92,6 +90,21 @@ extension Date {
         return String(Int(calendar.date(from: components)!.timeIntervalSince1970))
     }
 
+}
+
+func epochTimeToString(_ epoch: Int) -> String{
+    let date = Date(timeIntervalSince1970: TimeInterval(epoch)).toLocalTime()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    return dateFormatter.string(from: date)
+}
+
+func epochTimeDaysInterval(_ epochEarlier: Int, _ epochLater: Int) -> Int{
+    let calendar = Calendar.current
+    let dateEarlier = calendar.startOfDay(for: Date(timeIntervalSince1970: TimeInterval(epochEarlier)))
+    let dateLater = calendar.startOfDay(for: Date(timeIntervalSince1970: TimeInterval(epochLater)))
+    let components = calendar.dateComponents([.day], from: dateEarlier, to: dateLater)
+    return components.day!
 }
 
 func loadCalendarStyle() -> CalendarView.Style{

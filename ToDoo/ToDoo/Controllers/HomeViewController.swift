@@ -42,24 +42,62 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == K.habitDetailSegue else { return }
         let destinationVC = segue.destination as! HabitDetailViewController
-//        if let indexPath = tableView.indexPathForSelectedRow{
-//            destinationVC.habitInformation = calculateHabitInfo(at: indexPath.row)
-//        }
-        destinationVC.habitInformation = [HabitInfo(infoName: "Total persisted days", info: "10d"), HabitInfo(infoName: "Current sequential days", info: "7d"), HabitInfo(infoName: "Longest record", info: "3d"), HabitInfo(infoName: "Established date", info: "2020-01-13"), HabitInfo(infoName: "Missed days", info: "23d")]
-        
+        if let indexPath = tableView.indexPathForSelectedRow{
+            destinationVC.habitInformation = calculateHabitInfo(at: indexPath.row)
+        }
     }
     
     @objc func addClicked(){
         self.performSegue(withIdentifier: K.addHabitSegue, sender: self)
     }
-
-//    func calculateHabitInfo(at row: Int) -> [HabitInfo]{
-//        let total = habits[row].checkedDays.count
-//        let current =habits[row]
-//        longest
-//        let established =
-//        missed
-//    }
+    
+    func getIfCheckedArray(_ checked: [String: Int], _ start: Int) -> [Bool]{
+        let interval = 1 + epochTimeDaysInterval(start, Int(Date().timeIntervalSince1970))
+        var ifChecked: Array<Bool> = Array(repeating: false, count: interval)
+        checked.forEach{
+            ifChecked[epochTimeDaysInterval(start, $1)] = true
+        }
+        return ifChecked
+    }
+    
+    func getLongestStreak(_ ifChecked: [Bool]) -> Int{
+        var cur = 0
+        var max = 0
+        for v in ifChecked{
+            cur = v ? cur + 1 : 0
+            max = cur > max ? cur : max
+        }
+        return max
+    }
+    
+    func getCurrentStreak(_ ifChecked: [Bool]) -> Int{
+        if(ifChecked.count == 1){
+            return ifChecked[0] ? 1 : 0
+        }else{
+            var res = 0
+            for v in (0 ... ifChecked.count - 2).reversed(){
+                if(ifChecked[v]){
+                    res += 1
+                }else{
+                    break
+                }
+            }
+            if(ifChecked.last!){
+                res += 1
+            }
+            return res
+        }
+    }
+    
+    func calculateHabitInfo(at row: Int) -> [HabitInfo]{
+        let total = habits[row].checkedDays.count
+        let ifChecked: [Bool] = getIfCheckedArray(habits[row].checkedDays, habits[row].addedDate)
+        let longest = getLongestStreak(ifChecked)
+        let current = getCurrentStreak(ifChecked)
+        let established = epochTimeToString(habits[row].addedDate)
+        let missed = ifChecked.count - total
+        return [HabitInfo(infoName: "Total persisted days", info: String(total) + "d"), HabitInfo(infoName: "Current sequential days", info: String(current) + "d"), HabitInfo(infoName: "Longest record", info: String(longest) + "d"), HabitInfo(infoName: "Missed days", info: String(missed) + "d"),  HabitInfo(infoName: "Established date", info: established)]
+    }
     
 // MARK: - Load Habbits
     func loadHabits(){
@@ -123,9 +161,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        tableView.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: K.habitDetailSegue, sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
