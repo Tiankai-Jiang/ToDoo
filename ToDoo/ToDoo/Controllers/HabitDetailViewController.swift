@@ -23,8 +23,8 @@ class HabitDetailViewController: UIViewController {
         checkedDays.forEach{
             self.calendarView.selectDate(Date(timeIntervalSince1970: TimeInterval($0)).toLocalTime())
         }
-        self.calendarView.selectDate(Date(timeIntervalSince1970: 1580918339.0).toLocalTime())
-        self.calendarView.selectDate(Date(timeIntervalSince1970: 1580831939.0).toLocalTime())
+//        self.calendarView.selectDate(Date(timeIntervalSince1970: 1580918339.0).toLocalTime())
+//        self.calendarView.selectDate(Date(timeIntervalSince1970: 1580831939.0).toLocalTime())
 //        self.calendarView.setDisplayDate(Date().toLocalTime())
 //        self.calendarView.selectDate(Calendar.current.date(byAdding: .day, value: 1, to: today)!)
     }
