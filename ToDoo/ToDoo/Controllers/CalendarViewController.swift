@@ -5,6 +5,9 @@ import KDCalendar
 class CalendarViewController: UIViewController {
     
     @IBOutlet weak var calendarView: CalendarView!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationItem.hidesBackButton = true
@@ -14,6 +17,9 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: K.Cells.timelineXib, bundle: nil), forCellReuseIdentifier: K.Cells.timelineCell)
+        tableView.separatorStyle = .none
+        
         calendarView.style = loadCalendarStyle()
         calendarView.dataSource = self
         calendarView.delegate = self
@@ -21,6 +27,9 @@ class CalendarViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        let homeViewController = storyboard!.instantiateViewController(withIdentifier: "homeScene") as! HomeViewController
+        print(homeViewController.habits.count)
         
         let today = Date().toLocalTime()
         self.calendarView.selectDate(Calendar.current.date(byAdding: .day, value: 1, to: today)!)
@@ -114,5 +123,21 @@ extension CalendarViewController: CalendarViewDelegate {
            self.present(alert, animated: true, completion: nil)
            
        }
+    
+}
+
+extension CalendarViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.timelineCell, for: indexPath) as! TimelineCell
+        cell.finishedTime.text = "2020-02-27"
+        cell.habitName.text = "really really really long string"
+        cell.timelineIcon.image = UIImage(named: "timeline")
+        return cell
+    }
+    
     
 }

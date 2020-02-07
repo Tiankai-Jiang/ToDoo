@@ -32,6 +32,8 @@ struct K {
         static let addHabitToggleXib = "AddHabitToggleCell"
         static let habitDetailCell = "habitDetailCell"
         static let habitDetailXib = "HabitDetailCell"
+        static let timelineCell = "timelineCell"
+        static let timelineXib = "TimelineCell"
     }
     
     struct FStore {

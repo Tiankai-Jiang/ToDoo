@@ -133,9 +133,6 @@ class HomeViewController: UIViewController {
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
-//                        for h in self.habits{
-//                            print(h.todayStatus)
-//                        }
                         if self.habits.count > 1{
                             let indexPath = IndexPath(row: self.habits.count - 1, section: 0)
                             self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)

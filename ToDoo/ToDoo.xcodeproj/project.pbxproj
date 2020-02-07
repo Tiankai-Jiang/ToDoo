@@ -20,6 +20,8 @@
 		3620343323CE4D5E00939EAF /* ToDooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620343223CE4D5E00939EAF /* ToDooTests.swift */; };
 		3620343E23CE4D5E00939EAF /* ToDooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620343D23CE4D5E00939EAF /* ToDooUITests.swift */; };
 		3620344D23CE53C700939EAF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620344C23CE53C700939EAF /* WelcomeViewController.swift */; };
+		36313E6D23EE03F9009CE2BB /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36313E6B23EE03F9009CE2BB /* TimelineCell.swift */; };
+		36313E6E23EE03F9009CE2BB /* TimelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36313E6C23EE03F9009CE2BB /* TimelineCell.xib */; };
 		3635BBB223EB5E3F00869962 /* AddHabitNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3635BBB023EB5E3F00869962 /* AddHabitNameCell.swift */; };
 		3635BBB323EB5E3F00869962 /* AddHabitNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3635BBB123EB5E3F00869962 /* AddHabitNameCell.xib */; };
 		3635BBB623EB657700869962 /* AddHabitColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3635BBB423EB657700869962 /* AddHabitColorCell.swift */; };
@@ -84,6 +86,8 @@
 		3620343F23CE4D5E00939EAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3620344B23CE4D7400939EAF /* ToDoo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToDoo.entitlements; sourceTree = "<group>"; };
 		3620344C23CE53C700939EAF /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		36313E6B23EE03F9009CE2BB /* TimelineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCell.swift; sourceTree = "<group>"; };
+		36313E6C23EE03F9009CE2BB /* TimelineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineCell.xib; sourceTree = "<group>"; };
 		3635BBB023EB5E3F00869962 /* AddHabitNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitNameCell.swift; sourceTree = "<group>"; };
 		3635BBB123EB5E3F00869962 /* AddHabitNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddHabitNameCell.xib; sourceTree = "<group>"; };
 		3635BBB423EB657700869962 /* AddHabitColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitColorCell.swift; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 		368D2DCF23CE72A500B65733 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				36313E6B23EE03F9009CE2BB /* TimelineCell.swift */,
+				36313E6C23EE03F9009CE2BB /* TimelineCell.xib */,
 				3620342123CE4D5C00939EAF /* Main.storyboard */,
 				36396D1023EC46B900439059 /* HabitCell.swift */,
 				36396D1123EC46B900439059 /* HabitCell.xib */,
@@ -376,6 +382,7 @@
 				3620342523CE4D5D00939EAF /* Assets.xcassets in Resources */,
 				3620342323CE4D5C00939EAF /* Main.storyboard in Resources */,
 				3635BBC323EB704900869962 /* AddHabitToggleCell.xib in Resources */,
+				36313E6E23EE03F9009CE2BB /* TimelineCell.xib in Resources */,
 				36396D1323EC46B900439059 /* HabitCell.xib in Resources */,
 				3661CA2823EC56CC00C73F0D /* HabitDetailCell.xib in Resources */,
 				3635BBBB23EB681000869962 /* ColorCell.xib in Resources */,
@@ -457,6 +464,7 @@
 				3620344D23CE53C700939EAF /* WelcomeViewController.swift in Sources */,
 				3620341E23CE4D5C00939EAF /* HomeViewController.swift in Sources */,
 				364CBE1823CE6BFA00B14A95 /* Constants.swift in Sources */,
+				36313E6D23EE03F9009CE2BB /* TimelineCell.swift in Sources */,
 				36B6C67423CE599900DD4839 /* RegisterViewController.swift in Sources */,
 				3620341A23CE4D5C00939EAF /* AppDelegate.swift in Sources */,
 				3635BBC223EB704900869962 /* AddHabitToggleCell.swift in Sources */,
