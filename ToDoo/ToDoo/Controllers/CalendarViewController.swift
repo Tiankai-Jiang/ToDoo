@@ -140,22 +140,22 @@ extension CalendarViewController: CalendarViewDelegate {
 
 extension CalendarViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayedHabits.count
+        return displayedHabits.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.timelineCell, for: indexPath) as! TimelineCell
-//        if(indexPath.row == 0){
-//            cell.finishedTime.isHidden = true
-//            cell.habitName.text = "Today I did  |  " + epochTimeToString(Int(Date().timeIntervalSince1970), "MMM dd,yyyy")
-//            cell.habitName.font = UIFont.boldSystemFont(ofSize: 20.0)
-//            cell.timelineIcon.image = UIImage(systemName: "calendar", withConfiguration: UIImage.SymbolConfiguration(scale: .small))?.withTintColor(.black, renderingMode: .alwaysOriginal)
-//
-//        }else{
-            cell.finishedTime.text = epochTimeToString(displayedHabits[indexPath.row].1, "HH:mm")
-            cell.habitName.text = displayedHabits[indexPath.row].0
+        if(indexPath.row == 0){
+            cell.finishedTime.isHidden = true
+            cell.habitName.text = "Today I did  |  " + epochTimeToString(Int(Date().timeIntervalSince1970), "MMM dd,yyyy")
+            cell.habitName.font = UIFont.boldSystemFont(ofSize: 20.0)
+            cell.timelineIcon.image = UIImage(systemName: "calendar", withConfiguration: UIImage.SymbolConfiguration(scale: .small))?.withTintColor(.black, renderingMode: .alwaysOriginal)
+
+        }else{
+            cell.finishedTime.text = epochTimeToString(displayedHabits[indexPath.row - 1].1, "HH:mm")
+            cell.habitName.text = displayedHabits[indexPath.row-1].0
             cell.timelineIcon.image = UIImage(named: "timeline")
-//        }
+        }
         return cell
     }
     
