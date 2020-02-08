@@ -17,7 +17,6 @@ class AddHabitViewController: UIViewController {
     
     let db = Firestore.firestore()
     var isNotificationOn = false
-    var selectedDays: [Bool] = []
     var tableCells: [AddHabitCells] = [.name, .color, .frequency, .toggle]
     
     override func viewDidLoad() {
@@ -45,19 +44,8 @@ class AddHabitViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        if(UserDefaults.standard.object(forKey: K.selectedDayKey) == nil){
-            UserDefaults.standard.set(Array(repeating: true, count: 7), forKey : K.selectedDayKey)
-        }
-        selectedDays = UserDefaults.standard.object(forKey: K.selectedDayKey) as! [Bool]
         self.navigationController?.navigationBar.prefersLargeTitles = false
-//        print()
     }
-    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//    }
-    
     
     //  return to home scene
     @objc func back(){
@@ -76,7 +64,7 @@ class AddHabitViewController: UIViewController {
                 if let document = document, document.exists {
                     self.view.makeToast("A habit with this name already exists", duration: 2.0, position: .top)
                 } else {
-                    habitColRef.document(habitName).setData([K.FStore.habitNameField: habitName, K.FStore.addedDateField: Int(Date().timeIntervalSince1970), K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: self.selectedDays, K.FStore.notificationTimeField: Int(self.timePicker.date.timeIntervalSince1970), K.FStore.colorField: selectedColor, K.FStore.checkedField: []], completion: { (error) in
+                    habitColRef.document(habitName).setData([K.FStore.habitNameField: habitName, K.FStore.addedDateField: Int(Date().timeIntervalSince1970), K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: Shared.sharedInstance.selectedDays, K.FStore.notificationTimeField: Int(self.timePicker.date.timeIntervalSince1970), K.FStore.colorField: selectedColor, K.FStore.checkedField: []], completion: { (error) in
                         if let e = error{
                             self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
                         }else{

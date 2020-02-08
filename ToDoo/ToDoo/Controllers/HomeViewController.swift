@@ -33,20 +33,17 @@ class HomeViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if(UserDefaults.standard.object(forKey: K.selectedDayKey) != nil){
-            UserDefaults.standard.removeObject(forKey: K.selectedDayKey)
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == K.habitDetailSegue else { return }
-        let destinationVC = segue.destination as! HabitDetailViewController
-        if let indexPath = tableView.indexPathForSelectedRow{
-            destinationVC.habitInformation = calculateHabitInfo(at: indexPath.row)
-            habits[indexPath.row].checkedDays.forEach{
-                destinationVC.checkedDays.append($1)
+        if(segue.identifier == K.habitDetailSegue){
+            let destinationVC = segue.destination as! HabitDetailViewController
+            if let indexPath = tableView.indexPathForSelectedRow{
+                destinationVC.habitInformation = calculateHabitInfo(at: indexPath.row)
+                habits[indexPath.row].checkedDays.forEach{
+                    destinationVC.checkedDays.append($1)
+                }
             }
+        }else if(segue.identifier == K.addHabitSegue){
+            Shared.sharedInstance.selectedDays = Array(repeating: true, count: 7)
         }
     }
     
