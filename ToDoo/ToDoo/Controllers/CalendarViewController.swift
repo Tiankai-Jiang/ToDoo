@@ -8,7 +8,7 @@ class CalendarViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var habits: [Habit] = []
+//    var habits: [Habit] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,7 @@ class CalendarViewController: UIViewController {
         self.tabBarController?.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.title = K.calendarTitle
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
-        self.habits = Shared.sharedInstance.sharedHabitsArray
-//        print(habits.count)
+//        self.habits = Shared.sharedInstance.habits
     }
     
     override func viewDidAppear(_ animated: Bool) {

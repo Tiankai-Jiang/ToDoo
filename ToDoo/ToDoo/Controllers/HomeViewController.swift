@@ -10,8 +10,6 @@ class HomeViewController: UIViewController {
     
     let db = Firestore.firestore()
     
-    var habits: [Habit] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,11 +32,13 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // could be removed!!!!!!!!!!!
         if(segue.identifier == K.habitDetailSegue){
             let destinationVC = segue.destination as! HabitDetailViewController
             if let indexPath = tableView.indexPathForSelectedRow{
                 destinationVC.habitInformation = calculateHabitInfo(at: indexPath.row)
-                habits[indexPath.row].checkedDays.forEach{
+                Shared.sharedInstance.habits[indexPath.row].checkedDays.forEach{
                     destinationVC.checkedDays.append($1)
                 }
             }
@@ -51,6 +51,7 @@ class HomeViewController: UIViewController {
         self.performSegue(withIdentifier: K.addHabitSegue, sender: self)
     }
     
+    // could be modified!!!!!
     func getIfCheckedArray(_ checked: [String: Int], _ start: Int) -> [Bool]{
         let interval = 1 + epochTimeDaysInterval(start, Int(Date().timeIntervalSince1970))
         var ifChecked: Array<Bool> = Array(repeating: false, count: interval)
@@ -90,22 +91,21 @@ class HomeViewController: UIViewController {
     }
     
     func calculateHabitInfo(at row: Int) -> [HabitInfo]{
-        let total = habits[row].checkedDays.count
-        let ifChecked: [Bool] = getIfCheckedArray(habits[row].checkedDays, habits[row].addedDate)
+        let total = Shared.sharedInstance.habits[row].checkedDays.count
+        let ifChecked: [Bool] = getIfCheckedArray(Shared.sharedInstance.habits[row].checkedDays, Shared.sharedInstance.habits[row].addedDate)
         let longest = getLongestStreak(ifChecked)
         let current = getCurrentStreak(ifChecked)
-        let established = epochTimeToString(habits[row].addedDate)
+        let established = epochTimeToString(Shared.sharedInstance.habits[row].addedDate)
         let missed = ifChecked.count - total
         return [HabitInfo(infoName: "Total persisted days", info: String(total) + "d"), HabitInfo(infoName: "Current sequential days", info: String(current) + "d"), HabitInfo(infoName: "Longest record", info: String(longest) + "d"), HabitInfo(infoName: "Missed days", info: String(missed) + "d"),  HabitInfo(infoName: "Established date", info: established)]
     }
     
-// MARK: - Load Habbits
     func loadHabits(){
         if let messageSender = Auth.auth().currentUser?.email{
             let habitColRef = db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
             
             habitColRef.order(by: K.FStore.addedDateField).addSnapshotListener { (querySnapshot, error) in
-                self.habits = []
+                Shared.sharedInstance.habits = []
                 if let e = error{
                     print(e.localizedDescription)
                 }else{
@@ -119,20 +119,19 @@ class HomeViewController: UIViewController {
                             }
                             
                             if let habitName = data[K.FStore.habitNameField] as? String, let addedDate = data[K.FStore.addedDateField] as? Int, let isNotificationOn = data[K.FStore.remindField] as? Bool, let selectedDays = data[K.FStore.remindDaysField] as? [Bool], let notificationTime = data[K.FStore.notificationTimeField] as? Int, let cellColor = data[K.FStore.colorField] as? String {
-                                self.habits.append(Habit(name: habitName, addedDate: addedDate, ifRemind: isNotificationOn, remindDays: selectedDays, notificationTime: notificationTime, color: cellColor, todayStatus: todayStatus))
+                                Shared.sharedInstance.habits.append(Habit(name: habitName, addedDate: addedDate, ifRemind: isNotificationOn, remindDays: selectedDays, notificationTime: notificationTime, color: cellColor, todayStatus: todayStatus))
                                 
                                 if let checkedDict = data[K.FStore.checkedField] as? Dictionary<String, Int> {
-                                    self.habits[self.habits.count - 1].checkedDays = checkedDict
+                                    Shared.sharedInstance.habits[Shared.sharedInstance.habits.count - 1].checkedDays = checkedDict
                                 }
                             }
                         }
-                        Shared.sharedInstance.sharedHabitsArray = self.habits
                     }
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
-                        if self.habits.count > 1{
-                            let indexPath = IndexPath(row: self.habits.count - 1, section: 0)
+                        if (Shared.sharedInstance.habits.count > 1){
+                            let indexPath = IndexPath(row: Shared.sharedInstance.habits.count - 1, section: 0)
                             self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
                         }
                     }
@@ -145,15 +144,15 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return habits.count
+        return Shared.sharedInstance.habits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.habitCell, for: indexPath) as! HabitCell
         
-        cell.habitNameLabel.text = habits[indexPath.row].name
-        cell.contentView.backgroundColor = hexStringToUIColor(hex: habits[indexPath.row].color)
-        cell.checkmark.image = habits[indexPath.row].todayStatus ? UIImage(systemName: "checkmark") : nil
+        cell.habitNameLabel.text = Shared.sharedInstance.habits[indexPath.row].name
+        cell.contentView.backgroundColor = hexStringToUIColor(hex: Shared.sharedInstance.habits[indexPath.row].color)
+        cell.checkmark.image = Shared.sharedInstance.habits[indexPath.row].todayStatus ? UIImage(systemName: "checkmark") : nil
         cell.delegate = self
         return cell
     }
@@ -176,7 +175,7 @@ extension HomeViewController: SwipeTableViewCellDelegate{
                 
                 deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction) in
                     if let messageSender = Auth.auth().currentUser?.email{
-                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).delete() { err in
+                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(Shared.sharedInstance.habits[indexPath.row].name).delete() { err in
                             if let err = err {
                                 print("Error removing document: \(err)")
                             } else {
@@ -197,10 +196,10 @@ extension HomeViewController: SwipeTableViewCellDelegate{
             
             
         case .left:
-            if(!habits[indexPath.row].todayStatus){
+            if(!Shared.sharedInstance.habits[indexPath.row].todayStatus){
                 let doneAction = SwipeAction(style: .destructive, title: "Done") { (action, indexPath) in
                     if let messageSender = Auth.auth().currentUser?.email{
-                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).setData(["checked" : [Date().Noon(): Int(Date().timeIntervalSince1970)]], merge: true) { (error) in
+                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(Shared.sharedInstance.habits[indexPath.row].name).setData(["checked" : [Date().Noon(): Int(Date().timeIntervalSince1970)]], merge: true) { (error) in
                             if let e = error{
                                 self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
                             }
@@ -213,7 +212,7 @@ extension HomeViewController: SwipeTableViewCellDelegate{
             }else{
                 let undoAction = SwipeAction(style: .destructive, title: "Undo") { (action, indexPath) in
                     if let messageSender = Auth.auth().currentUser?.email{
-                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.habits[indexPath.row].name).updateData([K.FStore.checkedField + "." + Date().Noon(): FieldValue.delete()])
+                        self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(Shared.sharedInstance.habits[indexPath.row].name).updateData([K.FStore.checkedField + "." + Date().Noon(): FieldValue.delete()])
                     }
                 }
                 
