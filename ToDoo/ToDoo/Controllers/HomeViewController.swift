@@ -11,7 +11,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         tableView.register(UINib(nibName: K.Cells.habitXib, bundle: nil), forCellReuseIdentifier: K.Cells.habitCell)
         
         tableView.separatorStyle = .none
@@ -27,7 +28,6 @@ class HomeViewController: UIViewController {
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addClicked))
         
         self.navigationController?.navigationBar.barTintColor = nil
-        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

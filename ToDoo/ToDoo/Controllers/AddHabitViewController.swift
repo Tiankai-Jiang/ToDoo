@@ -43,10 +43,10 @@ class AddHabitViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: K.defaultColor)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.navigationController?.navigationBar.prefersLargeTitles = false
+//    }
     
     //  return to home scene
     @objc func back(){

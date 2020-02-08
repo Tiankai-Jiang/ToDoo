@@ -45,7 +45,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cwC-NZ-ZGE"/>
                     </view>
-                    <navigationItem key="navigationItem" id="N3S-v8-L9f"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="N3S-v8-L9f"/>
                     <connections>
                         <outlet property="calendarView" destination="eLn-np-DvV" id="vnw-U5-3Xn"/>
                         <outlet property="tableView" destination="mPl-Zb-OFe" id="0Cp-VB-zdC"/>
@@ -64,7 +64,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0JO-oI-PW5">
-                                <rect key="frame" x="0.0" y="88" width="414" height="676"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="624"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9pv-A4-QxB" id="dGt-g9-XyI"/>
@@ -128,7 +128,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4EU-GH-ukE"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TgL-d5-wKd">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="TgL-d5-wKd">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="u1b-N8-ptm">
                             <connections>
                                 <action selector="addItem:" destination="8DJ-6u-loa" id="7EF-uk-SCa"/>
@@ -169,7 +169,7 @@
                             <outlet property="delegate" destination="U3S-5v-FvO" id="7pf-k6-2sI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="xc0-zQ-x0a"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="xc0-zQ-x0a"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xeC-ie-8r3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -200,14 +200,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6A-i3-6V3" customClass="CalendarView" customModule="KDCalendar">
-                                <rect key="frame" x="16" y="104" width="382" height="300"/>
+                                <rect key="frame" x="16" y="156" width="382" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="Kcp-ai-AyH"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4n2-J9-dno">
-                                <rect key="frame" x="0.0" y="404" width="414" height="409"/>
+                                <rect key="frame" x="0.0" y="456" width="414" height="357"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="8rJ-Kc-sve" id="9re-fZ-orR"/>
@@ -329,7 +329,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4Mn-zb-7oh" userLabel="LoginTextStackView">
-                                <rect key="frame" x="50" y="128" width="314" height="120"/>
+                                <rect key="frame" x="50" y="180" width="314" height="120"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1@2.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oi1-e4-Qdh" userLabel="LoginEmailTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
@@ -350,7 +350,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGa-nM-6U1">
-                                <rect key="frame" x="107" y="288" width="200" height="51"/>
+                                <rect key="frame" x="107" y="340" width="200" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="if4-en-gyV"/>
                                 </constraints>
@@ -402,7 +402,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q1i-DR-39B" userLabel="RegisterTextStackView">
-                                <rect key="frame" x="50" y="128" width="314" height="120"/>
+                                <rect key="frame" x="50" y="180" width="314" height="120"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mOX-jb-tJj" userLabel="RegisterEmailTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
@@ -423,7 +423,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DM2-Pl-dv6">
-                                <rect key="frame" x="107" y="288" width="200" height="51"/>
+                                <rect key="frame" x="107" y="340" width="200" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="V8s-g5-tBK"/>
                                 </constraints>
@@ -484,8 +484,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hau-Xl-Rc0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f2w-BJ-PZq">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="f2w-BJ-PZq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
