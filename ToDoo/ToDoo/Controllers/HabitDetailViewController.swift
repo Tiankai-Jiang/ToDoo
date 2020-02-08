@@ -9,6 +9,7 @@ class HabitDetailViewController: UIViewController {
     
     var habitInformation: [HabitInfo] = []
     var checkedDays: [Int] = []
+    var rowNumber: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class HabitDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.title = Shared.sharedInstance.habits[rowNumber].name
         checkedDays.forEach{
             self.calendarView.selectDate(Date(timeIntervalSince1970: TimeInterval($0)).toLocalTime())
         }

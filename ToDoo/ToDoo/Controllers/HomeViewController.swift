@@ -33,6 +33,7 @@ class HomeViewController: UIViewController {
         if(segue.identifier == K.habitDetailSegue){
             let destinationVC = segue.destination as! HabitDetailViewController
             if let indexPath = tableView.indexPathForSelectedRow{
+                destinationVC.rowNumber = indexPath.row
                 destinationVC.habitInformation = calculateHabitInfo(at: indexPath.row)
                 Shared.sharedInstance.habits[indexPath.row].checkedDays.forEach{
                     destinationVC.checkedDays.append($1)
@@ -125,10 +126,6 @@ class HomeViewController: UIViewController {
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
-                        if (Shared.sharedInstance.habits.count > 1){
-                            let indexPath = IndexPath(row: Shared.sharedInstance.habits.count - 1, section: 0)
-                            self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
-                        }
                     }
                 }
             }
