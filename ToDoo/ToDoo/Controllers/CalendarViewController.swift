@@ -8,7 +8,7 @@ class CalendarViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-//    var habits: [Habit] = []
+    var displayedHabits:[(String, Int)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,9 @@ class CalendarViewController: UIViewController {
         self.tabBarController?.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.title = K.calendarTitle
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
-//        self.habits = Shared.sharedInstance.habits
+        
+        getDisplayedHabits(date: Date())
+        tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -35,6 +37,16 @@ class CalendarViewController: UIViewController {
         self.calendarView.selectDate(Calendar.current.date(byAdding: .day, value: 1, to: today)!)
         
         self.calendarView.setDisplayDate(today)
+    }
+    
+    func getDisplayedHabits(date: Date){
+        var res: [String: Int] = [:]
+        Shared.sharedInstance.habits.forEach{
+            if let checkedTime = $0.checkedDays[date.Noon()]{
+                res[$0.name] = checkedTime
+            }
+        }
+        self.displayedHabits = res.sorted { $0.1 < $1.1 }
     }
 }
 
@@ -62,7 +74,7 @@ extension CalendarViewController: CalendarViewDataSource {
           var dateComponents = DateComponents()
         
           dateComponents.month = 12
-        let today = Date().toLocalTime()
+          let today = Date().toLocalTime()
           
           let twoYearsFromNow = self.calendarView.calendar.date(byAdding: dateComponents, to: today)!
           
@@ -128,14 +140,22 @@ extension CalendarViewController: CalendarViewDelegate {
 
 extension CalendarViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return displayedHabits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.timelineCell, for: indexPath) as! TimelineCell
-        cell.finishedTime.text = "2020-02-27"
-        cell.habitName.text = "really really really long string"
-        cell.timelineIcon.image = UIImage(named: "timeline")
+//        if(indexPath.row == 0){
+//            cell.finishedTime.isHidden = true
+//            cell.habitName.text = "Today I did  |  " + epochTimeToString(Int(Date().timeIntervalSince1970), "MMM dd,yyyy")
+//            cell.habitName.font = UIFont.boldSystemFont(ofSize: 20.0)
+//            cell.timelineIcon.image = UIImage(systemName: "calendar", withConfiguration: UIImage.SymbolConfiguration(scale: .small))?.withTintColor(.black, renderingMode: .alwaysOriginal)
+//
+//        }else{
+            cell.finishedTime.text = epochTimeToString(displayedHabits[indexPath.row].1, "HH:mm")
+            cell.habitName.text = displayedHabits[indexPath.row].0
+            cell.timelineIcon.image = UIImage(named: "timeline")
+//        }
         return cell
     }
     

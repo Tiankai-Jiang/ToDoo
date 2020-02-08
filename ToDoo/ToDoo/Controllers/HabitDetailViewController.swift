@@ -20,6 +20,7 @@ class HabitDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         checkedDays.forEach{
             self.calendarView.selectDate(Date(timeIntervalSince1970: TimeInterval($0)).toLocalTime())
         }

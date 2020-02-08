@@ -92,10 +92,10 @@ extension Date {
 
 }
 
-func epochTimeToString(_ epoch: Int) -> String{
+func epochTimeToString(_ epoch: Int, _ format: String) -> String{
     let date = Date(timeIntervalSince1970: TimeInterval(epoch)).toLocalTime()
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd"
+    dateFormatter.dateFormat = format
     return dateFormatter.string(from: date)
 }
 

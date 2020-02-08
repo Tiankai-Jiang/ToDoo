@@ -242,9 +242,9 @@
 		368D2DCF23CE72A500B65733 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3620342123CE4D5C00939EAF /* Main.storyboard */,
 				36313E6B23EE03F9009CE2BB /* TimelineCell.swift */,
 				36313E6C23EE03F9009CE2BB /* TimelineCell.xib */,
-				3620342123CE4D5C00939EAF /* Main.storyboard */,
 				36396D1023EC46B900439059 /* HabitCell.swift */,
 				36396D1123EC46B900439059 /* HabitCell.xib */,
 				3635BBB023EB5E3F00869962 /* AddHabitNameCell.swift */,

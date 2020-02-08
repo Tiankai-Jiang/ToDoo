@@ -5,7 +5,6 @@ import SwipeCellKit
 
 class HomeViewController: UIViewController {
     
-    
     @IBOutlet weak var tableView: UITableView!
     
     let db = Firestore.firestore()
@@ -33,7 +32,6 @@ class HomeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        // could be removed!!!!!!!!!!!
         if(segue.identifier == K.habitDetailSegue){
             let destinationVC = segue.destination as! HabitDetailViewController
             if let indexPath = tableView.indexPathForSelectedRow{
@@ -51,7 +49,6 @@ class HomeViewController: UIViewController {
         self.performSegue(withIdentifier: K.addHabitSegue, sender: self)
     }
     
-    // could be modified!!!!!
     func getIfCheckedArray(_ checked: [String: Int], _ start: Int) -> [Bool]{
         let interval = 1 + epochTimeDaysInterval(start, Int(Date().timeIntervalSince1970))
         var ifChecked: Array<Bool> = Array(repeating: false, count: interval)
@@ -95,7 +92,7 @@ class HomeViewController: UIViewController {
         let ifChecked: [Bool] = getIfCheckedArray(Shared.sharedInstance.habits[row].checkedDays, Shared.sharedInstance.habits[row].addedDate)
         let longest = getLongestStreak(ifChecked)
         let current = getCurrentStreak(ifChecked)
-        let established = epochTimeToString(Shared.sharedInstance.habits[row].addedDate)
+        let established = epochTimeToString(Shared.sharedInstance.habits[row].addedDate, "yyyy-MM-dd")
         let missed = ifChecked.count - total
         return [HabitInfo(infoName: "Total persisted days", info: String(total) + "d"), HabitInfo(infoName: "Current sequential days", info: String(current) + "d"), HabitInfo(infoName: "Longest record", info: String(longest) + "d"), HabitInfo(infoName: "Missed days", info: String(missed) + "d"),  HabitInfo(infoName: "Established date", info: established)]
     }
