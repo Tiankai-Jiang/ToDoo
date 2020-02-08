@@ -11,8 +11,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         tableView.register(UINib(nibName: K.Cells.habitXib, bundle: nil), forCellReuseIdentifier: K.Cells.habitCell)
         
         tableView.separatorStyle = .none

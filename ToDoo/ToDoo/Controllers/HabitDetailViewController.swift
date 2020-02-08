@@ -16,7 +16,6 @@ class HabitDetailViewController: UIViewController {
         calendarView.dataSource = self
         calendarView.delegate = self
         tableView.register(UINib(nibName: K.Cells.habitDetailXib, bundle: nil), forCellReuseIdentifier: K.Cells.habitDetailCell)
-//        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
