@@ -1,6 +1,7 @@
 import UIKit
 import Toast_Swift
 import Firebase
+import UserNotifications
 
 class AddHabitViewController: UIViewController {
     
@@ -48,6 +49,32 @@ class AddHabitViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func setReminder(title: String){
+        let center = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        content.title = "ToDoo! " + title + "!"
+        content.body = "It is time to finish your goal!"
+        content.sound = .default
+        for i in 0...6{
+            if(Shared.sharedInstance.selectedDays[i]){
+                var dateInfo = DateComponents()
+                let components = timePicker.calendar.dateComponents([.hour, .minute], from: timePicker.date)
+                dateInfo.hour = components.hour!
+                dateInfo.minute = components.minute!
+                dateInfo.weekday = i + 1
+                dateInfo.timeZone = .current
+
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                center.add(request) { (error : Error?) in
+                    if let e = error {
+                        print(e.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+    
     @IBAction func addItem(_ sender: UIBarButtonItem) {
         let habitName = (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! AddHabitNameCell).habitNameTextField.text!.trimmingCharacters(in: .whitespaces);
         
@@ -64,6 +91,9 @@ class AddHabitViewController: UIViewController {
                         if let e = error{
                             self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
                         }else{
+                            if(self.isNotificationOn){
+                                self.setReminder(title: habitName)
+                            }
                             self.back()
                         }
                     })
