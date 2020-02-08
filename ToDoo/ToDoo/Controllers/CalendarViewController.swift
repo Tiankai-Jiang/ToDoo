@@ -8,12 +8,7 @@ class CalendarViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.navigationItem.hidesBackButton = true
-        self.tabBarController?.navigationItem.title = K.calendarTitle
-        self.tabBarController?.navigationItem.rightBarButtonItem = nil
-    }
+    var habits: [Habit] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +20,17 @@ class CalendarViewController: UIViewController {
         calendarView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationItem.title = K.calendarTitle
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
+        self.habits = Shared.sharedInstance.sharedHabitsArray
+//        print(habits.count)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        let homeViewController = storyboard!.instantiateViewController(withIdentifier: "homeScene") as! HomeViewController
-        print(homeViewController.habits.count)
         
         let today = Date().toLocalTime()
         self.calendarView.selectDate(Calendar.current.date(byAdding: .day, value: 1, to: today)!)

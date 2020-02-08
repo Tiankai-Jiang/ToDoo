@@ -129,6 +129,7 @@ class HomeViewController: UIViewController {
                                 }
                             }
                         }
+                        Shared.sharedInstance.sharedHabitsArray = self.habits
                     }
                     
                     DispatchQueue.main.async {

@@ -10,6 +10,7 @@
 		36106D6623CF6C5F00E4143A /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36106D6523CF6C5F00E4143A /* AddHabitViewController.swift */; };
 		3611111E23CF70DD0031B7EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3611111D23CF70DD0031B7EB /* GoogleService-Info.plist */; };
 		36118A8023D3875E00323AA1 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36118A7F23D3875E00323AA1 /* Habit.swift */; };
+		361971C023EE5517009C7D53 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361971BF23EE5517009C7D53 /* Shared.swift */; };
 		3620341A23CE4D5C00939EAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620341923CE4D5C00939EAF /* AppDelegate.swift */; };
 		3620341C23CE4D5C00939EAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620341B23CE4D5C00939EAF /* SceneDelegate.swift */; };
 		3620341E23CE4D5C00939EAF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620341D23CE4D5C00939EAF /* HomeViewController.swift */; };
@@ -69,6 +70,7 @@
 		36106D6523CF6C5F00E4143A /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddHabitViewController.swift; path = ToDoo/Controllers/AddHabitViewController.swift; sourceTree = SOURCE_ROOT; };
 		3611111D23CF70DD0031B7EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36118A7F23D3875E00323AA1 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		361971BF23EE5517009C7D53 /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		3620341623CE4D5C00939EAF /* ToDoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3620341923CE4D5C00939EAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3620341B23CE4D5C00939EAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				368D2DCE23CE726A00B65733 /* Controllers */,
 				364CBE1723CE6BFA00B14A95 /* Constants.swift */,
 				36B4296523E32AE900C2369B /* Utility.swift */,
+				361971BF23EE5517009C7D53 /* Shared.swift */,
 				3620342423CE4D5D00939EAF /* Assets.xcassets */,
 				3620342623CE4D5D00939EAF /* LaunchScreen.storyboard */,
 				3620342923CE4D5D00939EAF /* Info.plist */,
@@ -475,6 +478,7 @@
 				364CBE1623CE5C2B00B14A95 /* SettingsViewController.swift in Sources */,
 				36396D1223EC46B900439059 /* HabitCell.swift in Sources */,
 				3661CA2423EC530800C73F0D /* HabitDetailViewController.swift in Sources */,
+				361971C023EE5517009C7D53 /* Shared.swift in Sources */,
 				365787D623E104C2003699FA /* SelectDayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
