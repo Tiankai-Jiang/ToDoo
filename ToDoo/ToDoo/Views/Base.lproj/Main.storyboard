@@ -26,7 +26,7 @@
                                     <outlet property="delegate" destination="3Er-us-sHC" id="EFK-dY-YkI"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLn-np-DvV" customClass="CalendarView" customModule="KDCalendar">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLn-np-DvV">
                                 <rect key="frame" x="16" y="104" width="382" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -47,7 +47,6 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="N3S-v8-L9f"/>
                     <connections>
-                        <outlet property="calendarView" destination="eLn-np-DvV" id="vnw-U5-3Xn"/>
                         <outlet property="tableView" destination="mPl-Zb-OFe" id="0Cp-VB-zdC"/>
                     </connections>
                 </viewController>
@@ -199,7 +198,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6A-i3-6V3" customClass="CalendarView" customModule="KDCalendar">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6A-i3-6V3">
                                 <rect key="frame" x="16" y="156" width="382" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -229,7 +228,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" id="cPa-gy-q4n"/>
                     <connections>
-                        <outlet property="calendarView" destination="s6A-i3-6V3" id="e5v-Zm-2nN"/>
                         <outlet property="tableView" destination="4n2-J9-dno" id="vJS-Aj-Qc5"/>
                     </connections>
                 </viewController>
