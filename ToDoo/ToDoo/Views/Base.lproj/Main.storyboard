@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -198,13 +199,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6A-i3-6V3">
-                                <rect key="frame" x="16" y="156" width="382" height="300"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="COX-EP-Rbh">
+                                <rect key="frame" x="16" y="140" width="382" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="Kcp-ai-AyH"/>
+                                    <constraint firstAttribute="height" constant="300" id="LuM-yM-IHh"/>
                                 </constraints>
-                            </view>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qnp-Bx-x7h">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IuF-Td-nHE">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="a2X-Eq-nyB">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4n2-J9-dno">
                                 <rect key="frame" x="0.0" y="456" width="414" height="357"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -216,12 +233,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="s6A-i3-6V3" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="16" id="2kM-6A-squ"/>
+                            <constraint firstItem="COX-EP-Rbh" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="16" id="BXb-iF-BdY"/>
+                            <constraint firstItem="4n2-J9-dno" firstAttribute="top" secondItem="COX-EP-Rbh" secondAttribute="bottom" constant="16" id="BY2-O0-bQn"/>
                             <constraint firstItem="4n2-J9-dno" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="HII-6C-t3g"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="s6A-i3-6V3" secondAttribute="trailing" constant="16" id="TEz-3M-beX"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="4n2-J9-dno" secondAttribute="trailing" id="ab9-Oq-6EE"/>
-                            <constraint firstItem="s6A-i3-6V3" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="16" id="oXO-k0-Kmc"/>
-                            <constraint firstItem="4n2-J9-dno" firstAttribute="top" secondItem="s6A-i3-6V3" secondAttribute="bottom" id="ree-tv-aow"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="COX-EP-Rbh" secondAttribute="trailing" constant="16" id="bEW-Rn-hf5"/>
+                            <constraint firstItem="COX-EP-Rbh" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="cHm-sP-VCO"/>
                             <constraint firstAttribute="bottomMargin" secondItem="4n2-J9-dno" secondAttribute="bottom" id="yyh-of-wfm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
@@ -233,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1674" y="837"/>
+            <point key="canvasLocation" x="1673.913043478261" y="836.38392857142856"/>
         </scene>
         <!--Settings-->
         <scene sceneID="NLH-vp-cCy">
