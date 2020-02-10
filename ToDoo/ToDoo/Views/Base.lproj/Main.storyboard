@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Habit Detail View Controller-->
+        <!--Ib Calendar Data Source-->
         <scene sceneID="bgX-qr-rs0">
             <objects>
                 <viewController id="3Er-us-sHC" customClass="HabitDetailViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,8 +15,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kfb-fQ-zG0" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="16" y="104" width="382" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="26c-pB-hp3"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="g3e-iE-Ayu">
+                                    <size key="itemSize" width="90" height="90"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="ibCalendarDataSource" destination="3Er-us-sHC" id="KpH-ry-hMF"/>
+                                    <outlet property="ibCalendarDelegate" destination="3Er-us-sHC" id="VFL-9M-ngb"/>
+                                </connections>
+                            </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mPl-Zb-OFe">
-                                <rect key="frame" x="0.0" y="404" width="414" height="225"/>
+                                <rect key="frame" x="0.0" y="412" width="414" height="225"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="225" id="Ms2-FQ-FiN"/>
@@ -26,27 +44,21 @@
                                     <outlet property="delegate" destination="3Er-us-sHC" id="EFK-dY-YkI"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLn-np-DvV">
-                                <rect key="frame" x="16" y="104" width="382" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="J4T-CH-3ix"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="kfb-fQ-zG0" firstAttribute="leading" secondItem="cwC-NZ-ZGE" secondAttribute="leading" constant="16" id="9ZO-Rc-W5R"/>
                             <constraint firstItem="mPl-Zb-OFe" firstAttribute="leading" secondItem="cwC-NZ-ZGE" secondAttribute="leading" id="B0S-CU-8Ch"/>
+                            <constraint firstItem="cwC-NZ-ZGE" firstAttribute="trailing" secondItem="kfb-fQ-zG0" secondAttribute="trailing" constant="16" id="CjV-lt-yOe"/>
+                            <constraint firstItem="mPl-Zb-OFe" firstAttribute="top" secondItem="kfb-fQ-zG0" secondAttribute="bottom" constant="8" symbolic="YES" id="NXT-FB-u4r"/>
                             <constraint firstItem="mPl-Zb-OFe" firstAttribute="trailing" secondItem="cwC-NZ-ZGE" secondAttribute="trailing" id="Sis-jy-Brf"/>
-                            <constraint firstItem="eLn-np-DvV" firstAttribute="leading" secondItem="cwC-NZ-ZGE" secondAttribute="leading" constant="16" id="Wcl-8X-8pD"/>
-                            <constraint firstItem="mPl-Zb-OFe" firstAttribute="top" secondItem="eLn-np-DvV" secondAttribute="bottom" id="WeJ-sh-wzQ"/>
-                            <constraint firstItem="eLn-np-DvV" firstAttribute="top" secondItem="cwC-NZ-ZGE" secondAttribute="top" constant="16" id="hqv-IA-il1"/>
-                            <constraint firstItem="cwC-NZ-ZGE" firstAttribute="trailing" secondItem="eLn-np-DvV" secondAttribute="trailing" constant="16" id="x87-1o-Wc7"/>
+                            <constraint firstItem="kfb-fQ-zG0" firstAttribute="top" secondItem="cwC-NZ-ZGE" secondAttribute="top" constant="16" id="jMI-oL-Xb5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cwC-NZ-ZGE"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="N3S-v8-L9f"/>
                     <connections>
+                        <outlet property="calendar" destination="kfb-fQ-zG0" id="Swx-ad-O1A"/>
                         <outlet property="tableView" destination="mPl-Zb-OFe" id="0Cp-VB-zdC"/>
                     </connections>
                 </viewController>
