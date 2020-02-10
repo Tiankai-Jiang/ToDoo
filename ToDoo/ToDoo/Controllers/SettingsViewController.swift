@@ -14,7 +14,12 @@ class SettingsViewController: UIViewController {
     @IBAction func logoutPressed(_ sender: UIButton) {
         do{
             try Auth.auth().signOut()
-            navigationController?.popToRootViewController(animated: true)
+            if let window = UIApplication.shared.windows.first {
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let rootVC = mainStoryboard.instantiateViewController(withIdentifier: "navController") 
+                window.rootViewController = rootVC
+            }
+            navigationController?.popToRootViewController(animated: true) // why no animation????
         }catch let signOutError as NSError{
             print(signOutError)
         }
