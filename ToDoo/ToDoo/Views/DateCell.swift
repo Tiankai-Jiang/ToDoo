@@ -10,7 +10,6 @@ class DateCell: JTAppleCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        selectedView.isHidden = true
         // Initialization code
     }
 
