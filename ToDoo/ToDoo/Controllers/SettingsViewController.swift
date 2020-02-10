@@ -19,6 +19,7 @@ class SettingsViewController: UIViewController {
                 let rootVC = mainStoryboard.instantiateViewController(withIdentifier: "navController") 
                 window.rootViewController = rootVC
             }
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             navigationController?.popToRootViewController(animated: true) // why no animation????
         }catch let signOutError as NSError{
             print(signOutError)

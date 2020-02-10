@@ -48,6 +48,32 @@ class HomeViewController: UIViewController {
         self.performSegue(withIdentifier: K.addHabitSegue, sender: self)
     }
     
+    func setReminder(habit: Habit){
+        let center = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        content.title = "ToDoo! " + habit.name + "!"
+        content.body = "It is time to finish your goal!"
+        content.sound = .default
+        for i in 0...6{
+            if(habit.remindDays[i]){
+                var dateInfo = DateComponents()
+                let components = Calendar.current.dateComponents([.hour, .minute], from: Date(timeIntervalSince1970: TimeInterval(habit.notificationTime)))
+                dateInfo.hour = components.hour!
+                dateInfo.minute = components.minute!
+                dateInfo.weekday = i + 1
+                dateInfo.timeZone = .current
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
+                let request = UNNotificationRequest(identifier: habit.name + String(i + 1), content: content, trigger: trigger)
+                center.add(request) { (error : Error?) in
+                    if let e = error {
+                        print(e.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+    
     func getIfCheckedArray(_ checked: [String: Int], _ start: Int) -> [Bool]{
         let interval = 1 + epochTimeDaysInterval(start, Int(Date().timeIntervalSince1970))
         var ifChecked: Array<Bool> = Array(repeating: false, count: interval)
@@ -125,7 +151,13 @@ class HomeViewController: UIViewController {
                     }
                     
                     DispatchQueue.main.async {
+                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                         self.tableView.reloadData()
+                        Shared.sharedInstance.habits.forEach{
+                            if($0.ifRemind){
+                                self.setReminder(habit: $0)
+                            }
+                        }
                     }
                 }
             }
