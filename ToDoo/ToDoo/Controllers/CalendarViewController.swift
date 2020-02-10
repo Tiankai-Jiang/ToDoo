@@ -81,6 +81,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
     func configureCell(view: JTAppleCell?, cellState: CellState) {
         guard let cell = view as? DateCell  else { return }
         cell.dateLabel.text = cellState.text
+        
         handleCellTextColor(cell: cell, cellState: cellState)
         handleCellSelected(cell: cell, cellState: cellState)
     }
@@ -94,15 +95,20 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
             cell.dateLabel.isHidden = true
             cell.selectedView.isHidden = true
         }
+        
+        cell.dateLabel.textColor = hexStringToUIColor(hex: Calendar.current.isDateInWeekend(cellState.date) ? "f15c5c" : "194348")
     }
     func handleCellSelected(cell: DateCell, cellState: CellState) {
         if cellState.isSelected {
             cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
-            cell.selectedView.backgroundColor = hexStringToUIColor(hex: "519D9E")
+            cell.selectedView.backgroundColor = hexStringToUIColor(hex: "c6f1d6")
         } else {
             cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
-            cell.selectedView.backgroundColor = hexStringToUIColor(hex: "E0E3DA")
+            cell.selectedView.backgroundColor = .white
         }
+        let colorList=["1fab89","ff8080","ffba92"]
+        cell.selectedView.backgroundColor = hexStringToUIColor(hex: colorList[Int.random(in: 0...2)])
+        cell.dateLabel.textColor = .white
     }
 }
 
