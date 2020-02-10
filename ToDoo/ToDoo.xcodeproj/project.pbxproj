@@ -43,7 +43,11 @@
 		3661CA2723EC56CC00C73F0D /* HabitDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661CA2523EC56CC00C73F0D /* HabitDetailCell.swift */; };
 		3661CA2823EC56CC00C73F0D /* HabitDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3661CA2623EC56CC00C73F0D /* HabitDetailCell.xib */; };
 		3661CA2A23EC622A00C73F0D /* HabitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661CA2923EC622A00C73F0D /* HabitInfo.swift */; };
+		36AD600523F0E2BE001C2A85 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AD600323F0E2BE001C2A85 /* DateHeader.swift */; };
+		36AD600623F0E2BE001C2A85 /* DateHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36AD600423F0E2BE001C2A85 /* DateHeader.xib */; };
 		36B4296623E32AE900C2369B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296523E32AE900C2369B /* Utility.swift */; };
+		36B5C54B23F0D6E80074CB2D /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B5C54923F0D6E80074CB2D /* DateCell.swift */; };
+		36B5C54C23F0D6E80074CB2D /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36B5C54A23F0D6E80074CB2D /* DateCell.xib */; };
 		36B6C67423CE599900DD4839 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6C67323CE599900DD4839 /* RegisterViewController.swift */; };
 		36B6C67623CE59CB00DD4839 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6C67523CE59CB00DD4839 /* LoginViewController.swift */; };
 		57FDB228972BAC065FEDDFBA /* Pods_ToDoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FE7093839B0AE6E866627D /* Pods_ToDoo.framework */; };
@@ -110,7 +114,11 @@
 		3661CA2523EC56CC00C73F0D /* HabitDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailCell.swift; sourceTree = "<group>"; };
 		3661CA2623EC56CC00C73F0D /* HabitDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HabitDetailCell.xib; sourceTree = "<group>"; };
 		3661CA2923EC622A00C73F0D /* HabitInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfo.swift; sourceTree = "<group>"; };
+		36AD600323F0E2BE001C2A85 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
+		36AD600423F0E2BE001C2A85 /* DateHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateHeader.xib; sourceTree = "<group>"; };
 		36B4296523E32AE900C2369B /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		36B5C54923F0D6E80074CB2D /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		36B5C54A23F0D6E80074CB2D /* DateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCell.xib; sourceTree = "<group>"; };
 		36B6C67323CE599900DD4839 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		36B6C67523CE59CB00DD4839 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		63FE7093839B0AE6E866627D /* Pods_ToDoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +267,10 @@
 				3635BBC123EB704900869962 /* AddHabitToggleCell.xib */,
 				3661CA2523EC56CC00C73F0D /* HabitDetailCell.swift */,
 				3661CA2623EC56CC00C73F0D /* HabitDetailCell.xib */,
+				36B5C54923F0D6E80074CB2D /* DateCell.swift */,
+				36B5C54A23F0D6E80074CB2D /* DateCell.xib */,
+				36AD600323F0E2BE001C2A85 /* DateHeader.swift */,
+				36AD600423F0E2BE001C2A85 /* DateHeader.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -388,6 +400,8 @@
 				36313E6E23EE03F9009CE2BB /* TimelineCell.xib in Resources */,
 				36396D1323EC46B900439059 /* HabitCell.xib in Resources */,
 				3661CA2823EC56CC00C73F0D /* HabitDetailCell.xib in Resources */,
+				36B5C54C23F0D6E80074CB2D /* DateCell.xib in Resources */,
+				36AD600623F0E2BE001C2A85 /* DateHeader.xib in Resources */,
 				3635BBBB23EB681000869962 /* ColorCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +473,7 @@
 				36B6C67623CE59CB00DD4839 /* LoginViewController.swift in Sources */,
 				3635BBBA23EB681000869962 /* ColorCell.swift in Sources */,
 				36106D6623CF6C5F00E4143A /* AddHabitViewController.swift in Sources */,
+				36B5C54B23F0D6E80074CB2D /* DateCell.swift in Sources */,
 				3635BBB623EB657700869962 /* AddHabitColorCell.swift in Sources */,
 				3620342023CE4D5C00939EAF /* CalendarViewController.swift in Sources */,
 				364CBE1423CE5C1900B14A95 /* ChatViewController.swift in Sources */,
@@ -466,6 +481,7 @@
 				3661CA2A23EC622A00C73F0D /* HabitInfo.swift in Sources */,
 				3620344D23CE53C700939EAF /* WelcomeViewController.swift in Sources */,
 				3620341E23CE4D5C00939EAF /* HomeViewController.swift in Sources */,
+				36AD600523F0E2BE001C2A85 /* DateHeader.swift in Sources */,
 				364CBE1823CE6BFA00B14A95 /* Constants.swift in Sources */,
 				36313E6D23EE03F9009CE2BB /* TimelineCell.swift in Sources */,
 				36B6C67423CE599900DD4839 /* RegisterViewController.swift in Sources */,
