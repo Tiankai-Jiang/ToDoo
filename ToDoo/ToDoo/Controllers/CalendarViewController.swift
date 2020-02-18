@@ -12,10 +12,10 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        calendar.scrollToDate(Date())
         calendar.scrollDirection = .horizontal
         calendar.scrollingMode   = .stopAtEachCalendarFrame
         calendar.showsHorizontalScrollIndicator = false
-        
         calendar.register(UINib(nibName: "DateCell", bundle: nil), forCellWithReuseIdentifier: "dateCell")
         
         calendar.register(UINib(nibName: "DateHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "dateHeader")
@@ -32,6 +32,7 @@ class CalendarViewController: UIViewController {
         
         getDisplayedHabits(date: Date())
         tableView.reloadData()
+        calendar.reloadData()
     }
     
     func getDisplayedHabits(date: Date){
@@ -84,6 +85,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         
         handleCellTextColor(cell: cell, cellState: cellState)
         handleCellSelected(cell: cell, cellState: cellState)
+        handleCellColor(cell: cell, cellState: cellState)
     }
     func handleCellTextColor(cell: DateCell, cellState: CellState) {
         if cellState.dateBelongsTo == .thisMonth {
@@ -98,6 +100,13 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         
         cell.dateLabel.textColor = hexStringToUIColor(hex: Calendar.current.isDateInWeekend(cellState.date) ? "f15c5c" : "194348")
     }
+    func handleCellColor(cell: DateCell, cellState: CellState) {
+        if cellState.date <= Date(){
+            let colorList=["ff8080","ffba92","1fab89"] // no complete, half, all
+            cell.selectedView.backgroundColor = hexStringToUIColor(hex: colorList[checkIfDateCompleted(MidOfTheDate: cellState.date.Noon())])
+            cell.dateLabel.textColor = .white
+        }
+    }
     func handleCellSelected(cell: DateCell, cellState: CellState) {
         if cellState.isSelected {
             cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
@@ -106,9 +115,6 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
             cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
             cell.selectedView.backgroundColor = .white
         }
-        let colorList=["1fab89","ff8080","ffba92"]
-        cell.selectedView.backgroundColor = hexStringToUIColor(hex: colorList[Int.random(in: 0...2)])
-        cell.dateLabel.textColor = .white
     }
 }
 
@@ -144,5 +150,30 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     }
     func calendarSizeForMonths(_ calendar: JTAppleCalendarView?) -> MonthSize? {
         return MonthSize(defaultSize: 50)
+    }
+}
+func checkIfDateCompleted(MidOfTheDate: String) -> Int{
+    // 0 means nothing, 1 means half ,2 means all
+    var totalNum : Int = 0
+    var completeNum : Int = 0
+    Shared.sharedInstance.habits.forEach {
+        if Date(timeIntervalSince1970: TimeInterval($0.addedDate)).Noon() <= MidOfTheDate {
+            totalNum+=1
+            if $0.checkedDays[MidOfTheDate] != nil{
+                completeNum+=1
+            }
+        }
+    }
+    if completeNum == 0{
+        return 0
+    }
+    else if totalNum > completeNum{
+        return 1
+    }
+    else if totalNum == completeNum{
+        return 2
+    }
+    else{
+        return -1
     }
 }
