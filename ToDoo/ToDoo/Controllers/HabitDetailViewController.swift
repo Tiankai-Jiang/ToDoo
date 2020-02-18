@@ -13,6 +13,7 @@ class HabitDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        calendar.scrollToHeaderForDate(Date())
         calendar.scrollDirection = .horizontal
         calendar.scrollingMode   = .stopAtEachCalendarFrame
         calendar.showsHorizontalScrollIndicator = false
@@ -63,7 +64,7 @@ extension HabitDetailViewController: JTAppleCalendarViewDataSource {
         cell.dateLabel.text = cellState.text
         
         handleCellTextColor(cell: cell, cellState: cellState)
-        handleCellSelected(cell: cell, cellState: cellState)
+        handleCellColor(cell: cell, cellState: cellState)
     }
     func handleCellTextColor(cell: DateCell, cellState: CellState) {
         if cellState.dateBelongsTo == .thisMonth {
@@ -78,19 +79,18 @@ extension HabitDetailViewController: JTAppleCalendarViewDataSource {
         
         cell.dateLabel.textColor = hexStringToUIColor(hex: Calendar.current.isDateInWeekend(cellState.date) ? "f15c5c" : "194348")
     }
-    func handleCellSelected(cell: DateCell, cellState: CellState) {
-        if cellState.isSelected {
+    func handleCellColor(cell: DateCell,cellState: CellState) {
+        let colorCompleted="1fab89"
+        let allDateNoon=Shared.sharedInstance.habits[rowNumber].checkedDays.keys
+        
+        if allDateNoon.contains(cellState.date.Noon()) {
             cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
-            cell.selectedView.backgroundColor = hexStringToUIColor(hex: "c6f1d6")
-        } else {
-            cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
-            cell.selectedView.backgroundColor = .white
+            cell.selectedView.backgroundColor = hexStringToUIColor(hex: colorCompleted)
+            cell.dateLabel.textColor = .white
         }
-        let colorList=["1fab89","ff8080","ffba92"]
-        cell.selectedView.backgroundColor = hexStringToUIColor(hex: colorList[Int.random(in: 0...2)])
-        cell.dateLabel.textColor = .white
+            
+        }
     }
-}
 
 extension HabitDetailViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {

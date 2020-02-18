@@ -9,10 +9,11 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var displayedHabits:[(String, Int)] = []
+    var selectedDate: Date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        calendar.scrollToDate(Date())
+        calendar.scrollToHeaderForDate(Date())
         calendar.scrollDirection = .horizontal
         calendar.scrollingMode   = .stopAtEachCalendarFrame
         calendar.showsHorizontalScrollIndicator = false
@@ -53,9 +54,12 @@ extension CalendarViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.timelineCell, for: indexPath) as! TimelineCell
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd,yyyy"
+        //MARK: - bug
         if(indexPath.row == 0){
             cell.finishedTime.isHidden = true
-            cell.habitName.text = "Today I did  |  " + epochTimeToString(Int(Date().timeIntervalSince1970), "MMM dd,yyyy")
+            cell.habitName.text = "Today I did  |  " + formatter.string(from: selectedDate)
             cell.habitName.font = UIFont.boldSystemFont(ofSize: 20.0)
             cell.timelineIcon.image = UIImage(systemName: "calendar", withConfiguration: UIImage.SymbolConfiguration(scale: .small))?.withTintColor(.black, renderingMode: .alwaysOriginal)
 
@@ -84,8 +88,8 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         cell.dateLabel.text = cellState.text
         
         handleCellTextColor(cell: cell, cellState: cellState)
-        handleCellSelected(cell: cell, cellState: cellState)
         handleCellColor(cell: cell, cellState: cellState)
+        handleCellSelected(cell: cell, cellState: cellState)
     }
     func handleCellTextColor(cell: DateCell, cellState: CellState) {
         if cellState.dateBelongsTo == .thisMonth {
@@ -101,6 +105,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         cell.dateLabel.textColor = hexStringToUIColor(hex: Calendar.current.isDateInWeekend(cellState.date) ? "f15c5c" : "194348")
     }
     func handleCellColor(cell: DateCell, cellState: CellState) {
+        cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
         if cellState.date <= Date(){
             let colorList=["ff8080","ffba92","1fab89"] // no complete, half, all
             cell.selectedView.backgroundColor = hexStringToUIColor(hex: colorList[checkIfDateCompleted(MidOfTheDate: cellState.date.Noon())])
@@ -108,12 +113,25 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         }
     }
     func handleCellSelected(cell: DateCell, cellState: CellState) {
+        selectedDate=cellState.date
+        getDisplayedHabits(date: cellState.date)
+        tableView.reloadData()
         if cellState.isSelected {
-            cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
-            cell.selectedView.backgroundColor = hexStringToUIColor(hex: "c6f1d6")
-        } else {
+            if cellState.date > Date(){
+                cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
+                cell.selectedView.backgroundColor = hexStringToUIColor(hex: "c6f1d6")
+                cell.dateLabel.textColor = .black
+            }
+            else{
+                cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
+                cell.selectedView.backgroundColor = .black
+                cell.dateLabel.textColor = .white
+            }
+        }
+        else if cellState.date > Date(){
             cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
             cell.selectedView.backgroundColor = .white
+            cell.dateLabel.textColor = .black
         }
     }
 }
