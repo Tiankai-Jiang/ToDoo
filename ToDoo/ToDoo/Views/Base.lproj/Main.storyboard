@@ -229,7 +229,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4n2-J9-dno">
-                                <rect key="frame" x="0.0" y="456" width="414" height="357"/>
+                                <rect key="frame" x="0.0" y="440" width="414" height="373"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="8rJ-Kc-sve" id="9re-fZ-orR"/>
@@ -240,7 +240,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="COX-EP-Rbh" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="16" id="BXb-iF-BdY"/>
-                            <constraint firstItem="4n2-J9-dno" firstAttribute="top" secondItem="COX-EP-Rbh" secondAttribute="bottom" constant="16" id="BY2-O0-bQn"/>
+                            <constraint firstItem="4n2-J9-dno" firstAttribute="top" secondItem="COX-EP-Rbh" secondAttribute="bottom" id="BY2-O0-bQn"/>
                             <constraint firstItem="4n2-J9-dno" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="HII-6C-t3g"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="4n2-J9-dno" secondAttribute="trailing" id="ab9-Oq-6EE"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="COX-EP-Rbh" secondAttribute="trailing" constant="16" id="bEW-Rn-hf5"/>
