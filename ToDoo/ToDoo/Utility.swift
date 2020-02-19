@@ -60,23 +60,6 @@ extension UIViewController {
 }
 
 extension Date {
-    // Convert local time to UTC (or GMT)
-    func toGlobalTime() -> Date {
-        let timezone = TimeZone.current
-        let seconds = -TimeInterval(timezone.secondsFromGMT(for: self))
-        return Date(timeInterval: seconds, since: self)
-    }
-
-    // Convert UTC (or GMT) to local time
-    func toLocalTime() -> Date {
-        let timezone = TimeZone.current
-        let seconds = TimeInterval(timezone.secondsFromGMT(for: self))
-        return Date(timeInterval: seconds, since: self)
-    }
-
-}
-
-extension Date {
     func Noon() -> String {
         let calendar = Calendar.current
         var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
@@ -91,7 +74,7 @@ extension Date {
 }
 
 func epochTimeToString(_ epoch: Int, _ format: String) -> String{
-    let date = Date(timeIntervalSince1970: TimeInterval(epoch)).toLocalTime()
+    let date = Date(timeIntervalSince1970: TimeInterval(epoch))
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = format
     return dateFormatter.string(from: date)

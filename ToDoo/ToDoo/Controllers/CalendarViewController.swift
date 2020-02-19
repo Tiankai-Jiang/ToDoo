@@ -21,7 +21,7 @@ class CalendarViewController: UIViewController {
         calendar.register(UINib(nibName: "DateHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "dateHeader")
         tableView.register(UINib(nibName: K.Cells.timelineXib, bundle: nil), forCellReuseIdentifier: K.Cells.timelineCell)
         tableView.separatorStyle = .none
-        calendar.selectDates([Date().toLocalTime()])
+        calendar.selectDates([Date()])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,16 +54,18 @@ extension CalendarViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.timelineCell, for: indexPath) as! TimelineCell
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM dd,yyyy"
         if(indexPath.row == 0){
+            formatter.dateFormat = "MMM dd,yyyy"
             cell.finishedTime.isHidden = true
             cell.habitName.text = "Today I did  |  " + formatter.string(from: selectedDate)
             cell.habitName.font = UIFont.boldSystemFont(ofSize: 20.0)
             cell.timelineIcon.image = UIImage(systemName: "calendar", withConfiguration: UIImage.SymbolConfiguration(scale: .small))?.withTintColor(.black, renderingMode: .alwaysOriginal)        }
         else{
+//            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm"
             cell.finishedTime.isHidden = false
             cell.habitName.font = UIFont.systemFont(ofSize: 20.0)
-            cell.finishedTime.text = epochTimeToString(displayedHabits[indexPath.row - 1].1, "HH:mm")
+            cell.finishedTime.text = formatter.string(from: Date(timeIntervalSince1970: TimeInterval(displayedHabits[indexPath.row - 1].1)))
             cell.habitName.text = displayedHabits[indexPath.row-1].0
             cell.timelineIcon.image = UIImage(named: "timeline")
         }
@@ -106,24 +108,24 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
     func handleCellColor(cell: DateCell, cellState: CellState) {
         cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
         if cellState.date <= Date(){
-            let colorList=["ff8080","ffba92","1fab89"] // no complete, half, all
-            cell.selectedView.backgroundColor = hexStringToUIColor(hex: colorList[checkIfDateCompleted(MidOfTheDate: cellState.date.Noon())])
-            cell.dateLabel.textColor = .white
+            let colorList=["ec6a5c","fcbe32","a5d296"] // no complete, half, all
+            let colorIndex=checkIfDateCompleted(MidOfTheDate: cellState.date.Noon())
+            if(colorIndex != -1){
+                cell.selectedView.backgroundColor = hexStringToUIColor(hex: colorList[colorIndex])
+                cell.dateLabel.textColor = .white
+            }
+            else{
+                cell.selectedView.backgroundColor = hexStringToUIColor(hex: "e3dede")
+                cell.dateLabel.textColor = .black
+            }
         }
     }
     func handleCellSelected(cell: DateCell, cellState: CellState) {
-        if (cellState.isSelected && cellState.dateBelongsTo == .thisMonth ){
+        if (cellState.isSelected && cellState.dateBelongsTo == .thisMonth && cellState.date <= Date() ){
             selectedDate=cellState.date
-            if cellState.date > Date(){
-                cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
-                cell.selectedView.backgroundColor = hexStringToUIColor(hex: "c6f1d6")
-                cell.dateLabel.textColor = .black
-            }
-            else{
-                cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
-                cell.selectedView.backgroundColor = .black
-                cell.dateLabel.textColor = .white
-            }
+            cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
+            cell.selectedView.backgroundColor = .black
+            cell.dateLabel.textColor = .white
             getDisplayedHabits(date: cellState.date)
             tableView.reloadData()
         }
@@ -132,6 +134,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
             cell.selectedView.backgroundColor = .white
             cell.dateLabel.textColor = .black
         }
+        
     }
 }
 
@@ -181,13 +184,13 @@ func checkIfDateCompleted(MidOfTheDate: String) -> Int{
             }
         }
     }
-    if completeNum == 0{
+    if completeNum == 0 && totalNum != 0{
         return 0
     }
     else if totalNum > completeNum{
         return 1
     }
-    else if totalNum == completeNum{
+    else if totalNum == completeNum && totalNum != 0 {
         return 2
     }
     else{
