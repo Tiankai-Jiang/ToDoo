@@ -76,11 +76,9 @@ extension HabitDetailViewController: JTAppleCalendarViewDataSource {
             cell.dateLabel.isHidden = true
             cell.selectedView.isHidden = true
         }
-        
-        cell.dateLabel.textColor = hexStringToUIColor(hex: Calendar.current.isDateInWeekend(cellState.date) ? "f15c5c" : "194348")
     }
     func handleCellColor(cell: DateCell,cellState: CellState) {
-        let colorCompleted="1fab89"
+        let colorCompleted="a5d296"
         let allDateNoon=Shared.sharedInstance.habits[rowNumber].checkedDays.keys
         
         if allDateNoon.contains(cellState.date.Noon()) {

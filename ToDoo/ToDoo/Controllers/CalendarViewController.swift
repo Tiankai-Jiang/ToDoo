@@ -108,7 +108,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
     func handleCellColor(cell: DateCell, cellState: CellState) {
         cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
         if cellState.date <= Date(){
-            let colorList=["ec6a5c","fcbe32","a5d296"] // no complete, half, all
+            let colorList=["ec6a5c","FDD692","a5d296"] // no complete, half, all
             let colorIndex=checkIfDateCompleted(MidOfTheDate: cellState.date.Noon())
             if(colorIndex != -1){
                 cell.selectedView.backgroundColor = hexStringToUIColor(hex: colorList[colorIndex])
