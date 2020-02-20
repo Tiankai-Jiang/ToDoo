@@ -34,6 +34,10 @@ struct K {
         static let habitDetailXib = "HabitDetailCell"
         static let timelineCell = "timelineCell"
         static let timelineXib = "TimelineCell"
+        static let inchatCell = "inChatCell"
+        static let inchatXib = "InChatCell"
+        static let outchatCell = "outChatCell"
+        static let outchatXib = "OutChatCell"
     }
     
     struct FStore {

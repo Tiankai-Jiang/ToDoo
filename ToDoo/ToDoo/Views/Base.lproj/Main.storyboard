@@ -193,14 +193,33 @@
                     <view key="view" contentMode="scaleToFill" id="Ryy-dr-n1i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qKS-OD-WvK">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="sMp-hw-ODw" id="5e0-q3-h4U"/>
+                                    <outlet property="delegate" destination="sMp-hw-ODw" id="u4p-kA-Okm"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qKS-OD-WvK" firstAttribute="trailing" secondItem="nOQ-7v-K0R" secondAttribute="trailing" id="cT4-Gq-Ecq"/>
+                            <constraint firstItem="qKS-OD-WvK" firstAttribute="top" secondItem="nOQ-7v-K0R" secondAttribute="top" id="gXs-zU-Wdh"/>
+                            <constraint firstItem="qKS-OD-WvK" firstAttribute="bottom" secondItem="nOQ-7v-K0R" secondAttribute="bottom" id="p2W-Nr-fKw"/>
+                            <constraint firstItem="qKS-OD-WvK" firstAttribute="leading" secondItem="nOQ-7v-K0R" secondAttribute="leading" id="sJS-Uz-FHd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nOQ-7v-K0R"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chat" image="message" catalog="system" id="gFy-Lp-OCK"/>
+                    <connections>
+                        <outlet property="tableView" destination="qKS-OD-WvK" id="mP3-rv-oAU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDX-pk-pRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3138" y="50"/>
+            <point key="canvasLocation" x="3137.68115942029" y="49.553571428571423"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="wg7-f3-ORb">
