@@ -3,6 +3,7 @@ import UIKit
 class InChatCell: UITableViewCell {
 
     @IBOutlet weak var textBubble: UIView!
+    @IBOutlet weak var contentLabel: UILabel!
     
     private enum Constants {
       static let shadowColor = UIColor(red: 189 / 255, green: 204 / 255, blue: 215 / 255, alpha: 0.54)
@@ -10,6 +11,16 @@ class InChatCell: UITableViewCell {
       static let shadowOffset = CGSize(width: 0, height: 1)
       static let chainedMessagesBottomMargin: CGFloat = 20
       static let lastMessageBottomMargin: CGFloat = 32
+    }
+    
+    var message: Message? {
+      didSet {
+        guard let message = message else {
+          return
+        }
+        
+        contentLabel.text = message.body
+      }
     }
     
     override func awakeFromNib() {

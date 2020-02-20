@@ -163,6 +163,15 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    func sendDoneMessage(habitName: String, messageSender: String){
+        let chatColRef = db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.chatCollection)
+        chatColRef.addDocument(data: [K.FStore.bodyField: "I have done " + habitName + "!", K.FStore.isIncomingField: false, K.FStore.dateField: Date().timeIntervalSince1970]) { (error) in
+            if let e = error{
+                print(e.localizedDescription)
+            }
+        }
+    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
@@ -226,6 +235,8 @@ extension HomeViewController: SwipeTableViewCellDelegate{
                         self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(Shared.sharedInstance.habits[indexPath.row].name).setData(["checked" : [Date().Noon(): Int(Date().timeIntervalSince1970)]], merge: true) { (error) in
                             if let e = error{
                                 self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
+                            }else{
+                                self.sendDoneMessage(habitName: Shared.sharedInstance.habits[indexPath.row].name, messageSender: messageSender)
                             }
                         }
                     }

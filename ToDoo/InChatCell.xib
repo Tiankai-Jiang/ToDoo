@@ -24,7 +24,7 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xxa-H6-TGe" userLabel="Text Bubble">
-                        <rect key="frame" x="76" y="0.0" width="180" height="92"/>
+                        <rect key="frame" x="76" y="0.0" width="24" height="92"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble_pointer_incoming" translatesAutoresizingMaskIntoConstraints="NO" id="EEm-Tj-Krz" userLabel="Text Bubble Pointer">
@@ -33,9 +33,8 @@
                             <constraint firstAttribute="height" constant="40" id="Pf4-xg-FH1"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOD-jm-OEF" userLabel="Content Label">
-                        <rect key="frame" x="88" y="12" width="156" height="68"/>
-                        <string key="text">嗟乎！时运不齐，命途多舛。冯唐易老，李广难封。屈贾谊于长沙，非无圣主；窜梁鸿于海曲，岂乏明时？所赖君子见几，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志，酌贪泉而觉爽，处涸辙以犹欢。北海虽赊，扶摇可接；东隅已逝，桑榆非晚。孟尝高洁，空怀报国之情；阮籍猖狂，岂效穷途之哭？</string>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOD-jm-OEF" userLabel="Content Label">
+                        <rect key="frame" x="88" y="12" width="0.0" height="68"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -58,6 +57,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="contentLabel" destination="gOD-jm-OEF" id="axX-zp-sdm"/>
                 <outlet property="textBubble" destination="Xxa-H6-TGe" id="C0o-Ez-DLo"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="121.875"/>

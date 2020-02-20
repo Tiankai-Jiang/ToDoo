@@ -12,6 +12,18 @@ class OutChatCell: UITableViewCell {
 
     @IBOutlet weak var textBubble: UIView!
     
+    @IBOutlet weak var contentLabel: UILabel!
+    
+    var message: Message? {
+      didSet {
+        guard let message = message else {
+          return
+        }
+        
+        contentLabel.text = message.body
+      }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

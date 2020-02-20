@@ -51,6 +51,11 @@ struct K {
         static let remindDaysField = "remindDays"
         static let notificationTimeField = "notificationTime"
         static let colorField = "cellColor"
+        
+        static let chatCollection = "chat"
+        static let bodyField = "body"
+        static let isIncomingField = "isIncoming"
+        static let dateField = "date"
     }
     
 }

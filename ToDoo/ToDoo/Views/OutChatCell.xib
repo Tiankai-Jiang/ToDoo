@@ -24,13 +24,13 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYi-uW-cwf" userLabel="Text Bubble">
-                        <rect key="frame" x="64" y="0.0" width="180" height="92"/>
+                        <rect key="frame" x="220" y="0.0" width="24" height="92"/>
                         <color key="backgroundColor" red="0.12549019607843137" green="0.30196078431372547" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="勃，三尺微命，一介书生。无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。舍簪笏于百龄，奉晨昏于万里。非谢家之宝树，接孟氏之芳邻。他日趋庭，叨陪鲤对；今兹捧袂，喜托龙门。杨意不逢，抚凌云而自惜；钟期既遇，奏流水以何惭？" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaU-8d-Jn0" userLabel="Content Label">
-                        <rect key="frame" x="76" y="12" width="156" height="68"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaU-8d-Jn0" userLabel="Content Label">
+                        <rect key="frame" x="232" y="12" width="0.0" height="68"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble_pointer_outgoing" translatesAutoresizingMaskIntoConstraints="NO" id="pQs-fj-eam" userLabel="Text Bubble Pointer">
@@ -57,6 +57,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="N13-qe-Qbr"/>
             <connections>
+                <outlet property="contentLabel" destination="oaU-8d-Jn0" id="cZp-jG-ZFe"/>
                 <outlet property="textBubble" destination="AYi-uW-cwf" id="Eho-cm-o6k"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="93.080357142857139"/>
