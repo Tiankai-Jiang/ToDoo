@@ -169,6 +169,24 @@ class HomeViewController: UIViewController {
         chatColRef.addDocument(data: [K.FStore.bodyField: "I have done " + habitName + "!", K.FStore.isIncomingField: false, K.FStore.dateField: Date().timeIntervalSince1970]) { (error) in
             if let e = error{
                 print(e.localizedDescription)
+            }else{
+                chatColRef.addDocument(data: [K.FStore.bodyField: K.conversation.randomElement()!, K.FStore.isIncomingField: true, K.FStore.dateField: Date().timeIntervalSince1970]){(error) in
+                    if let e = error{
+                        print(e.localizedDescription)
+                    }else{
+//                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
+//                        if let tabItems = vc.tabBar.items{
+//                            if let badge = Shared.sharedInstance.badgeNum{
+//                                tabItems[2].badgeValue = String(badge + 1)
+//                            }else{
+//                                DispatchQueue.main.async(execute: {
+//                                    tabItems[2].badgeValue = "1"
+//                                    Shared.sharedInstance.badgeNum = 1
+//                                })
+//                            }
+//                        }
+                    }
+                }
             }
         }
     }

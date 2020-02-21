@@ -58,4 +58,6 @@ struct K {
         static let dateField = "date"
     }
     
+    static let conversation: [String] = ["You are so fxxking awesome!", "test2", "test3"]
+    
 }

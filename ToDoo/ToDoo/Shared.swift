@@ -4,4 +4,5 @@ class Shared{
     static let sharedInstance = Shared()
     var habits = [Habit]()
     var selectedDays = [Bool]()
+    var badgeNum: Int? = nil
 }

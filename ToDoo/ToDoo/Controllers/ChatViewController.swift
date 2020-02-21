@@ -25,6 +25,7 @@ class ChatViewController: UIViewController {
         self.tabBarController?.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.title = K.chatTitle
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .plain, target: self, action: #selector(addItem2))
+        Shared.sharedInstance.badgeNum = nil
         loadMessages()
     }
     
