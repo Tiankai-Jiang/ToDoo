@@ -22,9 +22,8 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.title = K.homeTitle
-        
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addClicked))
-        
+        self.tabBarController?.navigationController?.navigationBar.tintColor = hexStringToUIColor(hex: "58C9B9")
+            self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addClicked))
         self.navigationController?.navigationBar.barTintColor = nil
         loadBadge()
     }
@@ -201,6 +200,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         
         cell.habitNameLabel.text = Shared.sharedInstance.habits[indexPath.row].name
         cell.contentView.backgroundColor = hexStringToUIColor(hex: Shared.sharedInstance.habits[indexPath.row].color)
+        cell.habitNameLabel.textColor = hexStringToUIColor(hex:K.colors[Shared.sharedInstance.habits[indexPath.row].color] ?? "000000") 
         cell.checkmark.image = Shared.sharedInstance.habits[indexPath.row].todayStatus ? UIImage(systemName: "checkmark") : nil
         cell.delegate = self
         return cell

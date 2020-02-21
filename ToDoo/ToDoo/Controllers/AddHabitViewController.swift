@@ -42,6 +42,7 @@ class AddHabitViewController: UIViewController {
         timePicker.isHidden = true
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: K.defaultColor)
+        navigationController?.navigationBar.tintColor = hexStringToUIColor(hex: K.colors[K.defaultColor] ?? "000000")
     }
     
     //  return to home scene

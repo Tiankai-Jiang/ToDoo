@@ -4,7 +4,8 @@ class AddHabitColorCell: UITableViewCell {
     
     var selectedColor = K.defaultColor
     
-    let colors = ["9DF3C4","62D2A2","1FAB89", "C6F1E7", "70ACB1", "59606D", "FFFE9F", "FFD480", "FCA180", "F56262"]
+    
+    
     
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
@@ -30,7 +31,7 @@ class AddHabitColorCell: UITableViewCell {
 extension AddHabitColorCell: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return colors.count
+        return K.colors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -38,13 +39,15 @@ extension AddHabitColorCell: UICollectionViewDelegate, UICollectionViewDataSourc
             return UICollectionViewCell()
         }
         cell.layer.cornerRadius = 25
-        cell.backgroundColor = hexStringToUIColor(hex: colors[indexPath.row])
+        cell.backgroundColor = hexStringToUIColor(hex: Array(K.colors.keys)[indexPath.row])
+        
         cell.isUserInteractionEnabled = true
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedColor = colors[indexPath.row]
-        viewController(forView: self)?.navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: colors[indexPath.row])
+        selectedColor = Array(K.colors.keys)[indexPath.row]
+        viewController(forView: self)?.navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: Array(K.colors.keys)[indexPath.row])
+        viewController(forView: self)?.navigationController?.navigationBar.tintColor = hexStringToUIColor(hex: Array(K.colors.values)[indexPath.row])
     }
 }
