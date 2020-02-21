@@ -76,8 +76,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		360E834A23FF0401002F550B /* InChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InChatCell.swift; sourceTree = SOURCE_ROOT; };
-		360E834B23FF0401002F550B /* InChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InChatCell.xib; sourceTree = SOURCE_ROOT; };
+		360E834A23FF0401002F550B /* InChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InChatCell.swift; path = ToDoo/Views/InChatCell.swift; sourceTree = SOURCE_ROOT; };
+		360E834B23FF0401002F550B /* InChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InChatCell.xib; path = ToDoo/Views/InChatCell.xib; sourceTree = SOURCE_ROOT; };
 		360E834E23FF1860002F550B /* OutChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutChatCell.swift; sourceTree = "<group>"; };
 		360E834F23FF1860002F550B /* OutChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutChatCell.xib; sourceTree = "<group>"; };
 		360E835223FF257E002F550B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
