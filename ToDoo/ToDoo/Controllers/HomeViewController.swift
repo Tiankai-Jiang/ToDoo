@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addClicked))
         
         self.navigationController?.navigationBar.barTintColor = nil
+        loadBadge()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -163,7 +164,13 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
+    func loadBadge(){
+        if((UserDefaults.standard.object(forKey: "badgeStatus")) != nil){
+            self.tabBarController?.tabBar.items?[2].badgeValue = "●"
+                self.tabBarController?.tabBar.items?[2].badgeColor = .clear
+            self.tabBarController?.tabBar.items?[2].setBadgeTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red] as [NSAttributedString.Key: Any], for: .normal)
+        }
+    }
     func sendDoneMessage(habitName: String, messageSender: String){
         let chatColRef = db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.chatCollection)
         chatColRef.addDocument(data: [K.FStore.bodyField: "I have done " + habitName + "!", K.FStore.isIncomingField: false, K.FStore.dateField: Date().timeIntervalSince1970]) { (error) in
@@ -174,17 +181,8 @@ class HomeViewController: UIViewController {
                     if let e = error{
                         print(e.localizedDescription)
                     }else{
-//                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
-//                        if let tabItems = vc.tabBar.items{
-//                            if let badge = Shared.sharedInstance.badgeNum{
-//                                tabItems[2].badgeValue = String(badge + 1)
-//                            }else{
-//                                DispatchQueue.main.async(execute: {
-//                                    tabItems[2].badgeValue = "1"
-//                                    Shared.sharedInstance.badgeNum = 1
-//                                })
-//                            }
-//                        }
+                        UserDefaults.standard.set(true, forKey: "badgeStatus")
+                        self.loadBadge()
                     }
                 }
             }
