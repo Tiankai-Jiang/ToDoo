@@ -31,7 +31,7 @@ class ChatViewController: UIViewController {
     }
     
     @objc func addItem2(){
-        print("From Chat")
+        
     }
     
     func loadMessages(){

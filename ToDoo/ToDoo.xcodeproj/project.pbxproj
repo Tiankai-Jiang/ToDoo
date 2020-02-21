@@ -48,6 +48,10 @@
 		3661CA2723EC56CC00C73F0D /* HabitDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661CA2523EC56CC00C73F0D /* HabitDetailCell.swift */; };
 		3661CA2823EC56CC00C73F0D /* HabitDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3661CA2623EC56CC00C73F0D /* HabitDetailCell.xib */; };
 		3661CA2A23EC622A00C73F0D /* HabitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661CA2923EC622A00C73F0D /* HabitInfo.swift */; };
+		368E1720240082C500B73690 /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E171E240082C500B73690 /* ProfileImageCell.swift */; };
+		368E1721240082C500B73690 /* ProfileImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368E171F240082C500B73690 /* ProfileImageCell.xib */; };
+		368E1724240084AA00B73690 /* LogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E1722240084AA00B73690 /* LogoutCell.swift */; };
+		368E1725240084AA00B73690 /* LogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368E1723240084AA00B73690 /* LogoutCell.xib */; };
 		36AD600523F0E2BE001C2A85 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AD600323F0E2BE001C2A85 /* DateHeader.swift */; };
 		36AD600623F0E2BE001C2A85 /* DateHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36AD600423F0E2BE001C2A85 /* DateHeader.xib */; };
 		36B4296623E32AE900C2369B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296523E32AE900C2369B /* Utility.swift */; };
@@ -124,6 +128,10 @@
 		3661CA2523EC56CC00C73F0D /* HabitDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailCell.swift; sourceTree = "<group>"; };
 		3661CA2623EC56CC00C73F0D /* HabitDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HabitDetailCell.xib; sourceTree = "<group>"; };
 		3661CA2923EC622A00C73F0D /* HabitInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfo.swift; sourceTree = "<group>"; };
+		368E171E240082C500B73690 /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
+		368E171F240082C500B73690 /* ProfileImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileImageCell.xib; sourceTree = "<group>"; };
+		368E1722240084AA00B73690 /* LogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCell.swift; sourceTree = "<group>"; };
+		368E1723240084AA00B73690 /* LogoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutCell.xib; sourceTree = "<group>"; };
 		36AD600323F0E2BE001C2A85 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		36AD600423F0E2BE001C2A85 /* DateHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateHeader.xib; sourceTree = "<group>"; };
 		36B4296523E32AE900C2369B /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -286,6 +294,10 @@
 				360E834B23FF0401002F550B /* InChatCell.xib */,
 				360E834E23FF1860002F550B /* OutChatCell.swift */,
 				360E834F23FF1860002F550B /* OutChatCell.xib */,
+				368E171E240082C500B73690 /* ProfileImageCell.swift */,
+				368E171F240082C500B73690 /* ProfileImageCell.xib */,
+				368E1722240084AA00B73690 /* LogoutCell.swift */,
+				368E1723240084AA00B73690 /* LogoutCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -406,6 +418,7 @@
 			files = (
 				3635BBB323EB5E3F00869962 /* AddHabitNameCell.xib in Resources */,
 				3635BBBF23EB6E7500869962 /* AddHabitRepeatCell.xib in Resources */,
+				368E1721240082C500B73690 /* ProfileImageCell.xib in Resources */,
 				3620342823CE4D5D00939EAF /* LaunchScreen.storyboard in Resources */,
 				3635BBB723EB657700869962 /* AddHabitColorCell.xib in Resources */,
 				3611111E23CF70DD0031B7EB /* GoogleService-Info.plist in Resources */,
@@ -414,6 +427,7 @@
 				3635BBC323EB704900869962 /* AddHabitToggleCell.xib in Resources */,
 				360E835123FF1860002F550B /* OutChatCell.xib in Resources */,
 				36313E6E23EE03F9009CE2BB /* TimelineCell.xib in Resources */,
+				368E1725240084AA00B73690 /* LogoutCell.xib in Resources */,
 				36396D1323EC46B900439059 /* HabitCell.xib in Resources */,
 				360E834D23FF0401002F550B /* InChatCell.xib in Resources */,
 				3661CA2823EC56CC00C73F0D /* HabitDetailCell.xib in Resources */,
@@ -490,6 +504,8 @@
 				36B6C67623CE59CB00DD4839 /* LoginViewController.swift in Sources */,
 				3635BBBA23EB681000869962 /* ColorCell.swift in Sources */,
 				36106D6623CF6C5F00E4143A /* AddHabitViewController.swift in Sources */,
+				368E1720240082C500B73690 /* ProfileImageCell.swift in Sources */,
+				368E1724240084AA00B73690 /* LogoutCell.swift in Sources */,
 				36B5C54B23F0D6E80074CB2D /* DateCell.swift in Sources */,
 				3635BBB623EB657700869962 /* AddHabitColorCell.swift in Sources */,
 				3620342023CE4D5C00939EAF /* CalendarViewController.swift in Sources */,

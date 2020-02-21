@@ -38,6 +38,10 @@ struct K {
         static let inchatXib = "InChatCell"
         static let outchatCell = "outChatCell"
         static let outchatXib = "OutChatCell"
+        static let profileImageCell = "profileImageCell"
+        static let profileImageXib = "ProfileImageCell"
+        static let logoutCell = "logoutCell"
+        static let logoutXib = "LogoutCell"
     }
     
     struct FStore {
