@@ -8,6 +8,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let db = Firestore.firestore()
+    let storage = Storage.storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +16,7 @@ class HomeViewController: UIViewController {
         
         tableView.separatorStyle = .none
         loadHabits()
-        
+        loadImages()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -163,6 +164,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
     func loadBadge(){
         if((UserDefaults.standard.object(forKey: "badgeStatus")) != nil){
             self.tabBarController?.tabBar.items?[2].badgeValue = "●"
@@ -170,6 +172,29 @@ class HomeViewController: UIViewController {
             self.tabBarController?.tabBar.items?[2].setBadgeTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red] as [NSAttributedString.Key: Any], for: .normal)
         }
     }
+    
+    func loadImages(){
+        if let currentUser = Auth.auth().currentUser?.email{
+            let img0 = storage.reference(forURL: "gs://todoo-a1fcd.appspot.com").child(currentUser + "/0.jpg")
+            img0.getData(maxSize: 1 * 2048 * 2048) { (data, error) in
+                if let e = error{
+                    print(e.localizedDescription)
+                }else{
+                    Shared.sharedInstance.profileImage = UIImage(data: data!)!
+                }
+            }
+            
+            let img1 = storage.reference(forURL: "gs://todoo-a1fcd.appspot.com").child(currentUser + "/1.jpg")
+            img1.getData(maxSize: 1 * 2048 * 2048) { (data, error) in
+                if let e = error{
+                    print(e.localizedDescription)
+                }else{
+                    Shared.sharedInstance.botImage = UIImage(data: data!)!
+                }
+            }
+        }
+    }
+    
     func sendDoneMessage(habitName: String, messageSender: String){
         let chatColRef = db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.chatCollection)
         chatColRef.addDocument(data: [K.FStore.bodyField: "I have done " + habitName + "!", K.FStore.isIncomingField: false, K.FStore.dateField: Date().timeIntervalSince1970]) { (error) in

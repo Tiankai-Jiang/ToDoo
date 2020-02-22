@@ -5,7 +5,7 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var currentEditing: Int = 0
-    var selectedImage: UIImage?
+    let storage = Storage.storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
         tableView.register(UINib(nibName: K.Cells.profileImageXib, bundle: nil), forCellReuseIdentifier: K.Cells.profileImageCell)
         
         tableView.register(UINib(nibName: K.Cells.logoutXib, bundle: nil), forCellReuseIdentifier: K.Cells.logoutCell)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +28,21 @@ class SettingsViewController: UIViewController {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)
+    }
+    
+    func handleSelectProfilePhotoUpload(selectedImage: UIImage){
+        if let currentUser = Auth.auth().currentUser?.email{
+            let imageRef = storage.reference(forURL: "gs://todoo-a1fcd.appspot.com").child(currentUser + "/" + String(currentEditing) + ".jpg")
+            if let imageData = selectedImage.jpegData(compressionQuality: 0.1){
+                imageRef.putData(imageData, metadata: nil) { (metadata, error) in
+                    if let e = error{
+                        print(e.localizedDescription)
+                        return
+                    }
+                }
+            }
+        }
+
     }
     
 }
@@ -45,7 +61,8 @@ extension SettingsViewController: UITableViewDataSource{
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.profileImageCell, for: indexPath) as! ProfileImageCell
-            cell.imageLabel.text = indexPath.row == 0 ? "Your profile image" : "AI profile image"
+            cell.imageLabel.text = indexPath.row == 0 ? "Your profile image" : "Bot profile image"
+            cell.profileImage.image = indexPath.row == 0 ? Shared.sharedInstance.profileImage : Shared.sharedInstance.botImage
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.logoutCell, for: indexPath) as! LogoutCell
@@ -87,11 +104,10 @@ extension SettingsViewController: UITableViewDelegate{
 
 extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print("finish")
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             let cell = tableView.cellForRow(at: IndexPath(row: currentEditing, section: 0)) as! ProfileImageCell
-            selectedImage = image
             cell.profileImage.image = image
+            handleSelectProfilePhotoUpload(selectedImage: image)
         }
         dismiss(animated: true, completion: nil)
     }
