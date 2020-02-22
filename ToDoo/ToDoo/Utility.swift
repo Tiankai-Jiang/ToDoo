@@ -102,7 +102,7 @@ func loadImages(){
         }
         
         let img1 = storage.reference(forURL: "gs://todoo-a1fcd.appspot.com").child(currentUser + "/1.jpg")
-        img1.getData(maxSize: 1 * 2048 * 2048) { (data, error) in
+        img1.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
             if let e = error{
                 print(e.localizedDescription)
             }else{
