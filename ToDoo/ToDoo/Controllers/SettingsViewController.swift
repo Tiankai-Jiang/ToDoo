@@ -6,6 +6,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var currentEditing: Int = 0
     let storage = Storage.storage()
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,6 +14,8 @@ class SettingsViewController: UIViewController {
         tableView.register(UINib(nibName: K.Cells.profileImageXib, bundle: nil), forCellReuseIdentifier: K.Cells.profileImageCell)
         
         tableView.register(UINib(nibName: K.Cells.logoutXib, bundle: nil), forCellReuseIdentifier: K.Cells.logoutCell)
+        
+        tableView.register(UINib(nibName: K.Cells.setNameXib, bundle: nil), forCellReuseIdentifier: K.Cells.setNameCell)
         
         tableView.tableFooterView = UIView()
     }
@@ -53,11 +56,11 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 2 : 1
+        return section == 2 ? 1 : 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,6 +69,11 @@ extension SettingsViewController: UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.profileImageCell, for: indexPath) as! ProfileImageCell
             cell.imageLabel.text = indexPath.row == 0 ? "Your profile image" : "Bot profile image"
             cell.profileImage.image = indexPath.row == 0 ? Shared.sharedInstance.profileImage : Shared.sharedInstance.botImage
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.setNameCell, for: indexPath) as! SetNameCell
+            cell.nameLabel.text = indexPath.row == 0 ? "Name called by your bot" : "Your bot name"
+            cell.nickname.text = indexPath.row == 0 ? Shared.sharedInstance.userName : Shared.sharedInstance.botName
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.logoutCell, for: indexPath) as! LogoutCell
@@ -82,6 +90,35 @@ extension SettingsViewController: UITableViewDataSource{
         if(indexPath.section == 0){
             currentEditing = indexPath.row
             handleSelectProfileImageView(isMyself: indexPath.row)
+        }else if(indexPath.section == 1){
+            
+            let alertController = UIAlertController(title: "Title", message: "lalala", preferredStyle: .alert)
+            alertController.addTextField { (textField : UITextField!) -> Void in
+                textField.placeholder = "Enter name"
+            }
+            let saveAction = UIAlertAction(title: "Save", style: .default, handler: { alert -> Void in
+                if let textField = alertController.textFields?[0] {
+                    if let currentUser = Auth.auth().currentUser?.email{
+                        let userRef = self.db.collection(K.FStore.userCollection).document(currentUser)
+                        let field = indexPath.row == 0 ? "username" : "botname"
+                        userRef.updateData([field : textField.text!]) { (error) in
+                            if let e = error{
+                                print(e.localizedDescription)
+                            }else{
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {
+                (action : UIAlertAction!) -> Void in })
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(saveAction)
+            alertController.preferredAction = saveAction
+            self.present(alertController, animated: true, completion: nil)
+            
         }else{
             do{
                 try Auth.auth().signOut()

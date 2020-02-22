@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: K.Cells.habitXib, bundle: nil), forCellReuseIdentifier: K.Cells.habitCell)
         
         tableView.separatorStyle = .none
+        loadNames()
         loadHabits()
         loadImages()
     }

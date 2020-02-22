@@ -85,6 +85,9 @@ extension HabitDetailViewController: JTAppleCalendarViewDataSource {
             cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
             cell.selectedView.backgroundColor = hexStringToUIColor(hex: colorCompleted)
             cell.dateLabel.textColor = .white
+        }else{
+            cell.selectedView.backgroundColor = .white
+            cell.dateLabel.textColor = hexStringToUIColor(hex: "194348")
         }
             
         }

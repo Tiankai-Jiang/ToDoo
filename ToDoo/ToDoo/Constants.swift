@@ -42,6 +42,8 @@ struct K {
         static let profileImageXib = "ProfileImageCell"
         static let logoutCell = "logoutCell"
         static let logoutXib = "LogoutCell"
+        static let setNameCell = "setNameCell"
+        static let setNameXib = "SetNameCell"
     }
     
     struct FStore {

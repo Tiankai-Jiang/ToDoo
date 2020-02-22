@@ -43,6 +43,8 @@
 		364CBE1423CE5C1900B14A95 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CBE1323CE5C1900B14A95 /* ChatViewController.swift */; };
 		364CBE1623CE5C2B00B14A95 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CBE1523CE5C2B00B14A95 /* SettingsViewController.swift */; };
 		364CBE1823CE6BFA00B14A95 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CBE1723CE6BFA00B14A95 /* Constants.swift */; };
+		365394B32400C4BB008A1488 /* SetNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365394B12400C4BB008A1488 /* SetNameCell.swift */; };
+		365394B42400C4BB008A1488 /* SetNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365394B22400C4BB008A1488 /* SetNameCell.xib */; };
 		365787D623E104C2003699FA /* SelectDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365787D523E104C2003699FA /* SelectDayViewController.swift */; };
 		3661CA2423EC530800C73F0D /* HabitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661CA2323EC530800C73F0D /* HabitDetailViewController.swift */; };
 		3661CA2723EC56CC00C73F0D /* HabitDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661CA2523EC56CC00C73F0D /* HabitDetailCell.swift */; };
@@ -123,6 +125,8 @@
 		364CBE1323CE5C1900B14A95 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		364CBE1523CE5C2B00B14A95 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		364CBE1723CE6BFA00B14A95 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		365394B12400C4BB008A1488 /* SetNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameCell.swift; sourceTree = "<group>"; };
+		365394B22400C4BB008A1488 /* SetNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetNameCell.xib; sourceTree = "<group>"; };
 		365787D523E104C2003699FA /* SelectDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDayViewController.swift; sourceTree = "<group>"; };
 		3661CA2323EC530800C73F0D /* HabitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailViewController.swift; sourceTree = "<group>"; };
 		3661CA2523EC56CC00C73F0D /* HabitDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailCell.swift; sourceTree = "<group>"; };
@@ -298,6 +302,8 @@
 				368E171F240082C500B73690 /* ProfileImageCell.xib */,
 				368E1722240084AA00B73690 /* LogoutCell.swift */,
 				368E1723240084AA00B73690 /* LogoutCell.xib */,
+				365394B12400C4BB008A1488 /* SetNameCell.swift */,
+				365394B22400C4BB008A1488 /* SetNameCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -433,6 +439,7 @@
 				3661CA2823EC56CC00C73F0D /* HabitDetailCell.xib in Resources */,
 				36B5C54C23F0D6E80074CB2D /* DateCell.xib in Resources */,
 				36AD600623F0E2BE001C2A85 /* DateHeader.xib in Resources */,
+				365394B42400C4BB008A1488 /* SetNameCell.xib in Resources */,
 				3635BBBB23EB681000869962 /* ColorCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +518,7 @@
 				3620342023CE4D5C00939EAF /* CalendarViewController.swift in Sources */,
 				364CBE1423CE5C1900B14A95 /* ChatViewController.swift in Sources */,
 				3661CA2723EC56CC00C73F0D /* HabitDetailCell.swift in Sources */,
+				365394B32400C4BB008A1488 /* SetNameCell.swift in Sources */,
 				3661CA2A23EC622A00C73F0D /* HabitInfo.swift in Sources */,
 				3620344D23CE53C700939EAF /* WelcomeViewController.swift in Sources */,
 				3620341E23CE4D5C00939EAF /* HomeViewController.swift in Sources */,
