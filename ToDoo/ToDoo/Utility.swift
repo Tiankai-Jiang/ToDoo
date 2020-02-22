@@ -118,10 +118,10 @@ func loadNames(){
         let userRef = db.collection(K.FStore.userCollection).document(currentUser)
         userRef.addSnapshotListener { (querySnapshot, error) in
             if let data = querySnapshot?.data(){
-                if let username = data["username"] as? String{
+                if let username = data[K.FStore.usernameField] as? String{
                     Shared.sharedInstance.userName = username
                 }
-                if let botname = data["botname"] as? String{
+                if let botname = data[K.FStore.botnameField] as? String{
                     Shared.sharedInstance.botName = botname
                 }
             }

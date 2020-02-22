@@ -62,6 +62,9 @@ struct K {
         static let bodyField = "body"
         static let isIncomingField = "isIncoming"
         static let dateField = "date"
+        
+        static let usernameField = "username"
+        static let botnameField = "botname"
     }
     
     static let conversation: [String] = ["You are so fxxking awesome!", "test2", "test3"]

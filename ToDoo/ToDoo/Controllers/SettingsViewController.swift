@@ -86,21 +86,35 @@ extension SettingsViewController: UITableViewDataSource{
         return 36
     }
     
+    @objc func textFieldDidChange(_ sender: UITextField) {
+        guard let alertController = presentedViewController as? UIAlertController else {
+            return
+        }
+        let alertButton = alertController.actions[1]
+        if let e = sender.text {
+            let text = e.trimmingCharacters(in: .whitespaces)
+            alertButton.isEnabled = !text.isEmpty
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.section == 0){
             currentEditing = indexPath.row
             handleSelectProfileImageView(isMyself: indexPath.row)
         }else if(indexPath.section == 1){
             
-            let alertController = UIAlertController(title: "Title", message: "lalala", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Please enter a new name", message: nil, preferredStyle: .alert)
             alertController.addTextField { (textField : UITextField!) -> Void in
-                textField.placeholder = "Enter name"
+                textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)),
+                for: .editingChanged)
             }
+
+            
             let saveAction = UIAlertAction(title: "Save", style: .default, handler: { alert -> Void in
                 if let textField = alertController.textFields?[0] {
                     if let currentUser = Auth.auth().currentUser?.email{
                         let userRef = self.db.collection(K.FStore.userCollection).document(currentUser)
-                        let field = indexPath.row == 0 ? "username" : "botname"
+                        let field = indexPath.row == 0 ? K.FStore.usernameField : K.FStore.botnameField
                         userRef.updateData([field : textField.text!]) { (error) in
                             if let e = error{
                                 print(e.localizedDescription)
@@ -111,11 +125,13 @@ extension SettingsViewController: UITableViewDataSource{
                     }
                 }
             })
+            
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {
                 (action : UIAlertAction!) -> Void in })
             
             alertController.addAction(cancelAction)
             alertController.addAction(saveAction)
+            alertController.actions[1].isEnabled = false
             alertController.preferredAction = saveAction
             self.present(alertController, animated: true, completion: nil)
             

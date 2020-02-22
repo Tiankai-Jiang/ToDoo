@@ -7,5 +7,5 @@ class Shared{
     var profileImage: UIImage = #imageLiteral(resourceName: "profile_woman")
     var botImage: UIImage = #imageLiteral(resourceName: "profile_man")
     var userName: String = "Master"
-    var botName: String = "Bot"
+    var botName: String = "ChatBot"
 }
