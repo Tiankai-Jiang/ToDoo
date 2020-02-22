@@ -8,7 +8,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let db = Firestore.firestore()
-    let storage = Storage.storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,28 +169,6 @@ class HomeViewController: UIViewController {
             self.tabBarController?.tabBar.items?[2].badgeValue = "●"
                 self.tabBarController?.tabBar.items?[2].badgeColor = .clear
             self.tabBarController?.tabBar.items?[2].setBadgeTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red] as [NSAttributedString.Key: Any], for: .normal)
-        }
-    }
-    
-    func loadImages(){
-        if let currentUser = Auth.auth().currentUser?.email{
-            let img0 = storage.reference(forURL: "gs://todoo-a1fcd.appspot.com").child(currentUser + "/0.jpg")
-            img0.getData(maxSize: 1 * 2048 * 2048) { (data, error) in
-                if let e = error{
-                    print(e.localizedDescription)
-                }else{
-                    Shared.sharedInstance.profileImage = UIImage(data: data!)!
-                }
-            }
-            
-            let img1 = storage.reference(forURL: "gs://todoo-a1fcd.appspot.com").child(currentUser + "/1.jpg")
-            img1.getData(maxSize: 1 * 2048 * 2048) { (data, error) in
-                if let e = error{
-                    print(e.localizedDescription)
-                }else{
-                    Shared.sharedInstance.botImage = UIImage(data: data!)!
-                }
-            }
         }
     }
     

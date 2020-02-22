@@ -1,4 +1,5 @@
 import UIKit
+import Firebase
 
 // Get TableView reference from a TableViewCell
 extension UITableViewCell {
@@ -86,4 +87,27 @@ func epochTimeDaysInterval(_ epochEarlier: Int, _ epochLater: Int) -> Int{
     let dateLater = calendar.startOfDay(for: Date(timeIntervalSince1970: TimeInterval(epochLater)))
     let components = calendar.dateComponents([.day], from: dateEarlier, to: dateLater)
     return components.day!
+}
+
+func loadImages(){
+    let storage = Storage.storage()
+    if let currentUser = Auth.auth().currentUser?.email{
+        let img0 = storage.reference(forURL: "gs://todoo-a1fcd.appspot.com").child(currentUser + "/0.jpg")
+        img0.getData(maxSize: 1 * 2048 * 2048) { (data, error) in
+            if let e = error{
+                print(e.localizedDescription)
+            }else{
+                Shared.sharedInstance.profileImage = UIImage(data: data!)!
+            }
+        }
+        
+        let img1 = storage.reference(forURL: "gs://todoo-a1fcd.appspot.com").child(currentUser + "/1.jpg")
+        img1.getData(maxSize: 1 * 2048 * 2048) { (data, error) in
+            if let e = error{
+                print(e.localizedDescription)
+            }else{
+                Shared.sharedInstance.botImage = UIImage(data: data!)!
+            }
+        }
+    }
 }

@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_man" translatesAutoresizingMaskIntoConstraints="NO" id="ZS6-bM-kcc" userLabel="User Image">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZS6-bM-kcc" userLabel="User Image">
                         <rect key="frame" x="12" y="52" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="ATY-CS-7L8"/>
@@ -57,6 +57,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="botImage" destination="ZS6-bM-kcc" id="0aS-eD-oF1"/>
                 <outlet property="contentLabel" destination="gOD-jm-OEF" id="axX-zp-sdm"/>
                 <outlet property="textBubble" destination="Xxa-H6-TGe" id="C0o-Ez-DLo"/>
             </connections>
@@ -65,6 +66,5 @@
     </objects>
     <resources>
         <image name="bubble_pointer_incoming" width="17" height="19"/>
-        <image name="profile_man" width="37" height="37"/>
     </resources>
 </document>

@@ -4,6 +4,7 @@ class InChatCell: UITableViewCell {
 
     @IBOutlet weak var textBubble: UIView!
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var botImage: UIImageView!
     
     private enum Constants {
       static let shadowColor = UIColor(red: 189 / 255, green: 204 / 255, blue: 215 / 255, alpha: 0.54)
@@ -31,6 +32,7 @@ class InChatCell: UITableViewCell {
         textBubble.layer.shadowColor = Constants.shadowColor.cgColor
         textBubble.layer.shadowOffset = Constants.shadowOffset
         textBubble.layer.shadowRadius = Constants.shadowRadius
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

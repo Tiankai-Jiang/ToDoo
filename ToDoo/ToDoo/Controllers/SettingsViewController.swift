@@ -14,6 +14,7 @@ class SettingsViewController: UIViewController {
         
         tableView.register(UINib(nibName: K.Cells.logoutXib, bundle: nil), forCellReuseIdentifier: K.Cells.logoutCell)
         
+        tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +39,8 @@ class SettingsViewController: UIViewController {
                     if let e = error{
                         print(e.localizedDescription)
                         return
+                    }else{
+                        loadImages()
                     }
                 }
             }
@@ -72,7 +75,7 @@ extension SettingsViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 0 : 24
+        return 36
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

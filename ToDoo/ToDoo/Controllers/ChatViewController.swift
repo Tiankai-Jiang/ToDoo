@@ -6,6 +6,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let db = Firestore.firestore()
+    
     var messages: [Message] = []
     
     override func viewDidLoad() {
@@ -72,10 +73,12 @@ extension ChatViewController: UITableViewDataSource{
         if(messages[indexPath.row].isIncoming){
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.inchatCell, for: indexPath) as! InChatCell
             cell.message = messages[indexPath.row]
+            cell.botImage.image = Shared.sharedInstance.botImage
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.outchatCell, for: indexPath) as! OutChatCell
             cell.message = messages[indexPath.row]
+            cell.profileImage.image = Shared.sharedInstance.profileImage
             return cell
         }
         

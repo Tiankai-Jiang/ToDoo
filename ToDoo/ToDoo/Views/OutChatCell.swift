@@ -14,6 +14,8 @@ class OutChatCell: UITableViewCell {
     
     @IBOutlet weak var contentLabel: UILabel!
     
+    @IBOutlet weak var profileImage: UIImageView!
+    
     var message: Message? {
       didSet {
         guard let message = message else {
@@ -26,7 +28,6 @@ class OutChatCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
