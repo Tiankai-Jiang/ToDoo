@@ -25,14 +25,15 @@ class ChatViewController: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.title = K.chatTitle
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .plain, target: self, action: #selector(addItem2))
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
         loadMessages()
         self.tabBarController?.tabBar.items?[2].badgeValue = nil
         UserDefaults.standard.removeObject(forKey: "badgeStatus")
     }
     
-    @objc func addItem2(){
-        
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tableView.setContentOffset(CGPoint(x: 0, y: -1), animated: false)
     }
     
     func loadMessages(){
