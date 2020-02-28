@@ -17,7 +17,14 @@ class AddHabitViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let db = Firestore.firestore()
+    var ifEdit = false
     var isNotificationOn = false
+    var inputName = ""
+    var previousName = ""
+    var addedDate = 0
+    var checkedInfo: [String: Int] = [:]
+    var inputColor = K.defaultColor
+    
     var tableCells: [AddHabitCells] = [.name, .color, .frequency, .toggle]
     
     override func viewDidLoad() {
@@ -26,7 +33,7 @@ class AddHabitViewController: UIViewController {
         tableView.rowHeight = 80.0
         tableView.separatorStyle = .none
         
-//      change back buttton to cancel button
+        //      change back buttton to cancel button
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(back))
         
         self.hideKeyboardWhenTappedAround()
@@ -39,10 +46,10 @@ class AddHabitViewController: UIViewController {
         
         tableView.register(UINib(nibName: K.Cells.addHabitToggleXib, bundle: nil), forCellReuseIdentifier: K.Cells.addHabitToggleCell)
         
-        timePicker.isHidden = true
+        timePicker.isHidden = !isNotificationOn
         
-        navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: K.defaultColor)
-        navigationController?.navigationBar.tintColor = hexStringToUIColor(hex: K.colors[K.defaultColor] ?? "000000")
+        navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: inputColor)
+        navigationController?.navigationBar.tintColor = hexStringToUIColor(hex: K.colors[inputColor] ?? "000000")
     }
     
     //  return to home scene
@@ -50,19 +57,23 @@ class AddHabitViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func addItem(_ sender: UIBarButtonItem) {
-        let habitName = (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! AddHabitNameCell).habitNameTextField.text!.trimmingCharacters(in: .whitespaces);
-        
-        let selectedColor = (tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! AddHabitColorCell).selectedColor
-        
+    func popViewControllerss(popViews: Int, animated: Bool = true) {
+        if self.navigationController!.viewControllers.count > popViews
+        {
+            let vc = self.navigationController!.viewControllers[self.navigationController!.viewControllers.count - popViews - 1]
+            self.navigationController?.popToViewController(vc, animated: animated)
+        }
+    }
+    
+    func add(){
         if let messageSender = Auth.auth().currentUser?.email{
             let habitColRef = self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
             
-            habitColRef.document(habitName).getDocument { (document, error) in
+            habitColRef.document(inputName).getDocument { (document, error) in
                 if let document = document, document.exists {
                     self.view.makeToast("A habit with this name already exists", duration: 2.0, position: .top)
                 } else {
-                    habitColRef.document(habitName).setData([K.FStore.habitNameField: habitName, K.FStore.addedDateField: Int(Date().timeIntervalSince1970), K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: Shared.sharedInstance.selectedDays, K.FStore.notificationTimeField: Int(self.timePicker.date.timeIntervalSince1970), K.FStore.colorField: selectedColor, K.FStore.checkedField: []], completion: { (error) in
+                    habitColRef.document(self.inputName).setData([K.FStore.habitNameField: self.inputName, K.FStore.addedDateField: Int(Date().timeIntervalSince1970), K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: Shared.sharedInstance.selectedDays, K.FStore.notificationTimeField: Int(self.timePicker.date.timeIntervalSince1970), K.FStore.colorField: self.inputColor, K.FStore.checkedField: []], completion: { (error) in
                         if let e = error{
                             self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
                         }else{
@@ -72,6 +83,49 @@ class AddHabitViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    
+    
+    @IBAction func addItem(_ sender: UIBarButtonItem) {
+        if(!ifEdit){
+            add()
+        }else{
+            if(inputName == previousName){
+                if let messageSender = Auth.auth().currentUser?.email{
+                    let habitColRef = self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
+                    habitColRef.document(self.inputName).setData([K.FStore.habitNameField: self.inputName, K.FStore.addedDateField: addedDate, K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: Shared.sharedInstance.selectedDays, K.FStore.notificationTimeField: Int(self.timePicker.date.timeIntervalSince1970), K.FStore.colorField: self.inputColor, K.FStore.checkedField: checkedInfo], completion: { (error) in
+                        if let e = error{
+                            self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
+                        }else{
+                            self.popViewControllerss(popViews: 2)
+                        }
+                    })
+                    
+                }
+            }else{
+                if let messageSender = Auth.auth().currentUser?.email{
+                    let habitColRef = self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
+                    
+                    habitColRef.document(inputName).getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            self.view.makeToast("A habit with this name already exists", duration: 2.0, position: .top)
+                        } else {
+                            habitColRef.document(self.inputName).setData([K.FStore.habitNameField: self.inputName, K.FStore.addedDateField: self.addedDate, K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: Shared.sharedInstance.selectedDays, K.FStore.notificationTimeField: Int(self.timePicker.date.timeIntervalSince1970), K.FStore.colorField: self.inputColor, K.FStore.checkedField: self.checkedInfo], completion: { (error) in
+                                if let e = error{
+                                    self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
+                                }else{
+                                    self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.previousName).delete()
+                                    self.popViewControllerss(popViews: 2)
+                                }
+                            })
+                        }
+                    }
+                }
+                
+            }
+        }
+        
     }
 }
 
@@ -102,6 +156,7 @@ extension AddHabitViewController: UITableViewDataSource{
         switch tableCells[indexPath.row]{
         case .name:
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitNameCell, for: indexPath) as! AddHabitNameCell
+            cell.habitNameTextField.text = inputName
             cell.habitNameTextField.delegate = self;
             if cell.habitNameTextField.text!.isEmpty{
                 addButton.isEnabled = false
@@ -116,6 +171,7 @@ extension AddHabitViewController: UITableViewDataSource{
             return cell
         case .toggle:
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.addHabitToggleCell, for: indexPath) as! AddHabitToggleCell
+            cell.toggle.isOn = isNotificationOn
             return cell
         }
     }

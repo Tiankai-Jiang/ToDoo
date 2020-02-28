@@ -4,6 +4,7 @@ struct K {
     static let addHabitSegue = "HomeToAddHabit"
     static let selectDaySegue = "addHabitToSelectDay"
     static let habitDetailSegue = "HomeToHabitDetail"
+    static let editHabitSegue = "HabitDetailToAddHabit"
     
     static let homeTitle = "Home"
     static let calendarTitle = "Calendar"

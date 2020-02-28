@@ -44,6 +44,13 @@
                                     <outlet property="delegate" destination="3Er-us-sHC" id="EFK-dY-YkI"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcG-AE-Z0i">
+                                <rect key="frame" x="184" y="667" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="editButton:" destination="3Er-us-sHC" eventType="touchUpInside" id="Z6g-IY-l8A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -52,6 +59,8 @@
                             <constraint firstItem="cwC-NZ-ZGE" firstAttribute="trailing" secondItem="kfb-fQ-zG0" secondAttribute="trailing" constant="16" id="CjV-lt-yOe"/>
                             <constraint firstItem="mPl-Zb-OFe" firstAttribute="top" secondItem="kfb-fQ-zG0" secondAttribute="bottom" constant="8" symbolic="YES" id="NXT-FB-u4r"/>
                             <constraint firstItem="mPl-Zb-OFe" firstAttribute="trailing" secondItem="cwC-NZ-ZGE" secondAttribute="trailing" id="Sis-jy-Brf"/>
+                            <constraint firstItem="NcG-AE-Z0i" firstAttribute="centerX" secondItem="IIo-ch-ZLd" secondAttribute="centerX" id="d0E-Yq-YpT"/>
+                            <constraint firstItem="NcG-AE-Z0i" firstAttribute="top" secondItem="mPl-Zb-OFe" secondAttribute="bottom" constant="30" id="hVM-FU-n3z"/>
                             <constraint firstItem="kfb-fQ-zG0" firstAttribute="top" secondItem="cwC-NZ-ZGE" secondAttribute="top" constant="16" id="jMI-oL-Xb5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cwC-NZ-ZGE"/>
@@ -60,6 +69,7 @@
                     <connections>
                         <outlet property="calendar" destination="kfb-fQ-zG0" id="Swx-ad-O1A"/>
                         <outlet property="tableView" destination="mPl-Zb-OFe" id="0Cp-VB-zdC"/>
+                        <segue destination="8DJ-6u-loa" kind="show" identifier="HabitDetailToAddHabit" id="1aL-0v-b1h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rh1-CJ-Bke" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -547,5 +557,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0sf-Ag-ILF"/>
+        <segue reference="1aL-0v-b1h"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -30,6 +30,24 @@ class HabitDetailViewController: UIViewController {
         self.navigationItem.title = Shared.sharedInstance.habits[rowNumber].name
 
     }
+    
+    @IBAction func editButton(_ sender: UIButton) {
+        self.performSegue(withIdentifier: K.editHabitSegue, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! AddHabitViewController
+        let currentHabit = Shared.sharedInstance.habits[rowNumber]
+        destinationVC.inputName = currentHabit.name
+        destinationVC.previousName = currentHabit.name
+        destinationVC.addedDate = currentHabit.addedDate
+        destinationVC.inputColor = currentHabit.color
+        destinationVC.isNotificationOn = currentHabit.ifRemind
+        destinationVC.checkedInfo = currentHabit.checkedDays
+        destinationVC.ifEdit = true
+        Shared.sharedInstance.selectedDays = currentHabit.remindDays
+    }
+    
 }
 
 extension HabitDetailViewController: UITableViewDataSource{

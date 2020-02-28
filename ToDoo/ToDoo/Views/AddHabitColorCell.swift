@@ -4,9 +4,6 @@ class AddHabitColorCell: UITableViewCell {
     
     var selectedColor = K.defaultColor
     
-    
-    
-    
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
             collectionView.delegate = self
@@ -49,5 +46,6 @@ extension AddHabitColorCell: UICollectionViewDelegate, UICollectionViewDataSourc
         selectedColor = Array(K.colors.keys)[indexPath.row]
         viewController(forView: self)?.navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: Array(K.colors.keys)[indexPath.row])
         viewController(forView: self)?.navigationController?.navigationBar.tintColor = hexStringToUIColor(hex: Array(K.colors.values)[indexPath.row])
+        (viewController(forView: self) as! AddHabitViewController).inputColor = selectedColor
     }
 }

@@ -3,6 +3,8 @@ import UserNotifications
 
 class AddHabitToggleCell: UITableViewCell {
 
+    
+    @IBOutlet weak var toggle: UISwitch!
     @IBAction func switchView(_ sender: UISwitch) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             if(granted){
