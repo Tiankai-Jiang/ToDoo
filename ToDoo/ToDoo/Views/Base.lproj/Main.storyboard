@@ -267,6 +267,55 @@
             </objects>
             <point key="canvasLocation" x="3137.68115942029" y="49.553571428571423"/>
         </scene>
+        <!--Reset Password View Controller-->
+        <scene sceneID="dVO-wa-ws7">
+            <objects>
+                <viewController id="n0W-up-RWu" customClass="ResetPasswordViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JEo-5a-n7h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aEg-3b-Uza">
+                                <rect key="frame" x="50" y="150" width="314" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kBt-cZ-agA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrJ-YF-j0n">
+                                <rect key="frame" x="107" y="240" width="200" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="cPd-Ca-PyN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Reset Password">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="passwordResetDidTapped:" destination="n0W-up-RWu" eventType="touchUpInside" id="pPI-vB-laH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hrJ-YF-j0n" firstAttribute="centerX" secondItem="JEo-5a-n7h" secondAttribute="centerX" id="JvN-4P-Aw2"/>
+                            <constraint firstItem="hrJ-YF-j0n" firstAttribute="top" secondItem="aEg-3b-Uza" secondAttribute="bottom" constant="40" id="Kka-dQ-Pa1"/>
+                            <constraint firstItem="ffo-4g-es6" firstAttribute="trailing" secondItem="aEg-3b-Uza" secondAttribute="trailing" constant="50" id="Ox9-SQ-Jl9"/>
+                            <constraint firstItem="aEg-3b-Uza" firstAttribute="leading" secondItem="ffo-4g-es6" secondAttribute="leading" constant="50" id="T3C-B5-K7Y"/>
+                            <constraint firstItem="aEg-3b-Uza" firstAttribute="top" secondItem="ffo-4g-es6" secondAttribute="top" constant="10" id="iBT-4a-POI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ffo-4g-es6"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dga-Lw-JbP"/>
+                    <connections>
+                        <outlet property="resetPasswordEmailTextField" destination="aEg-3b-Uza" id="Fem-QU-p0D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="460-Wl-2XQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-188" y="-956"/>
+        </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
@@ -449,6 +498,9 @@
                                 <state key="normal" title="Forgot password?">
                                     <color key="titleColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetPasswordPressed:" destination="EMw-Lw-3FF" eventType="touchUpInside" id="7gz-1x-Dge"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -469,6 +521,7 @@
                         <outlet property="emailTextField" destination="Oi1-e4-Qdh" id="JIF-se-Xlp"/>
                         <outlet property="passwordTextField" destination="rYk-SH-TxN" id="ldJ-Hk-T01"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="LoginToHome" id="0sf-Ag-ILF"/>
+                        <segue destination="n0W-up-RWu" kind="show" identifier="LoginToPasswordReset" id="0aV-AE-j5R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ha-Zk-PKd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

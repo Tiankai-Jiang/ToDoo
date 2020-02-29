@@ -50,6 +50,7 @@
 		3661CA2723EC56CC00C73F0D /* HabitDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661CA2523EC56CC00C73F0D /* HabitDetailCell.swift */; };
 		3661CA2823EC56CC00C73F0D /* HabitDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3661CA2623EC56CC00C73F0D /* HabitDetailCell.xib */; };
 		3661CA2A23EC622A00C73F0D /* HabitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661CA2923EC622A00C73F0D /* HabitInfo.swift */; };
+		36724CC3240A1BA800D8240E /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36724CC2240A1BA800D8240E /* ResetPasswordViewController.swift */; };
 		368E1720240082C500B73690 /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E171E240082C500B73690 /* ProfileImageCell.swift */; };
 		368E1721240082C500B73690 /* ProfileImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368E171F240082C500B73690 /* ProfileImageCell.xib */; };
 		368E1724240084AA00B73690 /* LogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E1722240084AA00B73690 /* LogoutCell.swift */; };
@@ -132,6 +133,7 @@
 		3661CA2523EC56CC00C73F0D /* HabitDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailCell.swift; sourceTree = "<group>"; };
 		3661CA2623EC56CC00C73F0D /* HabitDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HabitDetailCell.xib; sourceTree = "<group>"; };
 		3661CA2923EC622A00C73F0D /* HabitInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfo.swift; sourceTree = "<group>"; };
+		36724CC2240A1BA800D8240E /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		368E171E240082C500B73690 /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
 		368E171F240082C500B73690 /* ProfileImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileImageCell.xib; sourceTree = "<group>"; };
 		368E1722240084AA00B73690 /* LogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCell.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				36B6C67523CE59CB00DD4839 /* LoginViewController.swift */,
 				36B6C67323CE599900DD4839 /* RegisterViewController.swift */,
 				3620344C23CE53C700939EAF /* WelcomeViewController.swift */,
+				36724CC2240A1BA800D8240E /* ResetPasswordViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				364CBE1823CE6BFA00B14A95 /* Constants.swift in Sources */,
 				36313E6D23EE03F9009CE2BB /* TimelineCell.swift in Sources */,
 				36B6C67423CE599900DD4839 /* RegisterViewController.swift in Sources */,
+				36724CC3240A1BA800D8240E /* ResetPasswordViewController.swift in Sources */,
 				360E835023FF1860002F550B /* OutChatCell.swift in Sources */,
 				3620341A23CE4D5C00939EAF /* AppDelegate.swift in Sources */,
 				3635BBC223EB704900869962 /* AddHabitToggleCell.swift in Sources */,
