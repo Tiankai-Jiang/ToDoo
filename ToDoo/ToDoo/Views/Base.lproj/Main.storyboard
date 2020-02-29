@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,10 +46,43 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcG-AE-Z0i">
-                                <rect key="frame" x="184" y="667" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="117" y="662" width="180" height="34"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="b3u-hF-r5X"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="zVx-6A-1vK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="Edit habit">
+                                    <color key="titleColor" name="Color"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="editButton:" destination="3Er-us-sHC" eventType="touchUpInside" id="Z6g-IY-l8A"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COs-M7-rYO">
+                                <rect key="frame" x="117" y="711" width="180" height="34"/>
+                                <color key="backgroundColor" red="0.99215686274509807" green="0.36862745098039218" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="2MY-fi-xwN"/>
+                                    <constraint firstAttribute="height" constant="34" id="NuV-9l-QhV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="Delete habit">
+                                    <color key="titleColor" name="Color"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deletePressed:" destination="3Er-us-sHC" eventType="touchUpInside" id="Et7-cq-lqR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -57,11 +91,13 @@
                             <constraint firstItem="kfb-fQ-zG0" firstAttribute="leading" secondItem="cwC-NZ-ZGE" secondAttribute="leading" constant="16" id="9ZO-Rc-W5R"/>
                             <constraint firstItem="mPl-Zb-OFe" firstAttribute="leading" secondItem="cwC-NZ-ZGE" secondAttribute="leading" id="B0S-CU-8Ch"/>
                             <constraint firstItem="cwC-NZ-ZGE" firstAttribute="trailing" secondItem="kfb-fQ-zG0" secondAttribute="trailing" constant="16" id="CjV-lt-yOe"/>
+                            <constraint firstItem="COs-M7-rYO" firstAttribute="top" secondItem="NcG-AE-Z0i" secondAttribute="bottom" constant="15" id="KCp-li-X1m"/>
                             <constraint firstItem="mPl-Zb-OFe" firstAttribute="top" secondItem="kfb-fQ-zG0" secondAttribute="bottom" constant="8" symbolic="YES" id="NXT-FB-u4r"/>
                             <constraint firstItem="mPl-Zb-OFe" firstAttribute="trailing" secondItem="cwC-NZ-ZGE" secondAttribute="trailing" id="Sis-jy-Brf"/>
                             <constraint firstItem="NcG-AE-Z0i" firstAttribute="centerX" secondItem="IIo-ch-ZLd" secondAttribute="centerX" id="d0E-Yq-YpT"/>
-                            <constraint firstItem="NcG-AE-Z0i" firstAttribute="top" secondItem="mPl-Zb-OFe" secondAttribute="bottom" constant="30" id="hVM-FU-n3z"/>
+                            <constraint firstItem="NcG-AE-Z0i" firstAttribute="top" secondItem="mPl-Zb-OFe" secondAttribute="bottom" constant="25" id="hVM-FU-n3z"/>
                             <constraint firstItem="kfb-fQ-zG0" firstAttribute="top" secondItem="cwC-NZ-ZGE" secondAttribute="top" constant="16" id="jMI-oL-Xb5"/>
+                            <constraint firstItem="COs-M7-rYO" firstAttribute="centerX" secondItem="IIo-ch-ZLd" secondAttribute="centerX" id="mMX-rL-HLw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cwC-NZ-ZGE"/>
                     </view>
@@ -554,6 +590,9 @@
         <image name="gear" catalog="system" width="64" height="58"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="message" catalog="system" width="64" height="56"/>
+        <namedColor name="Color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0sf-Ag-ILF"/>

@@ -1,11 +1,14 @@
 import UIKit
 import JTAppleCalendar
+import Firebase
 
 class HabitDetailViewController: UIViewController {
 
     @IBOutlet weak var calendar: JTAppleCalendarView!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    let db = Firestore.firestore()
     
     var habitInformation: [HabitInfo] = []
     var checkedDays: [Int] = []
@@ -34,6 +37,27 @@ class HabitDetailViewController: UIViewController {
     
     @IBAction func editButton(_ sender: UIButton) {
         self.performSegue(withIdentifier: K.editHabitSegue, sender: self)
+    }
+    
+    
+    @IBAction func deletePressed(_ sender: UIButton) {
+        let deleteAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        
+        deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction) in
+            if let messageSender = Auth.auth().currentUser?.email{
+                self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(Shared.sharedInstance.habits[self.rowNumber].name).delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
+        }))
+        
+        deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(deleteAlert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
