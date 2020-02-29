@@ -152,7 +152,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="TgL-d5-wKd">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="u1b-N8-ptm">
                             <connections>
-                                <action selector="addItem:" destination="8DJ-6u-loa" id="7EF-uk-SCa"/>
+                                <action selector="doneClicked:" destination="8DJ-6u-loa" id="7EF-uk-SCa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

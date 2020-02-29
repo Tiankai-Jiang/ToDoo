@@ -23,12 +23,13 @@ class HabitDetailViewController: UIViewController {
         calendar.register(UINib(nibName: "DateHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "dateHeader")
         
         tableView.register(UINib(nibName: K.Cells.habitDetailXib, bundle: nil), forCellReuseIdentifier: K.Cells.habitDetailCell)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = Shared.sharedInstance.habits[rowNumber].name
-
+        navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: Shared.sharedInstance.habits[rowNumber].color)
     }
     
     @IBAction func editButton(_ sender: UIButton) {
@@ -44,6 +45,7 @@ class HabitDetailViewController: UIViewController {
         destinationVC.inputColor = currentHabit.color
         destinationVC.isNotificationOn = currentHabit.ifRemind
         destinationVC.checkedInfo = currentHabit.checkedDays
+        destinationVC.notificationTime = currentHabit.notificationTime
         destinationVC.ifEdit = true
         Shared.sharedInstance.selectedDays = currentHabit.remindDays
     }

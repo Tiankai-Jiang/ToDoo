@@ -23,6 +23,7 @@ class AddHabitViewController: UIViewController {
     var previousName = ""
     var addedDate = 0
     var checkedInfo: [String: Int] = [:]
+    var notificationTime = 0
     var inputColor = K.defaultColor
     
     var tableCells: [AddHabitCells] = [.name, .color, .frequency, .toggle]
@@ -50,6 +51,10 @@ class AddHabitViewController: UIViewController {
         
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: inputColor)
         navigationController?.navigationBar.tintColor = hexStringToUIColor(hex: K.colors[inputColor] ?? "000000")
+        
+        if(ifEdit){
+            timePicker.setDate(Date(timeIntervalSince1970: TimeInterval(notificationTime)), animated: false)
+        }
     }
     
     //  return to home scene
@@ -85,47 +90,50 @@ class AddHabitViewController: UIViewController {
         }
     }
     
+    func editNameUnchanged(){
+        if let messageSender = Auth.auth().currentUser?.email{
+            let habitColRef = self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
+            habitColRef.document(self.inputName).setData([K.FStore.habitNameField: self.inputName, K.FStore.addedDateField: addedDate, K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: Shared.sharedInstance.selectedDays, K.FStore.notificationTimeField: Int(self.timePicker.date.timeIntervalSince1970), K.FStore.colorField: self.inputColor, K.FStore.checkedField: checkedInfo], completion: { (error) in
+                if let e = error{
+                    self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
+                }else{
+                    self.popViewControllerss(popViews: 2)
+                }
+            })
+        }
+    }
     
+    func editNameChanged(){
+        if let messageSender = Auth.auth().currentUser?.email{
+            let habitColRef = self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
+            
+            habitColRef.document(inputName).getDocument { (document, error) in
+                if let document = document, document.exists {
+                    self.view.makeToast("A habit with this name already exists", duration: 2.0, position: .top)
+                } else {
+                    habitColRef.document(self.inputName).setData([K.FStore.habitNameField: self.inputName, K.FStore.addedDateField: self.addedDate, K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: Shared.sharedInstance.selectedDays, K.FStore.notificationTimeField: Int(self.timePicker.date.timeIntervalSince1970), K.FStore.colorField: self.inputColor, K.FStore.checkedField: self.checkedInfo], completion: { (error) in
+                        if let e = error{
+                            self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
+                        }else{
+                            self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.previousName).delete()
+                            self.popViewControllerss(popViews: 2)
+                        }
+                    })
+                }
+            }
+        }
+    }
     
-    @IBAction func addItem(_ sender: UIBarButtonItem) {
+    @IBAction func doneClicked(_ sender: UIBarButtonItem) {
         if(!ifEdit){
             add()
         }else{
             if(inputName == previousName){
-                if let messageSender = Auth.auth().currentUser?.email{
-                    let habitColRef = self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
-                    habitColRef.document(self.inputName).setData([K.FStore.habitNameField: self.inputName, K.FStore.addedDateField: addedDate, K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: Shared.sharedInstance.selectedDays, K.FStore.notificationTimeField: Int(self.timePicker.date.timeIntervalSince1970), K.FStore.colorField: self.inputColor, K.FStore.checkedField: checkedInfo], completion: { (error) in
-                        if let e = error{
-                            self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
-                        }else{
-                            self.popViewControllerss(popViews: 2)
-                        }
-                    })
-                    
-                }
+                editNameUnchanged()
             }else{
-                if let messageSender = Auth.auth().currentUser?.email{
-                    let habitColRef = self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
-                    
-                    habitColRef.document(inputName).getDocument { (document, error) in
-                        if let document = document, document.exists {
-                            self.view.makeToast("A habit with this name already exists", duration: 2.0, position: .top)
-                        } else {
-                            habitColRef.document(self.inputName).setData([K.FStore.habitNameField: self.inputName, K.FStore.addedDateField: self.addedDate, K.FStore.remindField: self.isNotificationOn, K.FStore.remindDaysField: Shared.sharedInstance.selectedDays, K.FStore.notificationTimeField: Int(self.timePicker.date.timeIntervalSince1970), K.FStore.colorField: self.inputColor, K.FStore.checkedField: self.checkedInfo], completion: { (error) in
-                                if let e = error{
-                                    self.view.makeToast(e.localizedDescription, duration: 2.0, position: .top)
-                                }else{
-                                    self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(self.previousName).delete()
-                                    self.popViewControllerss(popViews: 2)
-                                }
-                            })
-                        }
-                    }
-                }
-                
+                editNameChanged()
             }
         }
-        
     }
 }
 
