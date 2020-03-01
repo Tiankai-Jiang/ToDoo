@@ -1,8 +1,4 @@
 # ECE651-Project
 
 ---
-🍏 🍎 🍐 🍊 🍋 🍌 🍉 🍇 🍓 🍈 🍒 🍑 🍍 🥭 🥥 🥝 🍅 🍆 
-### DO NOT COMMIT TO MASTER UNLESS THE CODE IS TESTED
-### CREATE AN INDIVIDUAL BRANCH FOR EACH MODULE
-### FETCH THE LASTEST MASTER BEFORE CREATING A BRANCH
-🥑 🥦 🥒 🥬 🌶 🌽 🥕 🥔 🍠 🥐 🍞 🥖 🥨 🥯 🧀 🥚 🍳 🥞 
+### A habit tracker written in swift 5. 
