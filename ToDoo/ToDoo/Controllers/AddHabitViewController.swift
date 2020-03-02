@@ -23,6 +23,9 @@ class AddHabitViewController: UIViewController {
     var previousName = ""
     var addedDate = 0
     var checkedInfo: [String: Int] = [:]
+    //the key is the timeinterval of the day's noon, the purpose is to check
+    //in which day the habit is checked. And the value is the actual time of
+    //user's checking.
     var notificationTime = 0
     var inputColor = K.defaultColor
     
@@ -61,7 +64,7 @@ class AddHabitViewController: UIViewController {
     @objc func back(){
         navigationController?.popViewController(animated: true)
     }
-    
+    //MARK: -  delete the habit cell
     func popViewControllerss(popViews: Int, animated: Bool = true) {
         if self.navigationController!.viewControllers.count > popViews
         {
@@ -69,7 +72,7 @@ class AddHabitViewController: UIViewController {
             self.navigationController?.popToViewController(vc, animated: animated)
         }
     }
-    
+    //MARK: -  add a new habit
     func add(){
         if let messageSender = Auth.auth().currentUser?.email{
             let habitColRef = self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
@@ -89,7 +92,7 @@ class AddHabitViewController: UIViewController {
             }
         }
     }
-    
+    //MARK: - edit cell
     func editNameUnchanged(){
         if let messageSender = Auth.auth().currentUser?.email{
             let habitColRef = self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
@@ -123,9 +126,10 @@ class AddHabitViewController: UIViewController {
             }
         }
     }
-    
+    // overall controller
     @IBAction func doneClicked(_ sender: UIBarButtonItem) {
         if(!ifEdit){
+            // to check from which sague
             add()
         }else{
             if(inputName == previousName){
@@ -184,7 +188,6 @@ extension AddHabitViewController: UITableViewDataSource{
         }
     }
 }
-
 extension AddHabitViewController: UITableViewDelegate{
     
 }

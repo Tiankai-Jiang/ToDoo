@@ -62,6 +62,7 @@ extension CalendarViewController: UITableViewDataSource, UITableViewDelegate{
             cell.timelineIcon.image = UIImage(systemName: "calendar", withConfiguration: UIImage.SymbolConfiguration(scale: .small))?.withTintColor(.black, renderingMode: .alwaysOriginal)        }
         else{
 //            let formatter = DateFormatter()
+            //except the first cell, we should reset the format, otherwise it will be shown like the first row
             formatter.dateFormat = "HH:mm"
             cell.finishedTime.isHidden = false
             cell.habitName.font = UIFont.systemFont(ofSize: 20.0)
@@ -79,7 +80,6 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
-
         let startDate = formatter.date(from: "2020 01 01")!
         let endDate = Date()
         return ConfigurationParameters(startDate: startDate, endDate: endDate)
@@ -103,7 +103,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
             cell.selectedView.isHidden = true
         }
         
-        cell.dateLabel.textColor = hexStringToUIColor(hex: Calendar.current.isDateInWeekend(cellState.date) ? "f15c5c" : "194348")
+        //cell.dateLabel.textColor = hexStringToUIColor(hex: Calendar.current.isDateInWeekend(cellState.date) ? "f15c5c" : "194348")
     }
     func handleCellColor(cell: DateCell, cellState: CellState) {
         cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2

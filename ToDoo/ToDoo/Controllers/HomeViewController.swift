@@ -11,8 +11,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         tableView.register(UINib(nibName: K.Cells.habitXib, bundle: nil), forCellReuseIdentifier: K.Cells.habitCell)
-        
         tableView.separatorStyle = .none
         loadNames()
         loadHabits()
@@ -50,6 +50,7 @@ class HomeViewController: UIViewController {
     }
     
     func setReminder(habit: Habit){
+        //set notification
         let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
         content.title = "ToDoo! " + habit.name + "!"
@@ -164,7 +165,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
+    // badge of the chatting tab bar
     func loadBadge(){
         if((UserDefaults.standard.object(forKey: "badgeStatus")) != nil){
             self.tabBarController?.tabBar.items?[2].badgeValue = "●"
@@ -172,7 +173,7 @@ class HomeViewController: UIViewController {
             self.tabBarController?.tabBar.items?[2].setBadgeTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red] as [NSAttributedString.Key: Any], for: .normal)
         }
     }
-    
+    //link to chat, when one task is done, the robot will send the user a message
     func sendDoneMessage(habitName: String, messageSender: String){
         let chatColRef = db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.chatCollection)
         chatColRef.addDocument(data: [K.FStore.bodyField: "I have done " + habitName + "!", K.FStore.isIncomingField: false, K.FStore.dateField: Date().timeIntervalSince1970]) { (error) in
@@ -220,9 +221,10 @@ extension HomeViewController: SwipeTableViewCellDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
 
         switch orientation{
+            //MARK: - swipe right
         case .right:
             let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-                
+                // deleting confirmation
                 let deleteAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
                 
                 deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction) in
@@ -246,7 +248,7 @@ extension HomeViewController: SwipeTableViewCellDelegate{
             deleteAction.backgroundColor = hexStringToUIColor(hex: "FD5E53")
             return [deleteAction]
             
-            
+            //MARK: - swipe left
         case .left:
             if(!Shared.sharedInstance.habits[indexPath.row].todayStatus){
                 let doneAction = SwipeAction(style: .destructive, title: "Done") { (action, indexPath) in
@@ -264,6 +266,7 @@ extension HomeViewController: SwipeTableViewCellDelegate{
                 doneAction.image = UIImage(systemName: "checkmark.circle")
                 return [doneAction]
             }else{
+                //if the task has been down, we can cancel the action
                 let undoAction = SwipeAction(style: .destructive, title: "Undo") { (action, indexPath) in
                     if let messageSender = Auth.auth().currentUser?.email{
                         self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(Shared.sharedInstance.habits[indexPath.row].name).updateData([K.FStore.checkedField + "." + Date().Noon(): FieldValue.delete()])

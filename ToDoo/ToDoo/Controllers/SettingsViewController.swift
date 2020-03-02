@@ -62,7 +62,7 @@ extension SettingsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 2 ? 1 : 2
     }
-    
+    //MARK: - set according to section
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
@@ -157,7 +157,7 @@ extension SettingsViewController: UITableViewDataSource{
 extension SettingsViewController: UITableViewDelegate{
     
 }
-
+//MARK: - image picker
 extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{

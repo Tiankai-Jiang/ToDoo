@@ -3,11 +3,9 @@ import JTAppleCalendar
 import Firebase
 
 class HabitDetailViewController: UIViewController {
-
+    //the sague that show the details of habit, including a calendar and a detailed table
     @IBOutlet weak var calendar: JTAppleCalendarView!
-    
     @IBOutlet weak var tableView: UITableView!
-    
     let db = Firestore.firestore()
     
     var habitInformation: [HabitInfo] = []
@@ -24,25 +22,19 @@ class HabitDetailViewController: UIViewController {
         calendar.register(UINib(nibName: "DateCell", bundle: nil), forCellWithReuseIdentifier: "dateCell")
         
         calendar.register(UINib(nibName: "DateHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "dateHeader")
-        
         tableView.register(UINib(nibName: K.Cells.habitDetailXib, bundle: nil), forCellReuseIdentifier: K.Cells.habitDetailCell)
         
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = Shared.sharedInstance.habits[rowNumber].name
         navigationController?.navigationBar.barTintColor = hexStringToUIColor(hex: Shared.sharedInstance.habits[rowNumber].color)
     }
-    
     @IBAction func editButton(_ sender: UIButton) {
         self.performSegue(withIdentifier: K.editHabitSegue, sender: self)
     }
-    
-    
     @IBAction func deletePressed(_ sender: UIButton) {
         let deleteAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-        
         deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction) in
             if let messageSender = Auth.auth().currentUser?.email{
                 self.db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection).document(Shared.sharedInstance.habits[self.rowNumber].name).delete() { err in
@@ -56,10 +48,8 @@ class HabitDetailViewController: UIViewController {
         }))
         
         deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
         self.present(deleteAlert, animated: true, completion: nil)
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! AddHabitViewController
         let currentHabit = Shared.sharedInstance.habits[rowNumber]
@@ -73,7 +63,6 @@ class HabitDetailViewController: UIViewController {
         destinationVC.ifEdit = true
         Shared.sharedInstance.selectedDays = currentHabit.remindDays
     }
-    
 }
 
 extension HabitDetailViewController: UITableViewDataSource{
@@ -121,6 +110,7 @@ extension HabitDetailViewController: JTAppleCalendarViewDataSource {
             cell.selectedView.isHidden = true
         }
     }
+    //the basic color of the cell
     func handleCellColor(cell: DateCell,cellState: CellState) {
         let colorCompleted="a5d296"
         let allDateNoon=Shared.sharedInstance.habits[rowNumber].checkedDays.keys
