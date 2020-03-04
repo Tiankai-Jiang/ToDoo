@@ -28,7 +28,11 @@ class WelcomeViewController: UIViewController {
         let vc=LoginViewController()
         self.navigationController?.pushViewController(vc, animated: true)
         navigationController?.navigationBar.tintColor = UIColor.white
-        //present(vc,animated:true,completion:nil)
-        //self.view.window?.isHidden=true
+        
+    }
+    @IBAction func pressRegister(_ sender: Any) {
+        let vc=RegisterViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.navigationBar.tintColor = UIColor.white
     }
 }

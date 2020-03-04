@@ -8,6 +8,7 @@ class ResetPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("reset")
     }
 
     @IBAction func passwordResetDidTapped(_ sender: UIButton) {

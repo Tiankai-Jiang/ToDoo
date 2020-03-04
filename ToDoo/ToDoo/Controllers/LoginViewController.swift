@@ -67,6 +67,17 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         button.addTarget(self, action: #selector(loginPress(_:)), for: .touchUpInside)
         return button
     }()
+    private lazy var resetPasswordButton:UIButton = {
+        let button = UIButton(type:.custom)
+        button.backgroundColor = .light
+        button.tintColor = .dark
+        button.frame = loginFrame
+        button.setTitle("Forget password?", for: .normal)
+        button.setTitleColor(.text, for: .normal)
+        button.layer.cornerRadius = textFieldHeight/2
+        button.addTarget(self, action: #selector(resetPasswordPress(_:)), for: .touchUpInside)
+        return button
+    }()
     private let notificationCenter: NotificationCenter = .default
 
     deinit {
@@ -141,8 +152,10 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(passwordTextField)
         setUpPasswordTextFieldConstraints()
         //MARK: - added login button
-        view.insertSubview(loginButton, at: 0)
+        view.addSubview(loginButton)
         setUpLoginButton()
+        view.addSubview(resetPasswordButton)
+        setUpResetPasswordButton()
         
         //view.addSubview(navigation)
         
@@ -179,10 +192,16 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.heightAnchor.constraint(equalToConstant: textFieldHeight).isActive = true
         loginButton.widthAnchor.constraint(equalToConstant: textFieldWidth).isActive = true
         loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: textFieldSpacing).isActive = true
-        
     }
+    private func setUpResetPasswordButton() {
+        resetPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        resetPasswordButton.heightAnchor.constraint(equalToConstant: textFieldHeight).isActive = true
+        resetPasswordButton.widthAnchor.constraint(equalToConstant: textFieldWidth).isActive = true
+        resetPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        resetPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: textFieldSpacing).isActive = true
+    }
+    
 
     private func fractionComplete(for textField: UITextField) -> Float {
         guard let text = textField.text, let font = textField.font else { return 0 }
@@ -277,15 +296,18 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
                 if let e = error{
                     self.view.makeToast(e.localizedDescription, duration: 2.5, position: .center)
                 }else{
-                    //self.performSegue(withIdentifier: K.loginSegue, sender: self)
                     let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
                     self.navigationController?.pushViewController(vc, animated: true)
-                    //self.dismiss(animated: true, completion: nil)
                     
                     
                 }
             }
         }
+    }
+    @objc private func resetPasswordPress(_ sender:UIButton)
+    {
+        let vc = ResetPasswordViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc private func togglePasswordVisibility(_ sender: UIButton) {
         sender.isSelected.toggle()
@@ -309,38 +331,3 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         stopHeadRotation()
     }
 }
-
-/*
-import UIKit
-import Firebase
-import Toast_Swift
-
-class LoginViewController: UIViewController {
-    
-    //MARK: - original code
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    
-    @IBAction func resetPasswordPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: K.passwordResetSegue, sender: self)
-    }
-    
-    @IBAction func loginPressed(_ sender: UIButton) {
-        if let email = emailTextField.text, let password = passwordTextField.text{
-            Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
-                if let e = error{
-                    self.view.makeToast(e.localizedDescription, duration: 2.5, position: .center)
-                }else{
-                    self.performSegue(withIdentifier: K.loginSegue, sender: self)
-                }
-            }
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-    }
-    
-}
-*/
