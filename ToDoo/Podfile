@@ -5,5 +5,9 @@ target 'ToDoo' do
   use_frameworks!
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'Toast-Swift', '~> 5.0.0'
+  pod 'SwipeCellKit'
+  pod 'JTAppleCalendar', '7.1.7'
 
 end
