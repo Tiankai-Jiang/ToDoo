@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182D14822410220700FD28E7 /* CritterAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D14802410220600FD28E7 /* CritterAssets.swift */; };
+		182D14832410220700FD28E7 /* CritterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D14812410220700FD28E7 /* CritterView.swift */; };
+		182D14962410225000FD28E7 /* CATransform3D+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D14932410224F00FD28E7 /* CATransform3D+Helper.swift */; };
+		182D14972410225000FD28E7 /* UIColors+ColorPallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D14942410225000FD28E7 /* UIColors+ColorPallete.swift */; };
+		182D14982410225000FD28E7 /* Degree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D14952410225000FD28E7 /* Degree.swift */; };
+		18F02490241027CD0060BABF /* CritterAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0248F241027CD0060BABF /* CritterAnimatable.swift */; };
+		18F02491241027FF0060BABF /* Mouth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D14872410222200FD28E7 /* Mouth.swift */; };
+		18F02492241027FF0060BABF /* RightArm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D148B2410222200FD28E7 /* RightArm.swift */; };
+		18F02493241027FF0060BABF /* LeftEarMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D148C2410222200FD28E7 /* LeftEarMask.swift */; };
+		18F02494241027FF0060BABF /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D14902410222200FD28E7 /* Body.swift */; };
+		18F02495241027FF0060BABF /* RightEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D14852410222200FD28E7 /* RightEye.swift */; };
+		18F02496241027FF0060BABF /* RightEar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D14912410222200FD28E7 /* RightEar.swift */; };
+		18F02497241027FF0060BABF /* RightEarMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D14892410222200FD28E7 /* RightEarMask.swift */; };
+		18F02498241027FF0060BABF /* LeftArm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D148E2410222200FD28E7 /* LeftArm.swift */; };
+		18F02499241027FF0060BABF /* Head.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D148A2410222200FD28E7 /* Head.swift */; };
+		18F0249A241027FF0060BABF /* LeftEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D14862410222200FD28E7 /* LeftEye.swift */; };
+		18F0249B241027FF0060BABF /* Muzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D148D2410222200FD28E7 /* Muzzle.swift */; };
+		18F0249C241027FF0060BABF /* Nose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D14882410222200FD28E7 /* Nose.swift */; };
+		18F0249D241027FF0060BABF /* LeftEar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D148F2410222200FD28E7 /* LeftEar.swift */; };
 		360E834C23FF0401002F550B /* InChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360E834A23FF0401002F550B /* InChatCell.swift */; };
 		360E834D23FF0401002F550B /* InChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 360E834B23FF0401002F550B /* InChatCell.xib */; };
 		360E835023FF1860002F550B /* OutChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360E834E23FF1860002F550B /* OutChatCell.swift */; };
@@ -83,6 +102,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182D14802410220600FD28E7 /* CritterAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritterAssets.swift; sourceTree = "<group>"; };
+		182D14812410220700FD28E7 /* CritterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritterView.swift; sourceTree = "<group>"; };
+		182D14852410222200FD28E7 /* RightEye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightEye.swift; sourceTree = "<group>"; };
+		182D14862410222200FD28E7 /* LeftEye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftEye.swift; sourceTree = "<group>"; };
+		182D14872410222200FD28E7 /* Mouth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mouth.swift; sourceTree = "<group>"; };
+		182D14882410222200FD28E7 /* Nose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nose.swift; sourceTree = "<group>"; };
+		182D14892410222200FD28E7 /* RightEarMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightEarMask.swift; sourceTree = "<group>"; };
+		182D148A2410222200FD28E7 /* Head.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Head.swift; sourceTree = "<group>"; };
+		182D148B2410222200FD28E7 /* RightArm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightArm.swift; sourceTree = "<group>"; };
+		182D148C2410222200FD28E7 /* LeftEarMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftEarMask.swift; sourceTree = "<group>"; };
+		182D148D2410222200FD28E7 /* Muzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muzzle.swift; sourceTree = "<group>"; };
+		182D148E2410222200FD28E7 /* LeftArm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftArm.swift; sourceTree = "<group>"; };
+		182D148F2410222200FD28E7 /* LeftEar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftEar.swift; sourceTree = "<group>"; };
+		182D14902410222200FD28E7 /* Body.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
+		182D14912410222200FD28E7 /* RightEar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightEar.swift; sourceTree = "<group>"; };
+		182D14932410224F00FD28E7 /* CATransform3D+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransform3D+Helper.swift"; sourceTree = "<group>"; };
+		182D14942410225000FD28E7 /* UIColors+ColorPallete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColors+ColorPallete.swift"; sourceTree = "<group>"; };
+		182D14952410225000FD28E7 /* Degree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Degree.swift; sourceTree = "<group>"; };
+		18F0248F241027CD0060BABF /* CritterAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CritterAnimatable.swift; sourceTree = "<group>"; };
 		360E834A23FF0401002F550B /* InChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InChatCell.swift; path = ToDoo/Views/InChatCell.swift; sourceTree = SOURCE_ROOT; };
 		360E834B23FF0401002F550B /* InChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InChatCell.xib; path = ToDoo/Views/InChatCell.xib; sourceTree = SOURCE_ROOT; };
 		360E834E23FF1860002F550B /* OutChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutChatCell.swift; sourceTree = "<group>"; };
@@ -176,6 +214,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182D147F241021E900FD28E7 /* critter */ = {
+			isa = PBXGroup;
+			children = (
+				182D14922410224200FD28E7 /* Helper */,
+				182D14812410220700FD28E7 /* CritterView.swift */,
+				182D14802410220600FD28E7 /* CritterAssets.swift */,
+				18F0248F241027CD0060BABF /* CritterAnimatable.swift */,
+				182D14852410222200FD28E7 /* RightEye.swift */,
+				182D14912410222200FD28E7 /* RightEar.swift */,
+				182D14862410222200FD28E7 /* LeftEye.swift */,
+				182D14872410222200FD28E7 /* Mouth.swift */,
+				182D14882410222200FD28E7 /* Nose.swift */,
+				182D14892410222200FD28E7 /* RightEarMask.swift */,
+				182D148A2410222200FD28E7 /* Head.swift */,
+				182D148B2410222200FD28E7 /* RightArm.swift */,
+				182D148C2410222200FD28E7 /* LeftEarMask.swift */,
+				182D148D2410222200FD28E7 /* Muzzle.swift */,
+				182D148E2410222200FD28E7 /* LeftArm.swift */,
+				182D148F2410222200FD28E7 /* LeftEar.swift */,
+				182D14902410222200FD28E7 /* Body.swift */,
+				182D14842410222200FD28E7 /* Parts */,
+			);
+			path = critter;
+			sourceTree = "<group>";
+		};
+		182D14842410222200FD28E7 /* Parts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parts;
+			sourceTree = "<group>";
+		};
+		182D14922410224200FD28E7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				182D14932410224F00FD28E7 /* CATransform3D+Helper.swift */,
+				182D14952410225000FD28E7 /* Degree.swift */,
+				182D14942410225000FD28E7 /* UIColors+ColorPallete.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		1FFDE414D64252CF725E6AEE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +307,7 @@
 				36118A7E23D386E700323AA1 /* Models */,
 				368D2DCF23CE72A500B65733 /* Views */,
 				368D2DCE23CE726A00B65733 /* Controllers */,
+				182D147F241021E900FD28E7 /* critter */,
 				364CBE1723CE6BFA00B14A95 /* Constants.swift */,
 				36B4296523E32AE900C2369B /* Utility.swift */,
 				361971BF23EE5517009C7D53 /* Shared.swift */,
@@ -511,23 +592,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				36B4296623E32AE900C2369B /* Utility.swift in Sources */,
+				182D14982410225000FD28E7 /* Degree.swift in Sources */,
 				36B6C67623CE59CB00DD4839 /* LoginViewController.swift in Sources */,
+				18F02498241027FF0060BABF /* LeftArm.swift in Sources */,
 				3635BBBA23EB681000869962 /* ColorCell.swift in Sources */,
 				36106D6623CF6C5F00E4143A /* AddHabitViewController.swift in Sources */,
+				18F0249A241027FF0060BABF /* LeftEye.swift in Sources */,
 				368E1720240082C500B73690 /* ProfileImageCell.swift in Sources */,
+				18F02499241027FF0060BABF /* Head.swift in Sources */,
 				368E1724240084AA00B73690 /* LogoutCell.swift in Sources */,
 				36B5C54B23F0D6E80074CB2D /* DateCell.swift in Sources */,
 				3635BBB623EB657700869962 /* AddHabitColorCell.swift in Sources */,
+				18F02495241027FF0060BABF /* RightEye.swift in Sources */,
+				18F02497241027FF0060BABF /* RightEarMask.swift in Sources */,
+				18F02492241027FF0060BABF /* RightArm.swift in Sources */,
+				182D14832410220700FD28E7 /* CritterView.swift in Sources */,
+				18F0249D241027FF0060BABF /* LeftEar.swift in Sources */,
+				18F02494241027FF0060BABF /* Body.swift in Sources */,
+				182D14972410225000FD28E7 /* UIColors+ColorPallete.swift in Sources */,
 				3620342023CE4D5C00939EAF /* CalendarViewController.swift in Sources */,
 				364CBE1423CE5C1900B14A95 /* ChatViewController.swift in Sources */,
 				3661CA2723EC56CC00C73F0D /* HabitDetailCell.swift in Sources */,
 				365394B32400C4BB008A1488 /* SetNameCell.swift in Sources */,
 				3661CA2A23EC622A00C73F0D /* HabitInfo.swift in Sources */,
+				18F02493241027FF0060BABF /* LeftEarMask.swift in Sources */,
 				3620344D23CE53C700939EAF /* WelcomeViewController.swift in Sources */,
 				3620341E23CE4D5C00939EAF /* HomeViewController.swift in Sources */,
 				36AD600523F0E2BE001C2A85 /* DateHeader.swift in Sources */,
 				364CBE1823CE6BFA00B14A95 /* Constants.swift in Sources */,
 				36313E6D23EE03F9009CE2BB /* TimelineCell.swift in Sources */,
+				18F02496241027FF0060BABF /* RightEar.swift in Sources */,
+				18F0249C241027FF0060BABF /* Nose.swift in Sources */,
+				18F02490241027CD0060BABF /* CritterAnimatable.swift in Sources */,
 				36B6C67423CE599900DD4839 /* RegisterViewController.swift in Sources */,
 				36724CC3240A1BA800D8240E /* ResetPasswordViewController.swift in Sources */,
 				360E835023FF1860002F550B /* OutChatCell.swift in Sources */,
@@ -535,10 +631,14 @@
 				3635BBC223EB704900869962 /* AddHabitToggleCell.swift in Sources */,
 				3635BBBE23EB6E7500869962 /* AddHabitRepeatCell.swift in Sources */,
 				36118A8023D3875E00323AA1 /* Habit.swift in Sources */,
+				18F02491241027FF0060BABF /* Mouth.swift in Sources */,
 				3620341C23CE4D5C00939EAF /* SceneDelegate.swift in Sources */,
+				18F0249B241027FF0060BABF /* Muzzle.swift in Sources */,
+				182D14962410225000FD28E7 /* CATransform3D+Helper.swift in Sources */,
 				3635BBB223EB5E3F00869962 /* AddHabitNameCell.swift in Sources */,
 				364CBE1623CE5C2B00B14A95 /* SettingsViewController.swift in Sources */,
 				36396D1223EC46B900439059 /* HabitCell.swift in Sources */,
+				182D14822410220700FD28E7 /* CritterAssets.swift in Sources */,
 				3661CA2423EC530800C73F0D /* HabitDetailViewController.swift in Sources */,
 				361971C023EE5517009C7D53 /* Shared.swift in Sources */,
 				360E835323FF257E002F550B /* Message.swift in Sources */,

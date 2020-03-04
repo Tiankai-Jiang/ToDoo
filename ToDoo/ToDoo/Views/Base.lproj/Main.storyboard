@@ -272,11 +272,11 @@
             <objects>
                 <viewController id="n0W-up-RWu" customClass="ResetPasswordViewController" customModule="ToDoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JEo-5a-n7h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aEg-3b-Uza">
-                                <rect key="frame" x="50" y="150" width="314" height="50"/>
+                                <rect key="frame" x="50" y="10" width="314" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kBt-cZ-agA"/>
                                 </constraints>
@@ -284,7 +284,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrJ-YF-j0n">
-                                <rect key="frame" x="107" y="240" width="200" height="36"/>
+                                <rect key="frame" x="107" y="100" width="200" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="cPd-Ca-PyN"/>
                                 </constraints>
@@ -411,22 +411,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="qLG-Jg-kgG" userLabel="WelcomeButtonView">
-                                <rect key="frame" x="0.0" y="739" width="414" height="103"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qLG-Jg-kgG" userLabel="WelcomeButtonView">
+                                <rect key="frame" x="100" y="696" width="214" height="116"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jz6-2K-Sxl">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="214" height="50"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="27"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="EMw-Lw-3FF" kind="show" id="xwh-yq-cnh"/>
+                                            <action selector="pressLogin:" destination="AR7-2x-x8T" eventType="touchUpInside" id="JtY-q8-gTs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiv-SI-cbd">
-                                        <rect key="frame" x="0.0" y="52" width="414" height="51"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <rect key="frame" x="0.0" y="66" width="214" height="50"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="27"/>
                                         <state key="normal" title="Register">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -439,13 +439,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="pBt-ka-G28" firstAttribute="trailing" secondItem="qLG-Jg-kgG" secondAttribute="trailing" id="Gls-gp-KfR"/>
-                            <constraint firstItem="pBt-ka-G28" firstAttribute="bottom" secondItem="qLG-Jg-kgG" secondAttribute="bottom" constant="20" id="MjW-w6-ouh"/>
-                            <constraint firstItem="qLG-Jg-kgG" firstAttribute="leading" secondItem="pBt-ka-G28" secondAttribute="leading" id="SyD-4Y-be0"/>
+                            <constraint firstItem="pBt-ka-G28" firstAttribute="trailing" secondItem="qLG-Jg-kgG" secondAttribute="trailing" constant="100" id="Gls-gp-KfR"/>
+                            <constraint firstItem="pBt-ka-G28" firstAttribute="bottom" secondItem="qLG-Jg-kgG" secondAttribute="bottom" constant="50" id="MjW-w6-ouh"/>
+                            <constraint firstItem="qLG-Jg-kgG" firstAttribute="leading" secondItem="pBt-ka-G28" secondAttribute="leading" constant="100" id="SyD-4Y-be0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pBt-ka-G28"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jrr-4l-bwG"/>
+                    <connections>
+                        <outlet property="loginButton" destination="jz6-2K-Sxl" id="k77-La-2IM"/>
+                        <outlet property="registerButton" destination="fiv-SI-cbd" id="6tE-Ow-zvz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yj-9G-bQR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -460,7 +464,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4Mn-zb-7oh" userLabel="LoginTextStackView">
-                                <rect key="frame" x="50" y="180" width="314" height="120"/>
+                                <rect key="frame" x="50" y="84" width="314" height="120"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1@2.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oi1-e4-Qdh" userLabel="LoginEmailTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
@@ -481,7 +485,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGa-nM-6U1">
-                                <rect key="frame" x="107" y="340" width="200" height="51"/>
+                                <rect key="frame" x="107" y="244" width="200" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="if4-en-gyV"/>
                                 </constraints>
@@ -520,7 +524,6 @@
                     <connections>
                         <outlet property="emailTextField" destination="Oi1-e4-Qdh" id="JIF-se-Xlp"/>
                         <outlet property="passwordTextField" destination="rYk-SH-TxN" id="ldJ-Hk-T01"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="LoginToHome" id="0sf-Ag-ILF"/>
                         <segue destination="n0W-up-RWu" kind="show" identifier="LoginToPasswordReset" id="0aV-AE-j5R"/>
                     </connections>
                 </viewController>
@@ -648,7 +651,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0sf-Ag-ILF"/>
         <segue reference="1aL-0v-b1h"/>
     </inferredMetricsTieBreakers>
 </document>

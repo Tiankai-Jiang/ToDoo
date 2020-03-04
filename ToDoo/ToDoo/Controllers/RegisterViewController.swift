@@ -24,3 +24,4 @@ class RegisterViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
 }
+
