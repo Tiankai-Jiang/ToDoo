@@ -292,9 +292,6 @@
                                 <state key="normal" title="Reset Password">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="passwordResetDidTapped:" destination="n0W-up-RWu" eventType="touchUpInside" id="pPI-vB-laH"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -308,9 +305,6 @@
                         <viewLayoutGuide key="safeArea" id="ffo-4g-es6"/>
                     </view>
                     <navigationItem key="navigationItem" id="Dga-Lw-JbP"/>
-                    <connections>
-                        <outlet property="resetPasswordEmailTextField" destination="aEg-3b-Uza" id="Fem-QU-p0D"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="460-Wl-2XQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

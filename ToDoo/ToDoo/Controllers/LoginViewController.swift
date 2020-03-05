@@ -308,6 +308,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
     {
         let vc = ResetPasswordViewController()
         self.navigationController?.pushViewController(vc, animated: true)
+        //present(vc, animated: true, completion: nil)
     }
     @objc private func togglePasswordVisibility(_ sender: UIButton) {
         sender.isSelected.toggle()

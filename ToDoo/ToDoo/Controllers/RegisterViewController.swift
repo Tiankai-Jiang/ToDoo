@@ -261,7 +261,7 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Actions
     @objc private func loginPress(_ sender:UIButton){
-        //press login
+        //press register
         if let email = emailTextField.text, let password = passwordTextField.text{
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let e = error{

@@ -18,7 +18,7 @@ struct K {
     static let selectedColorKey = "selectedColor"
     
     static let defaultColor = "92C9C4" //"9DF3C4"
-    static let colors : [String : String] = ["92C9C4":"FBECCB","E3CFDD":"5E499D","#f6cf9d":"783F8C", "DBD786":"2B525F", "E2CD8D":"DF8585", "E9C4C0":"E16466", "FCD9B3":"B6A4A3", "D8F5C7":"87AB84", "C1A2B4":"5D409C", "E3D9D5":"8057A2"]
+    static let colors : [String : String] = ["92C9C4":"FBECCB","E3CFDD":"5E499D","f6cf9d":"783F8C", "DBD786":"2B525F", "E2CD8D":"DF8585", "E9C4C0":"E16466", "FCD9B3":"B6A4A3", "D8F5C7":"87AB84", "C1A2B4":"5D409C", "E3D9D5":"8057A2"]
     struct Cells {
         static let habitCell = "habitCell"
         static let habitXib = "HabitCell"
