@@ -18,7 +18,8 @@ private let textFieldWidth: CGFloat = 206
 private let loginFrame = CGRect(x: 0, y: 0, width: 160, height: 22)
 
 final class RegisterViewController: UIViewController, UITextFieldDelegate {
-
+    
+    let db = Firestore.firestore()
     private let critterView = CritterView(frame: critterViewFrame)
 
     private lazy var emailTextField: UITextField = {
@@ -267,6 +268,9 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
                 if let e = error{
                     self.view.makeToast(e.localizedDescription, duration: 2.5, position: .center)
                 }else{
+                    if let currentUser = Auth.auth().currentUser?.email{
+                        self.db.collection(K.FStore.userCollection).document(currentUser).setData([K.FStore.botnameField : "Bot", K.FStore.usernameField : "Master"])
+                    }
                     let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
                     self.navigationController?.pushViewController(vc, animated: true)
                 }

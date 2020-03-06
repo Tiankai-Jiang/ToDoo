@@ -117,10 +117,7 @@ extension SettingsViewController: UITableViewDataSource{
                         let field = indexPath.row == 0 ? K.FStore.usernameField : K.FStore.botnameField
                         userRef.updateData([field : textField.text!]) { (error) in
                             if let e = error{
-                                // required optimization
-                                userRef.setData([field : textField.text!])
-                                self.tableView.reloadData()
-//                                print(e.localizedDescription)
+                                print(e.localizedDescription)
                             }else{
                                 self.tableView.reloadData()
                             }
