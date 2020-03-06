@@ -1,11 +1,3 @@
-//
-//  LoginViewController.swift
-//  LoginCritter
-//
-//  Created by Christopher Goldsby on 3/30/18.
-//  Copyright © 2018 Christopher Goldsby. All rights reserved.
-//
-
 import UIKit
 import Firebase
 import Toast_Swift
@@ -61,7 +53,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         button.backgroundColor = .light
         button.tintColor = .dark
         button.frame = loginFrame
-        button.setTitle("login", for: .normal)
+        button.setTitle("Login", for: .normal)
         button.setTitleColor(.text, for: .normal)
         button.layer.cornerRadius = textFieldHeight/2
         button.addTarget(self, action: #selector(loginPress(_:)), for: .touchUpInside)
@@ -96,14 +88,14 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         let deadlineTime = DispatchTime.now() + .milliseconds(100)
 
         if textField == emailTextField {
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime) { // 🎩✨ Magic to ensure animation starts
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
                 let fractionComplete = self.fractionComplete(for: textField)
                 self.critterView.startHeadRotation(startAt: fractionComplete)
                 self.passwordDidResignAsFirstResponder()
             }
         }
         else if textField == passwordTextField {
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime) { // 🎩✨ Magic to ensure animation starts
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
                 self.critterView.isShy = true
                 self.showHidePasswordButton.isHidden = false
             }
@@ -157,7 +149,6 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(resetPasswordButton)
         setUpResetPasswordButton()
         
-        //view.addSubview(navigation)
         
         setUpGestures()
         setUpNotification()
@@ -222,28 +213,6 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         showHidePasswordButton.isHidden = true
         showHidePasswordButton.isSelected = false
         passwordTextField.isSecureTextEntry = true
-    }
-    //MARK: - test
-    private func addNavigationBar() {
-        let height: CGFloat = 75
-        var statusBarHeight: CGFloat = 0
-        if #available(iOS 13.0, *) {
-            statusBarHeight = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-        } else {
-            statusBarHeight = UIApplication.shared.statusBarFrame.height
-        }
-        let navbar = UINavigationBar(frame: CGRect(x: 0, y: statusBarHeight, width: UIScreen.main.bounds.width, height: height))
-        navbar.backgroundColor = UIColor.white
-        navbar.delegate = self as? UINavigationBarDelegate
-
-        let navItem = UINavigationItem()
-        navItem.title = "Sensor Data"
-
-        navbar.items = [navItem]
-
-        view.addSubview(navbar)
-
-        self.view?.frame = CGRect(x: 0, y: height, width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - height))
     }
     
     private func createTextField(text: String) -> UITextField {
@@ -315,8 +284,6 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         let isPasswordVisible = sender.isSelected
         passwordTextField.isSecureTextEntry = !isPasswordVisible
         critterView.isPeeking = isPasswordVisible
-
-        // 🎩✨ Magic to fix cursor position when toggling password visibility
         if let textRange = passwordTextField.textRange(from: passwordTextField.beginningOfDocument, to: passwordTextField.endOfDocument), let password = passwordTextField.text {
             passwordTextField.replace(textRange, withText: password)
         }

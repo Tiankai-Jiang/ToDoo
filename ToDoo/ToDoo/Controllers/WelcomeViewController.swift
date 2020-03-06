@@ -3,6 +3,7 @@ import UIKit
 class WelcomeViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var animation: UILabel!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
@@ -16,6 +17,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setOutlook()
+        loadAnimation()
     }
     func setOutlook(){
         self.view.backgroundColor = .dark
@@ -23,6 +25,17 @@ class WelcomeViewController: UIViewController {
         registerButton.backgroundColor = .light
         loginButton.layer.cornerRadius = loginButton.frame.size.height/2
         registerButton.layer.cornerRadius = registerButton.frame.size.height/2
+    }
+    func loadAnimation(){
+        let text = "To do and achieve yourself"
+        animation.text = ""
+        var charIndex=0.0
+        for letter in text{
+            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false){
+                (timer) in self.animation.text?.append(letter)
+            }
+            charIndex+=1
+        }
     }
     @IBAction func pressLogin(_ sender: Any) {
         let vc=LoginViewController()

@@ -397,24 +397,40 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLg-k4-Gq7">
+                                <rect key="frame" x="31" y="336" width="352" height="224"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="352" id="WwP-fF-3Me"/>
+                                    <constraint firstAttribute="height" constant="224" id="v6g-nx-Kw2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="50"/>
+                                <color key="textColor" name="Color"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" name="Color"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="pBt-ka-G28" firstAttribute="trailing" secondItem="TLg-k4-Gq7" secondAttribute="trailing" constant="31" id="6dh-A6-VcM"/>
                             <constraint firstItem="pBt-ka-G28" firstAttribute="trailing" secondItem="qLG-Jg-kgG" secondAttribute="trailing" constant="100" id="Gls-gp-KfR"/>
                             <constraint firstItem="pBt-ka-G28" firstAttribute="bottom" secondItem="qLG-Jg-kgG" secondAttribute="bottom" constant="50" id="MjW-w6-ouh"/>
                             <constraint firstItem="qLG-Jg-kgG" firstAttribute="leading" secondItem="pBt-ka-G28" secondAttribute="leading" constant="100" id="SyD-4Y-be0"/>
+                            <constraint firstItem="TLg-k4-Gq7" firstAttribute="leading" secondItem="pBt-ka-G28" secondAttribute="leading" constant="31" id="TIE-rJ-dmn"/>
+                            <constraint firstItem="TLg-k4-Gq7" firstAttribute="centerY" secondItem="KE0-Oj-cdh" secondAttribute="centerY" id="ruz-6f-Za8"/>
+                            <constraint firstItem="TLg-k4-Gq7" firstAttribute="centerX" secondItem="KE0-Oj-cdh" secondAttribute="centerX" id="s8s-pi-HbV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pBt-ka-G28"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jrr-4l-bwG"/>
                     <connections>
+                        <outlet property="animation" destination="TLg-k4-Gq7" id="oyQ-Em-QtH"/>
                         <outlet property="loginButton" destination="jz6-2K-Sxl" id="k77-La-2IM"/>
                         <outlet property="registerButton" destination="fiv-SI-cbd" id="6tE-Ow-zvz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yj-9G-bQR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1257" y="0.0"/>
+            <point key="canvasLocation" x="-1257.9710144927537" y="0.0"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="UiE-hV-R2F">

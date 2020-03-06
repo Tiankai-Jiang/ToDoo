@@ -69,7 +69,6 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         view.autocapitalizationType = .none
         view.spellCheckingType = .no
         view.delegate = self
-        //view.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
 
         let frame = CGRect(x: 0, y: 0, width: textFieldHorizontalMargin, height: textFieldHeight)
         view.leftView = UIView(frame: frame)

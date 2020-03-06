@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +12,39 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="E8P-iX-k6x">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="T90-zq-vTc">
+                                <rect key="frame" x="79.5" y="320.5" width="255" height="255"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="255" id="1vl-Zb-fCg"/>
+                                    <constraint firstAttribute="width" constant="255" id="5Ic-aD-tq5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="E8P-iX-k6x" secondAttribute="bottom" id="0Ip-h1-x5z"/>
+                            <constraint firstItem="E8P-iX-k6x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3SR-6c-FVG"/>
+                            <constraint firstItem="E8P-iX-k6x" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="64D-9C-ERY"/>
+                            <constraint firstAttribute="trailing" secondItem="E8P-iX-k6x" secondAttribute="trailing" id="Qrg-zz-X6h"/>
+                            <constraint firstItem="T90-zq-vTc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="o3g-fn-gTW"/>
+                            <constraint firstItem="T90-zq-vTc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="xMc-fD-o82"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="2048" height="2048"/>
+        <image name="checkmark" width="254.5" height="255"/>
+    </resources>
 </document>
