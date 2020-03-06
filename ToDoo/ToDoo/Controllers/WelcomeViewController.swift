@@ -27,10 +27,9 @@ class WelcomeViewController: UIViewController {
         registerButton.layer.cornerRadius = registerButton.frame.size.height/2
     }
     func loadAnimation(){
-        let text = "To do and achieve yourself"
         animation.text = ""
         var charIndex=0.0
-        for letter in text{
+        for letter in K.welcomeText{
             Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false){
                 (timer) in self.animation.text?.append(letter)
             }
