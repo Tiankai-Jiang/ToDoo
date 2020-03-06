@@ -22,6 +22,11 @@
                             <constraint firstAttribute="width" constant="40" id="WHl-QB-rXa"/>
                             <constraint firstAttribute="height" constant="40" id="pFw-1X-0VN"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYi-uW-cwf" userLabel="Text Bubble">
                         <rect key="frame" x="220" y="0.0" width="24" height="92"/>

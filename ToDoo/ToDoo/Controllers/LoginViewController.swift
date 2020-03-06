@@ -64,7 +64,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         button.backgroundColor = .light
         button.tintColor = .dark
         button.frame = loginFrame
-        button.setTitle("Forget password?", for: .normal)
+        button.setTitle("Forgot password?", for: .normal)
         button.setTitleColor(.text, for: .normal)
         button.layer.cornerRadius = textFieldHeight/2
         button.addTarget(self, action: #selector(resetPasswordPress(_:)), for: .touchUpInside)
