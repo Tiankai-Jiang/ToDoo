@@ -14,6 +14,7 @@ private let critterViewTopMargin: CGFloat = 70
 private let textFieldHeight: CGFloat = 37
 private let textFieldHorizontalMargin: CGFloat = 16.5
 private let textFieldSpacing: CGFloat = 22
+private let resetPasswordFieldSpacing: CGFloat = 66
 private let textFieldTopMargin: CGFloat = 38.8
 private let textFieldWidth: CGFloat = 206
 private let loginFrame = CGRect(x: 0, y: 0, width: 160, height: 22)
@@ -48,6 +49,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         button.addTarget(self, action: #selector(togglePasswordVisibility(_:)), for: .touchUpInside)
         return button
     }()
+    
     private lazy var loginButton:UIButton = {
         let button = UIButton(type:.custom)
         button.backgroundColor = .light
@@ -59,17 +61,20 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         button.addTarget(self, action: #selector(loginPress(_:)), for: .touchUpInside)
         return button
     }()
+    
     private lazy var resetPasswordButton:UIButton = {
         let button = UIButton(type:.custom)
-        button.backgroundColor = .light
-        button.tintColor = .dark
+//        button.backgroundColor = .light
+//        button.tintColor = .dark
         button.frame = loginFrame
         button.setTitle("Forgot password?", for: .normal)
         button.setTitleColor(.text, for: .normal)
-        button.layer.cornerRadius = textFieldHeight/2
+        button.setTitleColor(hexStringToUIColor(hex: "EDEDED"), for: .normal)
+//        button.layer.cornerRadius = textFieldHeight/2
         button.addTarget(self, action: #selector(resetPasswordPress(_:)), for: .touchUpInside)
         return button
     }()
+    
     private let notificationCenter: NotificationCenter = .default
 
     deinit {
@@ -185,12 +190,13 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: textFieldSpacing).isActive = true
     }
+    
     private func setUpResetPasswordButton() {
         resetPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         resetPasswordButton.heightAnchor.constraint(equalToConstant: textFieldHeight).isActive = true
         resetPasswordButton.widthAnchor.constraint(equalToConstant: textFieldWidth).isActive = true
         resetPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        resetPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: textFieldSpacing).isActive = true
+        resetPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: resetPasswordFieldSpacing).isActive = true
     }
     
 

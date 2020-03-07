@@ -363,11 +363,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qLG-Jg-kgG" userLabel="WelcomeButtonView">
-                                <rect key="frame" x="100" y="696" width="214" height="116"/>
+                                <rect key="frame" x="100" y="724" width="214" height="88"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jz6-2K-Sxl">
-                                        <rect key="frame" x="0.0" y="0.0" width="214" height="50"/>
-                                        <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="27"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="214" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -376,8 +376,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiv-SI-cbd">
-                                        <rect key="frame" x="0.0" y="66" width="214" height="50"/>
-                                        <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="27"/>
+                                        <rect key="frame" x="0.0" y="52" width="214" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                         <state key="normal" title="Register">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
