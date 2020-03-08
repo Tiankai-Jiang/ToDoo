@@ -18,11 +18,11 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="E8P-iX-k6x">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="T90-zq-vTc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="my_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="fT1-13-Jgg">
                                 <rect key="frame" x="79.5" y="320.5" width="255" height="255"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="255" id="1vl-Zb-fCg"/>
-                                    <constraint firstAttribute="width" constant="255" id="5Ic-aD-tq5"/>
+                                    <constraint firstAttribute="height" constant="255" id="Pnh-jY-NOP"/>
+                                    <constraint firstAttribute="width" constant="255" id="ypr-TJ-37O"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -32,8 +32,8 @@
                             <constraint firstItem="E8P-iX-k6x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3SR-6c-FVG"/>
                             <constraint firstItem="E8P-iX-k6x" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="64D-9C-ERY"/>
                             <constraint firstAttribute="trailing" secondItem="E8P-iX-k6x" secondAttribute="trailing" id="Qrg-zz-X6h"/>
-                            <constraint firstItem="T90-zq-vTc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="o3g-fn-gTW"/>
-                            <constraint firstItem="T90-zq-vTc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="xMc-fD-o82"/>
+                            <constraint firstItem="fT1-13-Jgg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YCH-fG-TJJ"/>
+                            <constraint firstItem="fT1-13-Jgg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="oLp-8M-6vb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -45,6 +45,6 @@
     </scenes>
     <resources>
         <image name="background" width="2048" height="2048"/>
-        <image name="checkmark" width="254.5" height="255"/>
+        <image name="my_checkmark" width="254.5" height="255"/>
     </resources>
 </document>

@@ -128,6 +128,14 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="phV-9W-Zo0"/>
                                 </connections>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="instruction" id="Xbo-Y0-UF7">
+                                <rect key="frame" x="0.0" y="198" width="414" height="500"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="9qa-NR-UEv"/>
+                                    <constraint firstAttribute="width" constant="414" id="YlG-jd-lqc"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -142,6 +150,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="instructionImage" destination="Xbo-Y0-UF7" id="4Bt-pc-dBu"/>
                         <outlet property="tableView" destination="0JO-oI-PW5" id="r9H-qP-ycB"/>
                         <segue destination="8DJ-6u-loa" kind="show" identifier="HomeToAddHabit" id="kpW-xQ-5ZO"/>
                         <segue destination="3Er-us-sHC" kind="show" identifier="HomeToHabitDetail" id="xF2-xm-t8c"/>
@@ -149,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1674" y="-666"/>
+            <point key="canvasLocation" x="1673.913043478261" y="-666.29464285714278"/>
         </scene>
         <!--Add Habit View Controller-->
         <scene sceneID="Zex-N3-GUy">
@@ -474,6 +483,7 @@
         <image name="calendar" catalog="system" width="64" height="52"/>
         <image name="gear" catalog="system" width="64" height="58"/>
         <image name="house" catalog="system" width="64" height="54"/>
+        <image name="instruction" width="500" height="500"/>
         <image name="message" catalog="system" width="64" height="56"/>
         <namedColor name="Color">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

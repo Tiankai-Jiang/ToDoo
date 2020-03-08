@@ -6,6 +6,7 @@ import SwipeCellKit
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var instructionImage: UIImageView!
     
     let db = Firestore.firestore()
     
@@ -123,7 +124,15 @@ class HomeViewController: UIViewController {
         let missed = ifChecked.count - total
         return [HabitInfo(infoName: "Total persisted days", info: String(total) + "d"), HabitInfo(infoName: "Current sequential days", info: String(current) + "d"), HabitInfo(infoName: "Longest record", info: String(longest) + "d"), HabitInfo(infoName: "Missed days", info: String(missed) + "d"),  HabitInfo(infoName: "Established date", info: established)]
     }
-    
+    func loadInstruction(){
+        //MARK: - load instruction
+        if Shared.sharedInstance.habits.count < 1{
+            instructionImage.isHidden=false
+        }
+        else{
+            instructionImage.isHidden=true
+        }
+    }
     func loadHabits(){
         if let messageSender = Auth.auth().currentUser?.email{
             let habitColRef = db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
@@ -196,6 +205,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        loadInstruction()
         return Shared.sharedInstance.habits.count
     }
     
@@ -206,7 +216,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         cell.contentView.backgroundColor = hexStringToUIColor(hex: Shared.sharedInstance.habits[indexPath.row].color)
         cell.habitNameLabel.textColor = hexStringToUIColor(hex:K.colors[Shared.sharedInstance.habits[indexPath.row].color] ?? "000000") 
         cell.checkmark.image = Shared.sharedInstance.habits[indexPath.row].todayStatus ? UIImage(systemName: "checkmark") : nil
+        cell.checkmark.tintColor = hexStringToUIColor(hex:K.colors[Shared.sharedInstance.habits[indexPath.row].color] ?? "000000")
         cell.delegate = self
+        loadInstruction()
         return cell
     }
     

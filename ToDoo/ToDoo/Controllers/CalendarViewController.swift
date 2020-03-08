@@ -65,7 +65,7 @@ extension CalendarViewController: UITableViewDataSource, UITableViewDelegate{
             //except the first cell, we should reset the format, otherwise it will be shown like the first row
             formatter.dateFormat = "HH:mm"
             cell.finishedTime.isHidden = false
-            cell.habitName.font = UIFont.systemFont(ofSize: 20.0)
+            cell.habitName.font = UIFont.systemFont(ofSize: 17.0)
             cell.finishedTime.text = formatter.string(from: Date(timeIntervalSince1970: TimeInterval(displayedHabits[indexPath.row - 1].1)))
             cell.habitName.text = displayedHabits[indexPath.row-1].0
             cell.timelineIcon.image = UIImage(named: "timeline")
