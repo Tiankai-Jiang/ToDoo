@@ -21,7 +21,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="GPo-54-oI7"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
