@@ -332,9 +332,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e2J-1b-jre">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e2J-1b-jre">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="jZr-It-nXh" id="SAw-YA-qtB"/>
@@ -343,6 +342,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="e2J-1b-jre" firstAttribute="top" secondItem="rvW-wb-v6P" secondAttribute="top" id="CEX-tl-BKO"/>
+                            <constraint firstItem="e2J-1b-jre" firstAttribute="bottom" secondItem="rvW-wb-v6P" secondAttribute="bottom" id="eJ6-9O-TrJ"/>
+                            <constraint firstItem="e2J-1b-jre" firstAttribute="leading" secondItem="rvW-wb-v6P" secondAttribute="leading" id="rtq-op-nAP"/>
+                            <constraint firstItem="e2J-1b-jre" firstAttribute="trailing" secondItem="rvW-wb-v6P" secondAttribute="trailing" id="wb0-8J-Cn9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rvW-wb-v6P"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="U05-QJ-IYY"/>
