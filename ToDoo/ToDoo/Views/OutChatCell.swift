@@ -22,7 +22,7 @@ class OutChatCell: UITableViewCell {
           return
         }
         
-        contentLabel.text = message.body
+        contentLabel.text = Shared.sharedInstance.botName + ", " + message.body
       }
     }
     
