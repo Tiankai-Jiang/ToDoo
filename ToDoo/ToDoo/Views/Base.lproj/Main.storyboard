@@ -128,21 +128,23 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="phV-9W-Zo0"/>
                                 </connections>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="instruction" id="Xbo-Y0-UF7">
-                                <rect key="frame" x="0.0" y="198" width="414" height="500"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="instruction" translatesAutoresizingMaskIntoConstraints="NO" id="Xbo-Y0-UF7">
+                                <rect key="frame" x="30" y="241" width="354" height="354"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="9qa-NR-UEv"/>
-                                    <constraint firstAttribute="width" constant="414" id="YlG-jd-lqc"/>
+                                    <constraint firstAttribute="width" secondItem="Xbo-Y0-UF7" secondAttribute="height" multiplier="1:1" id="mGH-Sw-tpd"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Xbo-Y0-UF7" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="30" id="3Bg-fQ-YHd"/>
                             <constraint firstItem="0JO-oI-PW5" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="5ib-FT-AZg"/>
                             <constraint firstItem="0JO-oI-PW5" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="6f6-aR-AP9"/>
                             <constraint firstAttribute="trailing" secondItem="0JO-oI-PW5" secondAttribute="trailing" id="FOk-tq-GWh"/>
+                            <constraint firstAttribute="trailing" secondItem="Xbo-Y0-UF7" secondAttribute="trailing" constant="30" id="MQ5-Kx-Jdt"/>
+                            <constraint firstItem="Xbo-Y0-UF7" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="NKd-3w-KmW"/>
                             <constraint firstItem="0JO-oI-PW5" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="bqC-Iv-btK"/>
+                            <constraint firstItem="Xbo-Y0-UF7" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" constant="-30" id="qvE-ar-kei"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -257,17 +259,20 @@
                                     <outlet property="delegate" destination="sMp-hw-ODw" id="u4p-kA-Okm"/>
                                 </connections>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noChatHistory" id="UEM-yx-dDM">
-                                <rect key="frame" x="0.0" y="426" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noChatHistory" translatesAutoresizingMaskIntoConstraints="NO" id="UEM-yx-dDM">
+                                <rect key="frame" x="30" y="383.5" width="354" height="69"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="UEM-yx-dDM" firstAttribute="centerY" secondItem="Ryy-dr-n1i" secondAttribute="centerY" constant="-30" id="4bW-rD-9kT"/>
+                            <constraint firstAttribute="trailing" secondItem="UEM-yx-dDM" secondAttribute="trailing" constant="30" id="Dv4-3W-e4j"/>
+                            <constraint firstItem="UEM-yx-dDM" firstAttribute="leading" secondItem="Ryy-dr-n1i" secondAttribute="leading" constant="30" id="T3S-4J-9MC"/>
                             <constraint firstItem="qKS-OD-WvK" firstAttribute="trailing" secondItem="nOQ-7v-K0R" secondAttribute="trailing" id="cT4-Gq-Ecq"/>
                             <constraint firstItem="qKS-OD-WvK" firstAttribute="top" secondItem="nOQ-7v-K0R" secondAttribute="top" id="gXs-zU-Wdh"/>
                             <constraint firstItem="qKS-OD-WvK" firstAttribute="bottom" secondItem="nOQ-7v-K0R" secondAttribute="bottom" id="p2W-Nr-fKw"/>
                             <constraint firstItem="qKS-OD-WvK" firstAttribute="leading" secondItem="nOQ-7v-K0R" secondAttribute="leading" id="sJS-Uz-FHd"/>
+                            <constraint firstItem="UEM-yx-dDM" firstAttribute="centerX" secondItem="Ryy-dr-n1i" secondAttribute="centerX" id="vyk-HO-rEy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nOQ-7v-K0R"/>
                     </view>
