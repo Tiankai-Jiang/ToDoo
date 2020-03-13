@@ -43,8 +43,8 @@ struct K {
         static let outchatXib = "OutChatCell"
         static let profileImageCell = "profileImageCell"
         static let profileImageXib = "ProfileImageCell"
-        static let logoutCell = "logoutCell"
-        static let logoutXib = "LogoutCell"
+        static let settingsCell = "settingsCell"
+        static let settingsXib = "SettingsCell"
         static let setNameCell = "setNameCell"
         static let setNameXib = "SetNameCell"
     }

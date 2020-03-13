@@ -1,5 +1,6 @@
 import UIKit
 import Firebase
+import Toast_Swift
 
 class SettingsViewController: UIViewController {
 
@@ -13,7 +14,7 @@ class SettingsViewController: UIViewController {
         
         tableView.register(UINib(nibName: K.Cells.profileImageXib, bundle: nil), forCellReuseIdentifier: K.Cells.profileImageCell)
         
-        tableView.register(UINib(nibName: K.Cells.logoutXib, bundle: nil), forCellReuseIdentifier: K.Cells.logoutCell)
+        tableView.register(UINib(nibName: K.Cells.settingsXib, bundle: nil), forCellReuseIdentifier: K.Cells.settingsCell)
         
         tableView.register(UINib(nibName: K.Cells.setNameXib, bundle: nil), forCellReuseIdentifier: K.Cells.setNameCell)
         
@@ -55,11 +56,11 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 2 ? 1 : 2
+        return section >= 2 ? 1 : 2
     }
     //MARK: - set according to section
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,7 +76,8 @@ extension SettingsViewController: UITableViewDataSource{
             cell.nickname.text = indexPath.row == 0 ? Shared.sharedInstance.userName : Shared.sharedInstance.botName
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.logoutCell, for: indexPath) as! LogoutCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.settingsCell, for: indexPath) as! SettingsCell
+            cell.cellName.text = indexPath.section == 2 ? "Clean chat history" : "Logout"
             return cell
         }
         
@@ -134,6 +136,19 @@ extension SettingsViewController: UITableViewDataSource{
             alertController.preferredAction = saveAction
             self.present(alertController, animated: true, completion: nil)
             
+        }else if(indexPath.section == 2){
+            if let currentUser = Auth.auth().currentUser?.email{
+                self.db.collection(K.FStore.userCollection).document(currentUser).collection(K.FStore.chatCollection).getDocuments(){ (querySnapShot, error) in
+                    if let e = error{
+                        self.view.makeToast(e.localizedDescription, duration: 2.5, position: .center)
+                    }else{
+                        for document in querySnapShot!.documents{
+                            document.reference.delete()
+                        }
+                        self.view.makeToast("Success", duration: 2.5, position: .center)
+                    }
+                }
+            }
         }else{
             do{
                 try Auth.auth().signOut()

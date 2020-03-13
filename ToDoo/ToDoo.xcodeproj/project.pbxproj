@@ -72,8 +72,8 @@
 		36724CC3240A1BA800D8240E /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36724CC2240A1BA800D8240E /* ResetPasswordViewController.swift */; };
 		368E1720240082C500B73690 /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E171E240082C500B73690 /* ProfileImageCell.swift */; };
 		368E1721240082C500B73690 /* ProfileImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368E171F240082C500B73690 /* ProfileImageCell.xib */; };
-		368E1724240084AA00B73690 /* LogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E1722240084AA00B73690 /* LogoutCell.swift */; };
-		368E1725240084AA00B73690 /* LogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368E1723240084AA00B73690 /* LogoutCell.xib */; };
+		368E1724240084AA00B73690 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E1722240084AA00B73690 /* SettingsCell.swift */; };
+		368E1725240084AA00B73690 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368E1723240084AA00B73690 /* SettingsCell.xib */; };
 		36AD600523F0E2BE001C2A85 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AD600323F0E2BE001C2A85 /* DateHeader.swift */; };
 		36AD600623F0E2BE001C2A85 /* DateHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36AD600423F0E2BE001C2A85 /* DateHeader.xib */; };
 		36B4296623E32AE900C2369B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296523E32AE900C2369B /* Utility.swift */; };
@@ -174,8 +174,8 @@
 		36724CC2240A1BA800D8240E /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		368E171E240082C500B73690 /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
 		368E171F240082C500B73690 /* ProfileImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileImageCell.xib; sourceTree = "<group>"; };
-		368E1722240084AA00B73690 /* LogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCell.swift; sourceTree = "<group>"; };
-		368E1723240084AA00B73690 /* LogoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutCell.xib; sourceTree = "<group>"; };
+		368E1722240084AA00B73690 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		368E1723240084AA00B73690 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		36AD600323F0E2BE001C2A85 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		36AD600423F0E2BE001C2A85 /* DateHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateHeader.xib; sourceTree = "<group>"; };
 		36B4296523E32AE900C2369B /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -384,8 +384,8 @@
 				360E834F23FF1860002F550B /* OutChatCell.xib */,
 				368E171E240082C500B73690 /* ProfileImageCell.swift */,
 				368E171F240082C500B73690 /* ProfileImageCell.xib */,
-				368E1722240084AA00B73690 /* LogoutCell.swift */,
-				368E1723240084AA00B73690 /* LogoutCell.xib */,
+				368E1722240084AA00B73690 /* SettingsCell.swift */,
+				368E1723240084AA00B73690 /* SettingsCell.xib */,
 				365394B12400C4BB008A1488 /* SetNameCell.swift */,
 				365394B22400C4BB008A1488 /* SetNameCell.xib */,
 			);
@@ -517,7 +517,7 @@
 				3635BBC323EB704900869962 /* AddHabitToggleCell.xib in Resources */,
 				360E835123FF1860002F550B /* OutChatCell.xib in Resources */,
 				36313E6E23EE03F9009CE2BB /* TimelineCell.xib in Resources */,
-				368E1725240084AA00B73690 /* LogoutCell.xib in Resources */,
+				368E1725240084AA00B73690 /* SettingsCell.xib in Resources */,
 				36396D1323EC46B900439059 /* HabitCell.xib in Resources */,
 				360E834D23FF0401002F550B /* InChatCell.xib in Resources */,
 				3661CA2823EC56CC00C73F0D /* HabitDetailCell.xib in Resources */,
@@ -600,7 +600,7 @@
 				18F0249A241027FF0060BABF /* LeftEye.swift in Sources */,
 				368E1720240082C500B73690 /* ProfileImageCell.swift in Sources */,
 				18F02499241027FF0060BABF /* Head.swift in Sources */,
-				368E1724240084AA00B73690 /* LogoutCell.swift in Sources */,
+				368E1724240084AA00B73690 /* SettingsCell.swift in Sources */,
 				36B5C54B23F0D6E80074CB2D /* DateCell.swift in Sources */,
 				3635BBB623EB657700869962 /* AddHabitColorCell.swift in Sources */,
 				18F02495241027FF0060BABF /* RightEye.swift in Sources */,

@@ -1,7 +1,9 @@
 import UIKit
 import Firebase
 
-class LogoutCell: UITableViewCell {
+class SettingsCell: UITableViewCell {
+    
+    @IBOutlet weak var cellName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
