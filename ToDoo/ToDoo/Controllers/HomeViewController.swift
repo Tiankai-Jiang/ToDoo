@@ -124,15 +124,12 @@ class HomeViewController: UIViewController {
         let missed = ifChecked.count - total
         return [HabitInfo(infoName: "Total persisted days", info: String(total) + "d"), HabitInfo(infoName: "Current sequential days", info: String(current) + "d"), HabitInfo(infoName: "Longest record", info: String(longest) + "d"), HabitInfo(infoName: "Missed days", info: String(missed) + "d"),  HabitInfo(infoName: "Established date", info: established)]
     }
+    
     func loadInstruction(){
         //MARK: - load instruction
-        if Shared.sharedInstance.habits.count < 1{
-            instructionImage.isHidden=false
-        }
-        else{
-            instructionImage.isHidden=true
-        }
+        instructionImage.isHidden = Shared.sharedInstance.habits.count >= 1
     }
+    
     func loadHabits(){
         if let messageSender = Auth.auth().currentUser?.email{
             let habitColRef = db.collection(K.FStore.userCollection).document(messageSender).collection(K.FStore.habitCollection)
