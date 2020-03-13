@@ -15,15 +15,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+//        if Auth.auth().currentUser != nil{
+//            guard let rootVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else {
+//                return
+//            }
+//            let navigationController = UINavigationController(rootViewController: rootVC)
+//
+//            navigationController.navigationBar.prefersLargeTitles = true
+//            UIApplication.shared.windows.first?.rootViewController = navigationController
+//            UIApplication.shared.windows.first?.makeKeyAndVisible()
+//        }
+
         if Auth.auth().currentUser != nil{
-            guard let rootVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else {
+            guard let rootVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "navController") as? UINavigationController else {
                 return
             }
-            let navigationController = UINavigationController(rootViewController: rootVC)
-
-            navigationController.navigationBar.prefersLargeTitles = true
-            UIApplication.shared.windows.first?.rootViewController = navigationController
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
+            
+            rootVC.navigationBar.prefersLargeTitles = true
+            UIApplication.shared.windows.first?.rootViewController = rootVC
+            rootVC.pushViewController(UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController, animated: false)
         }
     }
 

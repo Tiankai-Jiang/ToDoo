@@ -48,7 +48,6 @@ class SettingsViewController: UIViewController {
                 }
             }
         }
-
     }
     
 }
@@ -138,13 +137,13 @@ extension SettingsViewController: UITableViewDataSource{
         }else{
             do{
                 try Auth.auth().signOut()
-                if let window = UIApplication.shared.windows.first {
-                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let rootVC = mainStoryboard.instantiateViewController(withIdentifier: "navController")
-                    window.rootViewController = rootVC
-                }
+//                if let window = UIApplication.shared.windows.first {
+//                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                    let rootVC = mainStoryboard.instantiateViewController(withIdentifier: "navController")
+//                    window.rootViewController = rootVC
+//                }
                 UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                navigationController?.popToRootViewController(animated: true) // why no animation????
+                navigationController?.popToRootViewController(animated: true)
             }catch let signOutError as NSError{
                 print(signOutError)
             }
