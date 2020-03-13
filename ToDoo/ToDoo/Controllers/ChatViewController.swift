@@ -7,6 +7,8 @@ class ChatViewController: UIViewController {
     
     let db = Firestore.firestore()
     
+    @IBOutlet weak var noChatHistory: UIImageView!
+    
     var messages: [Message] = []
     
     override func viewDidLoad() {
@@ -67,10 +69,12 @@ class ChatViewController: UIViewController {
 
 extension ChatViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        noChatHistory.isHidden = messages.count > 0
         return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        noChatHistory.isHidden = messages.count > 0
         if(messages[indexPath.row].isIncoming){
             let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.inchatCell, for: indexPath) as! InChatCell
             cell.message = messages[indexPath.row]

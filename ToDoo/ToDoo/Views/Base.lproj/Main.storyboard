@@ -257,6 +257,10 @@
                                     <outlet property="delegate" destination="sMp-hw-ODw" id="u4p-kA-Okm"/>
                                 </connections>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noChatHistory" id="UEM-yx-dDM">
+                                <rect key="frame" x="0.0" y="426" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -269,6 +273,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Chat" image="message" catalog="system" id="gFy-Lp-OCK"/>
                     <connections>
+                        <outlet property="noChatHistory" destination="UEM-yx-dDM" id="p1r-a9-thh"/>
                         <outlet property="tableView" destination="qKS-OD-WvK" id="mP3-rv-oAU"/>
                     </connections>
                 </viewController>
@@ -485,6 +490,7 @@
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="instruction" width="500" height="500"/>
         <image name="message" catalog="system" width="64" height="56"/>
+        <image name="noChatHistory" width="442" height="69"/>
         <namedColor name="Color">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
