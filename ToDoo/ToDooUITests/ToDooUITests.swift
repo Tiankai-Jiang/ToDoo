@@ -28,7 +28,7 @@ class ToDooUITests: XCTestCase {
         
         let app = XCUIApplication()
         let loginButton = app.buttons["Login"]
-        loginButton.tap()
+                loginButton.tap()
         app.textFields["Email"].tap()
         app.secureTextFields["Password"].tap()
         loginButton.tap()

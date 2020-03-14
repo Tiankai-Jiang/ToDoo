@@ -113,15 +113,22 @@ extension HabitDetailViewController: JTAppleCalendarViewDataSource {
     //the basic color of the cell
     func handleCellColor(cell: DateCell,cellState: CellState) {
         let colorCompleted="a5d296"
+        let colorNotCompleted="ec6a5c"
         let allDateNoon=Shared.sharedInstance.habits[rowNumber].checkedDays.keys
-        
-        if allDateNoon.contains(cellState.date.Noon()) {
+        let minDate=Date(timeIntervalSince1970:TimeInterval(Shared.sharedInstance.habits[rowNumber].addedDate)).Noon()
+        let maxDate=Date().Noon()
+        if ((cellState.date.Noon() < minDate) || (cellState.date.Noon() > maxDate)){
+            cell.selectedView.backgroundColor = .white
+            cell.dateLabel.textColor = hexStringToUIColor(hex: "194348")
+        }
+        else if allDateNoon.contains(cellState.date.Noon()) {
             cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
             cell.selectedView.backgroundColor = hexStringToUIColor(hex: colorCompleted)
             cell.dateLabel.textColor = .white
         }else{
-            cell.selectedView.backgroundColor = .white
-            cell.dateLabel.textColor = hexStringToUIColor(hex: "194348")
+            cell.selectedView.layer.cornerRadius = cell.selectedView.bounds.width / 2
+            cell.selectedView.backgroundColor = hexStringToUIColor(hex: colorNotCompleted)
+            cell.dateLabel.textColor = .white
         }
             
         }
