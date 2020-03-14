@@ -10,12 +10,6 @@ target 'ToDoo' do
   pod 'SwipeCellKit'
   pod 'JTAppleCalendar', '7.1.7'
 
-  target 'ToDooTests' do
-  	inherit! :search_paths
-  end
-
-   target 'ToDooUITests' do
-  	inherit! :search_paths
-  end
-
+  target 'ToDooTests'
+  target 'ToDooUITests'
 end

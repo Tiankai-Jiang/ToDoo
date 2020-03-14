@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_ToDooUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_ToDooUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_ToDoo_ToDooUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_ToDoo_ToDooUITestsVersionString[];
 

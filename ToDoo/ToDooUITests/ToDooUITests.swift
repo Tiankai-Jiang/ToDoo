@@ -25,12 +25,16 @@ class ToDooUITests: XCTestCase {
     }
 
     func testExample() {
-        // UI tests must launch the application that they test.
+        
         let app = XCUIApplication()
-        app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let loginButton = app.buttons["Login"]
+        loginButton.tap()
+        app.textFields["Email"].tap()
+        app.secureTextFields["Password"].tap()
+        loginButton.tap()
+        app.tabBars.buttons["Settings"].tap()
+        app.tables/*@START_MENU_TOKEN@*/.staticTexts["Logout"]/*[[".cells.staticTexts[\"Logout\"]",".staticTexts[\"Logout\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
     }
 
     func testLaunchPerformance() {
