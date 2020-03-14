@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import ToDoo
 
 class ToDooUITests: XCTestCase {
 
