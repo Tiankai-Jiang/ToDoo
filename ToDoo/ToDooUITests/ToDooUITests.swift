@@ -147,7 +147,7 @@ class ToDooUITests: XCTestCase {
         
         let app = XCUIApplication()
         let tablesQuery = app.tables
-        tablesQuery.staticTexts["test"].tap()
+        tablesQuery.staticTexts["paul"].tap()
         
         
         let editButton = app.buttons["edit"]
@@ -155,91 +155,61 @@ class ToDooUITests: XCTestCase {
         tablesQuery/*@START_MENU_TOKEN@*/.collectionViews/*[[".cells.collectionViews",".collectionViews"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .cell).element(boundBy: 4).children(matching: .other).element.tap()
 
         app.navigationBars["ToDoo.AddHabitView"].buttons["Done"].tap()
-        
-        tablesQuery.staticTexts["test"].tap()
-        
-        
-        let deleteButton = app.buttons["Delete habit"]
-        deleteButton.tap()
     
     }
     
     
     func testAddNewTask() {
-        
         let app = XCUIApplication()
         app.navigationBars["Home"].buttons["plus"].tap()
-        
         let app2 = app
         app2.tables/*@START_MENU_TOKEN@*/.textFields["Habit Name"]/*[[".cells.textFields[\"Habit Name\"]",".textFields[\"Habit Name\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
-        
         let tKey = app2/*@START_MENU_TOKEN@*/.keys["t"]/*[[".keyboards.keys[\"t\"]",".keys[\"t\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        
         tKey.tap()
-        
-        
         let eKey = app2/*@START_MENU_TOKEN@*/.keys["e"]/*[[".keyboards.keys[\"e\"]",".keys[\"e\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         eKey.tap()
-        
-        
         let sKey = app2/*@START_MENU_TOKEN@*/.keys["s"]/*[[".keyboards.keys[\"s\"]",".keys[\"s\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         sKey.tap()
-        
         tKey.tap()
         app2/*@START_MENU_TOKEN@*/.buttons["Return"]/*[[".keyboards",".buttons[\"return\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.navigationBars["ToDoo.AddHabitView"].buttons["Done"].tap()
-        
-        
-        
         let tablesQuery = app.tables
         tablesQuery.staticTexts["test"].tap()
-        
-        
         let editButton = app.buttons["edit"]
         editButton.tap()
         tablesQuery/*@START_MENU_TOKEN@*/.collectionViews/*[[".cells.collectionViews",".collectionViews"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .cell).element(boundBy: 4).children(matching: .other).element.tap()
-
         app.navigationBars["ToDoo.AddHabitView"].buttons["Done"].tap()
-        
         tablesQuery.staticTexts["test"].tap()
-        
-        
         let deleteButton = app.buttons["Delete habit"]
         deleteButton.tap()
-        
-        
+        app.sheets.scrollViews.otherElements.buttons["Delete"].tap()
+    }
+    
+    func testEditName(){
+        XCUIApplication().tabBars.buttons["Settings"].tap()
+        let app = XCUIApplication()
+        app.tables/*@START_MENU_TOKEN@*/.staticTexts["test"]/*[[".cells.staticTexts[\"test\"]",".staticTexts[\"test\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+
+        let elementsQuery = app.alerts["Please enter a new name"].scrollViews.otherElements
+        elementsQuery.collectionViews.cells.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .textField).element.tap()
     }
     
     
     func testCountCalder() {
         let app = XCUIApplication()
         XCUIApplication().tabBars.buttons["Calendar"].tap()
-        let count1 = app.tables.staticTexts.count
-        
+        let count1 = app.tables.cells.count
         let tabBarsQuery = app.tabBars
         tabBarsQuery.buttons["Home"].tap()
-        
         let tablesQuery = app.tables
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["color 3"]/*[[".cells.staticTexts[\"color 3\"]",".staticTexts[\"color 3\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeRight()
         tablesQuery/*@START_MENU_TOKEN@*/.buttons["Done"]/*[[".cells.buttons[\"Done\"]",".buttons[\"Done\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         tabBarsQuery.buttons["Calendar"].tap()
         
-        let count2 = app.tables.staticTexts.count
-        
-        print("count1", count1)
-        print("count2", count2)
-        XCTAssertTrue(count2 - count1 == 2)
+        let count2 = app.tables.cells.count
+        XCTAssertTrue(count2 - count1 == 1)
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
     func testLaunchPerformance() {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
             // This measures how long it takes to launch your application.
