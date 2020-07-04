@@ -17,24 +17,30 @@ Replace GoogleService-Info.plist in ./Todoo/Todoo with your own file (you can fo
 The login and register page uses Login Critter and you can find it [here](https://github.com/cgoldsby/LoginCritter).
 
 Register
-![register](demo/register.gif)
+
+![register](demo/register.gif =500x)
 
 Add a new habit
+
 ![add](demo/addhabit.gif)
 
 Mark a habit done✅
+
 ![done](demo/finish.gif)
 
 Check habit detail
+
 <p float="left">
   <img src="demo/habitdetail1.gif" width="100" />
   <img src="demo/habitdetail2.gif" width="100" /> 
 </p>
 
 Undo and delete a habit
+
 ![undodelete](demo/undodelete.gif)
 
 Change profile image and username
+
 <p float="left">
   <img src="demo/changeprofileimage.gif" width="100" />
   <img src="demo/changename.gif" width="100" /> 
