@@ -18,31 +18,30 @@ The login and register page uses Login Critter and you can find it [here](https:
 
 Register
 
-[<img src="demo/register.gif" width="300"/>](register)
-<!-- ![register](demo/register.gif =500x) -->
+[<img src="demo/register.gif" width="250"/>](register)
 
 Add a new habit
 
-![add](demo/addhabit.gif)
+[<img src="demo/addhabit.gif" width="250"/>](add)
 
 Mark a habit done✅
 
-![done](demo/finish.gif)
+[<img src="demo/finish.gif" width="250"/>](done)
 
 Check habit detail
 
 <p float="left">
-  <img src="demo/habitdetail1.gif" width="100" />
-  <img src="demo/habitdetail2.gif" width="100" /> 
+  <img src="demo/habitdetail1.gif" width="250" />
+  <img src="demo/habitdetail2.gif" width="250" /> 
 </p>
 
 Undo and delete a habit
 
-![undodelete](demo/undodelete.gif)
+[<img src="demo/undodelete.gif" width="250"/>](undodelete)
 
 Change profile image and username
 
 <p float="left">
-  <img src="demo/changeprofileimage.gif" width="100" />
-  <img src="demo/changename.gif" width="100" /> 
+  <img src="demo/changeprofileimage.gif" width="250" />
+  <img src="demo/changename.gif" width="250" /> 
 </p>
