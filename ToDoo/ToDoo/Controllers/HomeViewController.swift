@@ -78,11 +78,13 @@ class HomeViewController: UIViewController {
     }
     
     func getIfCheckedArray(_ checked: [String: Int], _ start: Int) -> [Bool]{
+        print(checked, start)
         let interval = 1 + epochTimeDaysInterval(start, Int(Date().timeIntervalSince1970))
         var ifChecked: Array<Bool> = Array(repeating: false, count: interval)
         checked.forEach{
             ifChecked[epochTimeDaysInterval(start, $1)] = true
         }
+        print(ifChecked)
         return ifChecked
     }
     
