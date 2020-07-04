@@ -18,7 +18,8 @@ The login and register page uses Login Critter and you can find it [here](https:
 
 Register
 
-![register](demo/register.gif =500x)
+[<img src="demo/register.gif" width="300"/>](register)
+<!-- ![register](demo/register.gif =500x) -->
 
 Add a new habit
 
