@@ -128,3 +128,43 @@ func loadNames(){
         }
     }
 }
+
+struct Calculate{
+    func getIfCheckedArray(_ checked: [String: Int], _ start: Int) -> [Bool]{
+        let interval = 1 + epochTimeDaysInterval(start, Int(Date().timeIntervalSince1970))
+        var ifChecked: Array<Bool> = Array(repeating: false, count: interval)
+        checked.forEach{
+            ifChecked[epochTimeDaysInterval(start, $1)] = true
+        }
+        return ifChecked
+    }
+
+    func getLongestStreak(_ ifChecked: [Bool]) -> Int{
+        var cur = 0
+        var max = 0
+        for v in ifChecked{
+            cur = v ? cur + 1 : 0
+            max = cur > max ? cur : max
+        }
+        return max
+    }
+
+    func getCurrentStreak(_ ifChecked: [Bool]) -> Int{
+        if(ifChecked.count == 1){
+            return ifChecked[0] ? 1 : 0
+        }else{
+            var res = 0
+            for v in (0 ... ifChecked.count - 2).reversed(){
+                if(ifChecked[v]){
+                    res += 1
+                }else{
+                    break
+                }
+            }
+            if(ifChecked.last!){
+                res += 1
+            }
+            return res
+        }
+    }
+}
